@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bu2280y8r7cqd"]
 
 [ext_resource type="Texture2D" uid="uid://dvu1ul5a1xdpp" path="res://Flag_of_Serbia.svg" id="1_78sfc"]
-[ext_resource type="Script" uid="uid://cycqonlxmetov" path="res://character_body_2d.gd" id="1_ovdnd"]
+[ext_resource type="Script" uid="uid://cycqonlxmetov" path="res://NPC_bevegelse.gd" id="1_ovdnd"]
 [ext_resource type="Texture2D" uid="uid://c0hd834o3i68g" path="res://images.png" id="2_ovdnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
