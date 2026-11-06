@@ -12,5 +12,6 @@ func _physics_process(delta: float) -> void:
 		move_direction.y = 1
 	elif Input.is_action_pressed("ui_up"):
 		move_direction.y = -1
-	velocity = move_direction * speed
-	move_and_slide()
+	
+		velocity = move_direction * speed
+		move_and_slide()
