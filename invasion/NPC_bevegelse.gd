@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 		move_direction.x = -1
 
 	if Input.is_action_pressed("ui_down"):
+<<<<<<<< HEAD:invasion/NPC_bevegelse.gd
 
 		move_direction.y = 1
 
@@ -27,3 +28,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
  
+========
+		move_direction.y = 1
+	elif Input.is_action_pressed("ui_up"):
+		move_direction.y = -1
+	
+	velocity = move_direction * speed
+	move_and_slide()
+>>>>>>>> caf5bbcdd052be29f555072d6136c3a1000fdeac:invasion/test_bevegelse.gd
