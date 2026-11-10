@@ -1,7 +1,55 @@
 [gd_scene format=3 uid="uid://bcydtpj1fieom"]
 
-[node name="Node2D" type="Node2D" unique_id=1321690464]
+[ext_resource type="Texture2D" uid="uid://bs48jv1drkejc" path="res://images.jpeg" id="1_06t4h"]
+[ext_resource type="Script" uid="uid://bisht1fiybe75" path="res://main_menu.gd" id="1_7vrkn"]
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=288750143]
-position = Vector2(596.00006, 354)
-scale = Vector2(5.1015625, 1)
+[node name="StartScreen" type="Control" unique_id=1542375578]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7vrkn")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=536438201]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_06t4h")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="." unique_id=313708569]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.0
+offset_top = 65.0
+offset_right = 108.0
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 72
+text = "INVASION"
+horizontal_alignment = 1
+
+[node name="PlayButton" type="Button" parent="." unique_id=414438743]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -30.0
+offset_right = 100.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "PLAY"
