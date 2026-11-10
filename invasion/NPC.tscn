@@ -2,8 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b4wb86fk5ps7w" path="res://images (1).jpg" id="1_twre2"]
 [ext_resource type="Texture2D" uid="uid://es731ct6y7v1" path="res://basic Alien spritesheet.png" id="2_tciug"]
-[ext_resource type="Script" uid="uid://crw5thdd2brw3" path="res://NPCC.gd" id="4_bksm8"]
-[ext_resource type="Script" uid="uid://b713226qq8156" path="res://NPCCCC.gd" id="4_tciug"]
+[ext_resource type="Script" uid="uid://crw5thdd2brw3" path="res://MAIN_NPC.gd" id="4_bksm8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6sao2"]
 atlas = ExtResource("2_tciug")
@@ -913,13 +912,13 @@ sources/0 = SubResource("TileSetAtlasSource_twre2")
 [node name="Node" type="Node" unique_id=1893796967]
 
 [node name="NPC1" type="CharacterBody2D" parent="." unique_id=324112734]
-script = ExtResource("4_tciug")
+script = ExtResource("4_bksm8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC1" unique_id=543553903]
 z_index = 1
 z_as_relative = false
-position = Vector2(592.62506, 297)
-scale = Vector2(0.11367172, 0.08333331)
+position = Vector2(770, 458)
+scale = Vector2(0.11367172, 0.08281251)
 sprite_frames = SubResource("SpriteFrames_ial2q")
 animation = &"IDLE"
 
@@ -938,12 +937,44 @@ script = ExtResource("4_bksm8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC2" unique_id=1199714741]
 z_index = 1
 z_as_relative = false
-position = Vector2(702, 408)
-scale = Vector2(0.11367172, 0.08333331)
+position = Vector2(354.99994, 374)
+scale = Vector2(0.11367172, 0.096354194)
 sprite_frames = SubResource("SpriteFrames_ial2q")
 animation = &"IDLE"
 
 [node name="Timer" type="Timer" parent="NPC2" unique_id=572229030]
 
 [node name="Area2D" type="Area2D" parent="NPC2" unique_id=819101344]
+scale = Vector2(1, 0.99999994)
+
+[node name="NPC3" type="CharacterBody2D" parent="." unique_id=939415558]
+script = ExtResource("4_bksm8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC3" unique_id=1161077879]
+z_index = 1
+z_as_relative = false
+position = Vector2(134.99997, 110.000015)
+scale = Vector2(0.11367172, 0.096354194)
+sprite_frames = SubResource("SpriteFrames_ial2q")
+animation = &"IDLE"
+
+[node name="Timer" type="Timer" parent="NPC3" unique_id=149443672]
+
+[node name="Area2D" type="Area2D" parent="NPC3" unique_id=1446903347]
+scale = Vector2(1, 0.99999994)
+
+[node name="NPC4" type="CharacterBody2D" parent="." unique_id=2006976875]
+script = ExtResource("4_bksm8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC4" unique_id=1396682905]
+z_index = 1
+z_as_relative = false
+position = Vector2(889.99994, 185.00002)
+scale = Vector2(0.11367172, 0.096354194)
+sprite_frames = SubResource("SpriteFrames_ial2q")
+animation = &"IDLE"
+
+[node name="Timer" type="Timer" parent="NPC4" unique_id=845908485]
+
+[node name="Area2D" type="Area2D" parent="NPC4" unique_id=841887226]
 scale = Vector2(1, 0.99999994)
