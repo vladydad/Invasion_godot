@@ -29,13 +29,13 @@ func random_walk():
 		].pick_random()
 
 		stopped = false
-		await get_tree().create_timer(randf_range(2, 4)).timeout
+		await get_tree().create_timer(2).timeout
 
 		if dead:
 			return
 
 		stopped = true
-		await get_tree().create_timer(randf_range(1, 3)).timeout
+		await get_tree().create_timer(2).timeout
 
 func _physics_process(delta):
 	if dead:
@@ -60,23 +60,10 @@ func _physics_process(delta):
 	if position.y < min_y:
 		direction = Vector2.DOWN
 
-func _process(delta):
-	var player = 
-	get_tree().get_first_node_in_group("player")
-
-	if player == null:
+func die():
+	if dead:
 		return
 
-	var distance = global_position.distance_to(player.global_position)
-
-	if distance < 70:
-		print("PLAYER NEAR NPC")
-
-		if Input.is_key_pressed(KEY_ENTER) and not dead:
-			print("ENTER PRESSED")
-			dead = true
-			anim.play("DEAD")
-
-func die():
 	dead = true
+	velocity = Vector2.ZERO
 	anim.play("DEAD")
