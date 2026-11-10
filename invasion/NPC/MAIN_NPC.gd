@@ -47,3 +47,4 @@ func _physics_process(delta):
 		direction = Vector2.UP
 	if position.y < min_y:
 		direction = Vector2.DOWN
+		

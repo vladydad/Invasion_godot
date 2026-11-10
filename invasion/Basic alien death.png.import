@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://es731ct6y7v1"
-path="res://.godot/imported/basic Alien spritesheet.png-e5d622b69e1ee7a788835aaaefae0059.ctex"
+uid="uid://c4kfi5igiq0wp"
+path="res://.godot/imported/Basic alien death.png-8d117c66efb12c02dc7d6153fb9f47df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://basic Alien spritesheet.png"
-dest_files=["res://.godot/imported/basic Alien spritesheet.png-e5d622b69e1ee7a788835aaaefae0059.ctex"]
+source_file="res://Basic alien death.png"
+dest_files=["res://.godot/imported/Basic alien death.png-8d117c66efb12c02dc7d6153fb9f47df.ctex"]
 
 [params]
 
