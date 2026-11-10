@@ -1,56 +1,42 @@
-const speed = 30.0
+extends CharacterBody2D
 
-enum {
-	IDLE,
-	NEW_DIR,
-	MOVE
-}
+var speed = 50
+var direction = Vector2.RIGHT
+var stopped = false
 
-var current_state = MOVE
-var dir = Vector2.RIGHT
+var min_x = 50
+var max_x = 300
+var min_y = 50
+var max_y = 250
 
-var is_romaing = true
-var is_chatting = false
-
-var player
-var player_in_chat_zone = false
+@onready var anim = $AnimatedSprite2D
 
 func _ready():
-	randomize()
-	$Timer.start()
+	while true:
+		stopped = false
+		direction = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN].pick_random()
+		await get_tree().create_timer(3).timeout
+		stopped = true
+		await get_tree().create_timer(2).timeout
 
 func _physics_process(delta):
-	if is_romaing and not is_chatting:
-		if current_state == MOVE:
-			velocity = dir * speed
-			move_and_slide()
-		else:
-			velocity = Vector2.ZERO
-			else:
-			velocity = Vector2.ZERO
+	if stopped:
+		velocity = Vector2.ZERO
+		anim.play("IDLE")
+	else:
+		velocity = direction * speed
+		anim.play("WALK")
 
-			if current_state == IDLE:
-		$AnimatedSprite2D2.play("IDLE")
-			elif current_state == NEW_DIR:
-		dir = [Vector2.RIGHT, Vector2.LEFT].pick_random()
-		current_state = MOVE
-			elif current_state == MOVE and not is_chatting:
-			$AnimatedSprite2D2.play("TALK")
+	move_and_slide()
 
-		func choose(array):
-		array.shuffle()
-		return array.front()
+	if position.x > max_x:
+		direction = Vector2.LEFT
 
-func _on_timer_timeout():
-	current_state = choose([IDLE, NEW_DIR, MOVE])
-	$Timer.wait_time = choose([0.5, 1.0, 1.5])
-	$Timer.start()
+	if position.x < min_x:
+		direction = Vector2.RIGHT
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.has_method("player"):
-		player = body
-		player_in_chat_zone = true
+	if position.y > max_y:
+		direction = Vector2.UP
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body == player:
-		player_in_chat_zone = false
+	if position.y < min_y:
+		direction = Vector2.DOWN
