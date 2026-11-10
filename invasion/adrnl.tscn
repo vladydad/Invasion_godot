@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://2u86xvv1k8at"]
+
+[ext_resource type="Texture2D" uid="uid://iu2isvhu2f0u" path="res://adrenalin shot.png" id="1_0o38v"]
+[ext_resource type="Script" uid="uid://d08xxbewx2gfi" path="res://adrnl.gd" id="1_t1unx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
+size = Vector2(46, 41)
+
+[node name="Area2D" type="Area2D" unique_id=804367420]
+position = Vector2(3, -3)
+script = ExtResource("1_t1unx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=110503793]
+position = Vector2(-0.5000024, 3.0000024)
+scale = Vector2(0.063577585, 0.060344834)
+texture = ExtResource("1_0o38v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=596392647]
+position = Vector2(-3, 2.5)
+shape = SubResource("RectangleShape2D_7xv1m")

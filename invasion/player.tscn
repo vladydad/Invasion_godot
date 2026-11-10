@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bu2280y8r7cqd"]
+
+[ext_resource type="Script" uid="uid://b2rjbg3c4ha5c" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://b0fhfldkrhm6v" path="res://bullet.tscn" id="2_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bjqg165opy677" path="res://zawgapproved.png" id="2_onrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
+size = Vector2(92, 81)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=435993497]
+script = ExtResource("1_onrkg")
+bullet_scene = ExtResource("2_i3pqv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=712697713]
+position = Vector2(5.9999995, 3.0000005)
+scale = Vector2(0.1214815, 0.12444444)
+texture = ExtResource("2_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=594475642]
+position = Vector2(6, 1.5)
+shape = SubResource("RectangleShape2D_7xv1m")
+
+[node name="goon" type="Marker2D" parent="." unique_id=2129340305]
+position = Vector2(77, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="goon" unique_id=1081819845]
+position = Vector2(-11, 5.999999)
+scale = Vector2(0.023681635, 0.02375)
