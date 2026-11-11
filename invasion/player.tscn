@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bjqg165opy677" path="res://zawgapproved.png" id="2_onrkg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
-size = Vector2(92, 81)
+size = Vector2(78, 80)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=435993497]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=435993497 groups=["player"]]
 script = ExtResource("1_onrkg")
 bullet_scene = ExtResource("2_i3pqv")
 
@@ -17,12 +17,12 @@ scale = Vector2(0.1214815, 0.12444444)
 texture = ExtResource("2_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=594475642]
-position = Vector2(6, 1.5)
+position = Vector2(6, 2)
 shape = SubResource("RectangleShape2D_7xv1m")
 
 [node name="goon" type="Marker2D" parent="." unique_id=2129340305]
 position = Vector2(77, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="goon" unique_id=1081819845]
-position = Vector2(-11, 5.999999)
-scale = Vector2(0.023681635, 0.02375)
+position = Vector2(-4.9999995, 3)
+scale = Vector2(0.033392537, 0.032564655)
