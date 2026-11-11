@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://0rt840pxuxhq"]
+
+[ext_resource type="Script" uid="uid://hu3aq0aejr2n" path="res://m4a1.gd" id="1_3t72k"]
+[ext_resource type="Texture2D" uid="uid://bqm712crik3kg" path="res://m4 pickup item.png" id="1_lwnhe"]
+[ext_resource type="Texture2D" uid="uid://dvu1ul5a1xdpp" path="res://Flag_of_Serbia.svg" id="2_mdtx8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
+size = Vector2(115, 34)
+
+[node name="Area2D" type="Area2D" unique_id=2072543071]
+script = ExtResource("1_3t72k")
+held_player_texture = ExtResource("2_mdtx8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=783143635]
+position = Vector2(-1, -9.536743e-07)
+scale = Vector2(0.14304958, 0.113864966)
+texture = ExtResource("1_lwnhe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1656668303]
+position = Vector2(-3.5, 0)
+shape = SubResource("RectangleShape2D_7xv1m")
