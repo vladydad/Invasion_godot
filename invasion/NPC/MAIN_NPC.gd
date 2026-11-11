@@ -1,11 +1,10 @@
+
 extends CharacterBody2D
 
 var speed = 50
 var direction = Vector2.RIGHT
 var stopped = false
 var dead = false
-var player_near = false
-var talking = false
 var player_near = false
 var talking = false
 
@@ -69,6 +68,9 @@ func _physics_process(delta):
 		direction = Vector2.DOWN
 
 func _process(delta):
+	if dead:
+		return
+
 	if player_near and Input.is_action_just_pressed("interact"):
 		talking = true
 

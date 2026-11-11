@@ -978,7 +978,7 @@ scale = Vector2(1, 0.99999994)
 script = ExtResource("7_cy3bc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC1/Area2D" unique_id=1909058975]
-position = Vector2(134, 117.000015)
+position = Vector2(-226, -47)
 shape = SubResource("CapsuleShape2D_p0soq")
 
 [node name="NPC2" type="CharacterBody2D" parent="." unique_id=555378700 groups=["npcs"]]
@@ -1003,7 +1003,7 @@ script = ExtResource("1_qm8nd")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC3" unique_id=1161077879]
 z_index = 1
 z_as_relative = false
-position = Vector2(134.99997, 110.000015)
+position = Vector2(138.99998, 105.00001)
 scale = Vector2(0.11367172, 0.096354194)
 sprite_frames = SubResource("SpriteFrames_ial2q")
 animation = &"IDLE"
