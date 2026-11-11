@@ -969,7 +969,7 @@ z_as_relative = false
 position = Vector2(770, 458)
 scale = Vector2(0.11367172, 0.08281251)
 sprite_frames = SubResource("SpriteFrames_ial2q")
-animation = &"WALK"
+animation = &"IDLE"
 
 [node name="Timer" type="Timer" parent="NPC1" unique_id=676454954]
 

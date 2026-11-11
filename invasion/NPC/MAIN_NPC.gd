@@ -1,10 +1,13 @@
-
 extends CharacterBody2D
 
 var speed = 50
 var direction = Vector2.RIGHT
 var stopped = false
 var dead = false
+var player_near = false
+var talking = false
+var player_near = false
+var talking = false
 
 var min_x = -50
 var max_x = 50
@@ -42,6 +45,11 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 		return
 
+	if talking:
+		velocity = Vector2.ZERO
+		anim.play("IDLE")
+		return
+
 	if stopped:
 		velocity = Vector2.ZERO
 		anim.play("IDLE")
@@ -59,6 +67,19 @@ func _physics_process(delta):
 		direction = Vector2.UP
 	if position.y < min_y:
 		direction = Vector2.DOWN
+
+func _process(delta):
+	if player_near and Input.is_action_just_pressed("interact"):
+		talking = true
+
+func _on_area_2d_body_entered(body):
+	if body.is_in_group("player"):
+		player_near = true
+
+func _on_area_2d_body_exited(body):
+	if body.is_in_group("player"):
+		player_near = false
+		talking = false
 
 func die():
 	if dead:
