@@ -1,8 +1,10 @@
+
 extends CharacterBody2D
 
 var speed = 50
 var direction = Vector2.RIGHT
 var stopped = false
+var dead = false
 
 var min_x = -50
 var max_x = 50
@@ -16,6 +18,9 @@ func _ready():
 
 func random_walk():
 	while true:
+		if dead:
+			return
+
 		direction = [
 			Vector2.RIGHT,
 			Vector2.LEFT,
@@ -24,12 +29,19 @@ func random_walk():
 		].pick_random()
 
 		stopped = false
-		await get_tree().create_timer(randf_range(2, 4)).timeout
+		await get_tree().create_timer(2).timeout
+
+		if dead:
+			return
 
 		stopped = true
-		await get_tree().create_timer(randf_range(1, 3)).timeout
+		await get_tree().create_timer(2).timeout
 
 func _physics_process(delta):
+	if dead:
+		velocity = Vector2.ZERO
+		return
+
 	if stopped:
 		velocity = Vector2.ZERO
 		anim.play("IDLE")
@@ -47,4 +59,11 @@ func _physics_process(delta):
 		direction = Vector2.UP
 	if position.y < min_y:
 		direction = Vector2.DOWN
-		
+
+func die():
+	if dead:
+		return
+
+	dead = true
+	velocity = Vector2.ZERO
+	anim.play("DEAD")
