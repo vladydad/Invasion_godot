@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b4wb86fk5ps7w" path="res://images (1).jpg" id="3_eudjw"]
 [ext_resource type="Texture2D" uid="uid://c4kfi5igiq0wp" path="res://Basic alien death.png" id="6_wdwhe"]
 [ext_resource type="Script" uid="uid://j17huar228sn" path="res://NPC/area_npc.gd" id="7_cy3bc"]
+[ext_resource type="PackedScene" uid="uid://bu2280y8r7cqd" path="res://player.tscn" id="8_wke4b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_twre2"]
 texture = ExtResource("3_eudjw")
@@ -1028,5 +1029,8 @@ animation = &"IDLE"
 
 [node name="Area2D" type="Area2D" parent="NPC4" unique_id=841887226]
 scale = Vector2(1, 0.99999994)
+
+[node name="CharacterBody2D" parent="." unique_id=435993497 instance=ExtResource("8_wke4b")]
+position = Vector2(291, 279)
 
 [connection signal="body_entered" from="NPC1/Area2D" to="Player" method="_on_area_2d_body_entered"]
