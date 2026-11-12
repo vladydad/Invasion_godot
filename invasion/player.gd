@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var weapon = "pistol"
 var speed = 200
-var health = 100
+var health = 50
 var ammo = 10
 
 @onready var health_bar = $"../HealthBar"
@@ -14,6 +14,8 @@ func highspeed():
 	await get_tree().create_timer(15).timeout
 	speed = 200
 
+func maxhealth():
+	health=100
 
 func pickup_weapon(texture):
 	$Sprite2D.texture = texture

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bhf11akkik36y"]
+
+[ext_resource type="Texture2D" uid="uid://dgf556ss1mmag" path="res://health pack.png" id="1_7hg4a"]
+[ext_resource type="Script" uid="uid://dbt22g0qjh4vd" path="res://medkit.gd" id="1_22oi4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
+size = Vector2(52.25, 51)
+
+[node name="Area2D" type="Area2D" unique_id=1439943726]
+script = ExtResource("1_22oi4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470363121]
+position = Vector2(1.9999981, -19.000004)
+scale = Vector2(0.088900894, 0.09159486)
+texture = ExtResource("1_7hg4a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=581869450]
+position = Vector2(1.875, -5.5)
+shape = SubResource("RectangleShape2D_7xv1m")
