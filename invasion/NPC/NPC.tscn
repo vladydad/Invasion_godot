@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://es731ct6y7v1" path="res://NPC/basic Alien spritesheet.png" id="2_qm8nd"]
 [ext_resource type="Texture2D" uid="uid://b4wb86fk5ps7w" path="res://images (1).jpg" id="3_eudjw"]
 [ext_resource type="Texture2D" uid="uid://c4kfi5igiq0wp" path="res://Basic alien death.png" id="6_wdwhe"]
-[ext_resource type="Script" uid="uid://j17huar228sn" path="res://NPC/area_npc.gd" id="7_cy3bc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_twre2"]
 texture = ExtResource("3_eudjw")
@@ -941,8 +940,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0soq"]
-radius = 39.0
-height = 80.0
+radius = 33.0
+height = 66.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cy3bc"]
+radius = 42.000008
+height = 84.000015
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wke4b"]
+radius = 37.0
+height = 86.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ha6mt"]
+radius = 43.0
+height = 86.0
 
 [node name="Node" type="Node" unique_id=1893796967]
 
@@ -960,7 +971,7 @@ position = Vector2(536.99994, 332.99997)
 scale = Vector2(0.33737025, 0.3125)
 sprite_frames = SubResource("SpriteFrames_qm8nd")
 
-[node name="NPC1" type="CharacterBody2D" parent="." unique_id=324112734 groups=["npcs", "player"]]
+[node name="NPC1" type="CharacterBody2D" parent="." unique_id=324112734]
 script = ExtResource("1_qm8nd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC1" unique_id=543553903]
@@ -970,18 +981,18 @@ position = Vector2(770, 458)
 scale = Vector2(0.11367172, 0.08281251)
 sprite_frames = SubResource("SpriteFrames_ial2q")
 animation = &"IDLE"
+script = ExtResource("1_qm8nd")
 
 [node name="Timer" type="Timer" parent="NPC1" unique_id=676454954]
 
 [node name="Area2D" type="Area2D" parent="NPC1" unique_id=1296084405]
 scale = Vector2(1, 0.99999994)
-script = ExtResource("7_cy3bc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC1/Area2D" unique_id=1909058975]
-position = Vector2(-226, -47)
+position = Vector2(770, 463.00003)
 shape = SubResource("CapsuleShape2D_p0soq")
 
-[node name="NPC2" type="CharacterBody2D" parent="." unique_id=555378700 groups=["npcs"]]
+[node name="NPC2" type="CharacterBody2D" parent="." unique_id=555378700]
 script = ExtResource("1_qm8nd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC2" unique_id=1199714741]
@@ -997,13 +1008,17 @@ animation = &"IDLE"
 [node name="Area2D" type="Area2D" parent="NPC2" unique_id=819101344]
 scale = Vector2(1, 0.99999994)
 
-[node name="NPC3" type="CharacterBody2D" parent="." unique_id=939415558 groups=["npcs"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC2/Area2D" unique_id=1005474041]
+position = Vector2(354, 379.00006)
+shape = SubResource("CapsuleShape2D_cy3bc")
+
+[node name="NPC3" type="CharacterBody2D" parent="." unique_id=939415558]
 script = ExtResource("1_qm8nd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC3" unique_id=1161077879]
 z_index = 1
 z_as_relative = false
-position = Vector2(138.99998, 105.00001)
+position = Vector2(241.00002, 132.00002)
 scale = Vector2(0.11367172, 0.096354194)
 sprite_frames = SubResource("SpriteFrames_ial2q")
 animation = &"IDLE"
@@ -1013,7 +1028,11 @@ animation = &"IDLE"
 [node name="Area2D" type="Area2D" parent="NPC3" unique_id=1446903347]
 scale = Vector2(1, 0.99999994)
 
-[node name="NPC4" type="CharacterBody2D" parent="." unique_id=2006976875 groups=["npcs"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC3/Area2D" unique_id=1758060847]
+position = Vector2(240, 138.00002)
+shape = SubResource("CapsuleShape2D_wke4b")
+
+[node name="NPC4" type="CharacterBody2D" parent="." unique_id=2006976875]
 script = ExtResource("1_qm8nd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NPC4" unique_id=1396682905]
@@ -1029,4 +1048,8 @@ animation = &"IDLE"
 [node name="Area2D" type="Area2D" parent="NPC4" unique_id=841887226]
 scale = Vector2(1, 0.99999994)
 
-[connection signal="body_entered" from="NPC1/Area2D" to="Player" method="_on_area_2d_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC4/Area2D" unique_id=1423465028]
+position = Vector2(891, 188.00002)
+shape = SubResource("CapsuleShape2D_ha6mt")
+
+[connection signal="body_entered" from="NPC1/Area2D" to="NPC1" method="_on_area_2d_body_entered"]
