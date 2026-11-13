@@ -13,6 +13,7 @@ func highspeed():
 	speed = 500
 	await get_tree().create_timer(15).timeout
 	speed = 200
+	$AnimatedSprite2D.speed_scale = 2
 
 func maxhealth():
 	health=100
@@ -33,9 +34,15 @@ func _physics_process(delta: float) -> void:
 		move_direction.y = 1
 	elif Input.is_action_pressed("ui_up"):
 		move_direction.y = -1
+	if Input.is_action_pressed("Reload"):
+		reload()
 
 	velocity = move_direction * speed
 	move_and_slide()
+	if velocity.length() > 0:
+		$AnimatedSprite2D.play("walk")
+	else:
+		$AnimatedSprite2D.stop()
 
 func change_sprite():
 	var texture = load('res://pistol-pickup.png')
