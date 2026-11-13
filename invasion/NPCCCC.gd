@@ -1,4 +1,4 @@
- const speed = 30.0
+const speed = 30.0
 
 enum {
 	IDLE,

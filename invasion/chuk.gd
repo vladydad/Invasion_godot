@@ -1,5 +1,7 @@
 extends Area2D
 
+@export var held_player_texture: Texture2D
+
 func _ready():
 	body_entered.connect(_on_body_entered)
 
