@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bx5e6tipyhger"]
+
+[ext_resource type="Script" uid="uid://dkc42g5lbnpj7" path="res://chuk.gd" id="1_4hqk1"]
+[ext_resource type="Texture2D" uid="uid://b4eg54pcbf5ss" path="res://knife pickup.png" id="1_nmfnm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
+size = Vector2(67, 24)
+
+[node name="Area2D" type="Area2D" unique_id=202227351]
+script = ExtResource("1_4hqk1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=325447968]
+position = Vector2(4.7499986, 0)
+scale = Vector2(0.08890086, 0.091810346)
+texture = ExtResource("1_nmfnm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1503506755]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_7xv1m")
