@@ -1,98 +1,45 @@
 [gd_scene format=3 uid="uid://bu2280y8r7cqd"]
 
-[ext_resource type="Script" uid="uid://b2rjbg3c4ha5c" path="res://player.gd" id="1_onrkg"]
-[ext_resource type="PackedScene" uid="uid://b0fhfldkrhm6v" path="res://bullet.tscn" id="2_i3pqv"]
-[ext_resource type="AudioStream" uid="uid://bxwwik2vlf7pa" path="res://audio/eaglaxle-gun-shot-2-530789.mp3" id="4_hqtel"]
-[ext_resource type="Texture2D" uid="uid://di31o3ud1q6gt" path="res://mainCharacter/New Piskel (2).png" id="5_2hs0m"]
-[ext_resource type="AudioStream" uid="uid://bkg50bxw0hl60" path="res://audio/m4a1.mp3" id="5_sweqy"]
+[ext_resource type="PackedScene" uid="uid://2u86xvv1k8at" path="res://adrnl.tscn" id="1_sweqy"]
+[ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="2_2hs0m"]
+[ext_resource type="PackedScene" uid="uid://bhf11akkik36y" path="res://medkit.tscn" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://cm378ir0dauy" path="res://icons/bullet.png" id="4_dw050"]
+[ext_resource type="PackedScene" uid="uid://bu2280y8r7cqd" path="res://player.tscn" id="5_b26j0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
-size = Vector2(73, 81)
+[node name="Node2D" type="Node2D" unique_id=1186509278]
+position = Vector2(71, 59)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
-atlas = ExtResource("5_2hs0m")
-region = Rect2(0, 0, 32, 32)
+[node name="CharacterBody2D" parent="." unique_id=435993497 instance=ExtResource("5_b26j0")]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
-atlas = ExtResource("5_2hs0m")
-region = Rect2(32, 0, 32, 32)
+[node name="Area2D" parent="." unique_id=804367420 instance=ExtResource("1_sweqy")]
+position = Vector2(188, 2)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
-atlas = ExtResource("5_2hs0m")
-region = Rect2(64, 0, 32, 32)
+[node name="Area2D2" parent="." unique_id=2072543071 instance=ExtResource("2_2hs0m")]
+position = Vector2(529, 5)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
-atlas = ExtResource("5_2hs0m")
-region = Rect2(0, 32, 32, 32)
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1846822773]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
-atlas = ExtResource("5_2hs0m")
-region = Rect2(32, 32, 32, 32)
+[node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=618859347]
+offset_left = 1062.0
+offset_top = 553.0
+offset_right = 1144.0
+offset_bottom = 638.0
+theme_override_font_sizes/font_size = 59
+text = "10"
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
-atlas = ExtResource("5_2hs0m")
-region = Rect2(64, 32, 32, 32)
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=452203605]
+offset_left = 8.0
+offset_top = 522.0
+offset_right = 282.0
+offset_bottom = 562.0
+value = 50.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_urp6f"]
-atlas = ExtResource("5_2hs0m")
-region = Rect2(0, 64, 32, 32)
+[node name="Area2D3" parent="." unique_id=1439943726 instance=ExtResource("3_1jxqw")]
+position = Vector2(891, 9)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bwjto"]
-atlas = ExtResource("5_2hs0m")
-region = Rect2(32, 64, 32, 32)
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=96121429]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_7xv1m"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1jxqw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dw050")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b26j0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n7ghd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nvl01")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ivps1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_urp6f")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bwjto")
-}],
-"loop": 1,
-"name": &"walk",
-"speed": 10.0
-}]
-
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=435993497 groups=["player"]]
-script = ExtResource("1_onrkg")
-bullet_scene = ExtResource("2_i3pqv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=594475642]
-position = Vector2(3, -2.5)
-shape = SubResource("RectangleShape2D_7xv1m")
-
-[node name="goon" type="Marker2D" parent="." unique_id=2129340305]
-position = Vector2(42, 0)
-
-[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=743461403]
-stream = ExtResource("4_hqtel")
-
-[node name="RifleSound" type="AudioStreamPlayer2D" parent="." unique_id=2144829534]
-stream = ExtResource("5_sweqy")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1688774099]
-position = Vector2(3.2912827, -3.2949886)
-rotation = 1.5707964
-scale = Vector2(2.454083, 2.299862)
-sprite_frames = SubResource("SpriteFrames_7xv1m")
-animation = &"walk"
+[node name="Bullet" type="Sprite2D" parent="CanvasLayer2" unique_id=385511742]
+position = Vector2(1035, 600)
+scale = Vector2(2.78125, 3.03125)
+texture = ExtResource("4_dw050")
