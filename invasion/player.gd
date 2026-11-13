@@ -5,9 +5,9 @@ var speed = 200
 var health = 50
 var ammo = 10
 
-#@onready var health_bar = $"../HealthBar"
+@onready var health_bar = $"../HealthBar"
 
-#@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
+@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
 	speed = 500
@@ -53,15 +53,18 @@ func reload():
 func _process(delta):
 	look_at(get_global_mouse_position())
 	if Input.is_action_just_pressed("Shoot") and ammo>0:
-		shoot()
+		if weapon == "pistol":
+			shootPistol()
+		elif weapon == "ar":
+			shootm4()
 		ammo = ammo - 1
 	elif ammo == 0:
-		#ammo_label.text = "Lader..."
+		ammo_label.text = "Lader..."
 		reload()
-#	ammo_label.text = str(ammo)
-#	health_bar.value = health
+	ammo_label.text = str(ammo)
+	health_bar.value = health
 		
-func shoot():
+func shootPistol():
 	var bullet = bullet_scene.instantiate()
 
 	var direction = (
@@ -72,3 +75,19 @@ func shoot():
 
 	bullet.global_position = $goon.global_position
 	bullet.direction = direction
+	
+	$ShootSound.play()
+
+func shootm4():
+	var bullet = bullet_scene.instantiate()
+
+	var direction = (
+		get_global_mouse_position() - $goon.global_position
+	).normalized()
+
+	get_tree().current_scene.add_child(bullet)
+
+	bullet.global_position = $goon.global_position
+	bullet.direction = direction
+	
+	$RifleSound.play()

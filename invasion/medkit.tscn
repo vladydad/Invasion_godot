@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dgf556ss1mmag" path="res://health pack.png" id="1_7hg4a"]
 [ext_resource type="Script" uid="uid://dbt22g0qjh4vd" path="res://medkit.gd" id="1_22oi4"]
+[ext_resource type="AudioStream" uid="uid://l81h30portbg" path="res://audio/pickup.mp3" id="3_6guc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
 size = Vector2(52.25, 51)
@@ -17,3 +18,6 @@ texture = ExtResource("1_7hg4a")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=581869450]
 position = Vector2(1.875, -5.5)
 shape = SubResource("RectangleShape2D_7xv1m")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=877078260]
+stream = ExtResource("3_6guc2")

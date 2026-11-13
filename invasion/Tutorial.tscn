@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://2u86xvv1k8at" path="res://adrnl.tscn" id="2_5s8la"]
 [ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="3_fr6qw"]
 [ext_resource type="PackedScene" uid="uid://bhf11akkik36y" path="res://medkit.tscn" id="4_oiqhk"]
+[ext_resource type="Texture2D" uid="uid://cm378ir0dauy" path="res://icons/bullet.png" id="5_p3v23"]
 
 [node name="Node2D" type="Node2D" unique_id=1186509278]
 position = Vector2(71, 59)
@@ -35,3 +36,10 @@ value = 50.0
 
 [node name="Area2D3" parent="." unique_id=1439943726 instance=ExtResource("4_oiqhk")]
 position = Vector2(891, 9)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=96121429]
+
+[node name="Bullet" type="Sprite2D" parent="CanvasLayer2" unique_id=385511742]
+position = Vector2(1035, 600)
+scale = Vector2(2.78125, 3.03125)
+texture = ExtResource("5_p3v23")

@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b2rjbg3c4ha5c" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="PackedScene" uid="uid://b0fhfldkrhm6v" path="res://bullet.tscn" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bjqg165opy677" path="res://zawgapproved.png" id="2_onrkg"]
+[ext_resource type="AudioStream" uid="uid://bxwwik2vlf7pa" path="res://audio/eaglaxle-gun-shot-2-530789.mp3" id="4_hqtel"]
+[ext_resource type="AudioStream" uid="uid://bkg50bxw0hl60" path="res://audio/m4a1.mp3" id="5_sweqy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
 size = Vector2(78, 80)
@@ -26,3 +28,9 @@ position = Vector2(77, 0)
 [node name="Sprite2D" type="Sprite2D" parent="goon" unique_id=1081819845]
 position = Vector2(-4.9999995, 3)
 scale = Vector2(0.033392537, 0.032564655)
+
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=743461403]
+stream = ExtResource("4_hqtel")
+
+[node name="RifleSound" type="AudioStreamPlayer2D" parent="." unique_id=2144829534]
+stream = ExtResource("5_sweqy")
