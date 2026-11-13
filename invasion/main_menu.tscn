@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bcydtpj1fieom"]
 
-[ext_resource type="Texture2D" uid="uid://bs48jv1drkejc" path="res://images.jpeg" id="1_06t4h"]
 [ext_resource type="Script" uid="uid://bisht1fiybe75" path="res://main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://dxdebpah0bbxr" path="res://menu (3).png" id="2_7vrkn"]
 
 [node name="StartScreen" type="Control" unique_id=1542375578]
 layout_mode = 3
@@ -12,32 +12,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7vrkn")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=536438201]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_06t4h")
-expand_mode = 1
-stretch_mode = 6
-
-[node name="Label" type="Label" parent="." unique_id=313708569]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -122.0
-offset_top = 65.0
-offset_right = 108.0
-offset_bottom = 132.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 72
-text = "INVASION"
-horizontal_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="." unique_id=201399798]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_7vrkn")
+expand_mode = 3
 
 [node name="PlayButton" type="Button" parent="." unique_id=414438743]
+light_mask = 0
+visibility_layer = 0
 custom_minimum_size = Vector2(200, 60)
 layout_mode = 1
 anchors_preset = 8
@@ -45,11 +29,28 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -30.0
-offset_right = 100.0
-offset_bottom = 30.0
+offset_left = -155.0
+offset_top = -87.0
+offset_right = 189.0
+offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 32
-text = "PLAY"
+
+[node name="Button" type="Button" parent="." unique_id=216118850]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 0
+offset_left = 31.0
+offset_top = 477.0
+offset_right = 478.0
+offset_bottom = 597.0
+
+[node name="Button2" type="Button" parent="." unique_id=895463653]
+light_mask = 0
+visibility_layer = 0
+layout_mode = 0
+offset_left = 699.0
+offset_top = 465.0
+offset_right = 1126.0
+offset_bottom = 600.0
