@@ -5,7 +5,6 @@ var speed = 50
 var direction = Vector2.RIGHT
 var stopped = false
 var dead = false
-var player_near = false
 
 var min_x = -50
 var max_x = 50
@@ -13,10 +12,10 @@ var min_y = -50
 var max_y = 50
 
 @onready var anim = $AnimatedSprite2D
-@onready var area = $Area2D
 
 
 func _ready():
+	anim.animation_finished.connect(_on_animation_finished)
 	random_walk()
 
 
@@ -61,41 +60,18 @@ func _physics_process(delta):
 	if position.x < min_x:
 		direction = Vector2.RIGHT
 	if position.y > max_y:
-		direction = Vector2.DOWN
-	if position.y < min_y:
 		direction = Vector2.UP
-
-
-func _process(delta):
-	if dead:
-		return
-
-	if Input.is_action_just_pressed("interact"):
-		if player_near:
-			die()
-		else:
-			print(name, ": PLAYER НЕ РЯДОМ!")
-
-
-func _on_area_2d_body_entered(body):
-	if body.is_in_group("player"):
-		player_near = true
-		print(name, ": PLAYER РЯДОМ!")
-
-
-func _on_area_2d_body_exited(body):
-	if body.is_in_group("player"):
-		player_near = false
-		print(name, ": PLAYER ВЫШЕЛ!")
-
-
+	if position.y < min_y:
+		direction = Vector2.DOWN
+		
 func die():
 	if dead:
 		return
 
 	dead = true
 	velocity = Vector2.ZERO
-
-	print(name, ": NPC УМИРАЕТ!")
-
 	anim.play("DEAD")
+
+func _on_animation_finished():
+	if anim.animation == "DEAD":
+		queue_free()
