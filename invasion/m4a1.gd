@@ -7,5 +7,5 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		body.pickup_weapon(held_player_texture)
+		body.pickup_weapon("ar")
 		queue_free()
