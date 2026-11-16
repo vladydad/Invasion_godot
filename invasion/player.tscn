@@ -96,3 +96,6 @@ stream = ExtResource("4_hqtel")
 
 [node name="RifleSound" type="AudioStreamPlayer2D" parent="." unique_id=346828550]
 stream = ExtResource("5_sweqy")
+
+[node name="zabooka" type="Node2D" parent="." unique_id=1289169009]
+position = Vector2(104, 17)

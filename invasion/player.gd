@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-var weapon = "pistol"
-var speed = 200
+var weapon = "arms"
+var speed = 280 
 var health = 50
-var ammo = 10
+var ammo = 0
 
 @onready var health_bar = $"../HealthBar"
 
@@ -20,7 +20,12 @@ func maxhealth():
 
 func pickup_weapon(picked):
 	weapon = picked
-	ammo = 30
+	if weapon == "pistol":
+		ammo = 10
+	elif weapon == "ar":
+		ammo = 30
+	elif weapon == "bazooka":
+		ammo = 3
 
 func _physics_process(delta: float) -> void:
 	var move_direction = Vector2.ZERO
@@ -49,6 +54,9 @@ func change_sprite():
 
 @export var bullet_scene: PackedScene
 
+@export var bazooka_scene: PackedScene
+
+
 func reload():
 	await get_tree().create_timer(4).timeout
 	if weapon == "pistol":
@@ -58,12 +66,13 @@ func reload():
 
 func _process(delta):
 	look_at(get_global_mouse_position())
-	if Input.is_action_just_pressed("Shoot") and ammo>0:
+	if Input.is_action_just_pressed("Shoot"):
 		if weapon == "pistol":
 			shootPistol()
 		elif weapon == "ar":
 			shootm4()
-		ammo = ammo - 1
+		elif weapon == "bazooka":
+			shootBazooka()
 	elif ammo == 0:
 		ammo_label.text = "Lader..."
 		reload()
@@ -71,29 +80,54 @@ func _process(delta):
 	health_bar.value = health
 		
 func shootPistol():
-	var bullet = bullet_scene.instantiate()
+	if ammo > 0:
+		var bullet = bullet_scene.instantiate()
 
-	var direction = (
-		get_global_mouse_position() - $goon.global_position
-	).normalized()
+		var direction = (
+			get_global_mouse_position() - $goon.global_position
+		).normalized()
 
-	get_tree().current_scene.add_child(bullet)
+		get_tree().current_scene.add_child(bullet)
 
-	bullet.global_position = $goon.global_position
-	bullet.direction = direction
-	
-	$ShootSound.play()
+		bullet.global_position = $goon.global_position
+		bullet.direction = direction
+		
+		ammo = ammo -1
+		
+		$ShootSound.play()
 
 func shootm4():
-	var bullet = bullet_scene.instantiate()
+	if ammo > 0:
+		var bullet = bullet_scene.instantiate()
 
-	var direction = (
-		get_global_mouse_position() - $goon.global_position
-	).normalized()
+		var direction = (
+			get_global_mouse_position() - $goon.global_position
+		).normalized()
 
-	get_tree().current_scene.add_child(bullet)
+		get_tree().current_scene.add_child(bullet)
 
-	bullet.global_position = $goon.global_position
-	bullet.direction = direction
-	
-	$RifleSound.play()
+		bullet.global_position = $goon.global_position
+		bullet.direction = direction
+		
+		ammo = ammo -1
+		
+		$RifleSound.play()
+
+#func stab():
+
+func shootBazooka():
+	if ammo > 0:
+		var rocket = bazooka_scene.instantiate()
+
+		var direction = (
+			get_global_mouse_position() - $zabooka.global_position
+		).normalized()
+
+		get_tree().current_scene.add_child(rocket)
+
+		rocket.global_position = $zabooka.global_position
+		rocket.direction = direction
+		
+		ammo = ammo -1
+		
+		$RifleSound.play()	
