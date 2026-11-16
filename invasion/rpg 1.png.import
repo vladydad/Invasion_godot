@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6v0tw1kxixhs"
-path="res://.godot/imported/Aleksandar_Vučić_in_2023_(cropped).png-e897af82b15e264e85abc378908d082b.ctex"
+uid="uid://6kxrov4gayyy"
+path="res://.godot/imported/rpg 1.png-0ed5b28fce09176e50f415bc5d6e5996.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Aleksandar_Vučić_in_2023_(cropped).png"
-dest_files=["res://.godot/imported/Aleksandar_Vučić_in_2023_(cropped).png-e897af82b15e264e85abc378908d082b.ctex"]
+source_file="res://rpg 1.png"
+dest_files=["res://.godot/imported/rpg 1.png-0ed5b28fce09176e50f415bc5d6e5996.ctex"]
 
 [params]
 
