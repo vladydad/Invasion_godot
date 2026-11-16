@@ -13,7 +13,9 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	if body.has_method("die"):
-		body.die()
+	print("ПУЛЯ ПОПАЛА!")
 
-	queue_free()
+	if body.is_in_group("NPC"):
+		print("ЭТО NPC!")
+		body.die()
+		queue_free()

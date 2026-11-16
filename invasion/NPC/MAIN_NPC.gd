@@ -65,13 +65,8 @@ func _physics_process(delta):
 		direction = Vector2.DOWN
 		
 func die():
-	if dead:
-		return
-
-	dead = true
-	velocity = Vector2.ZERO
-	anim.play("DEAD")
-
+	$AnimatedSprite2D.play("DEAD")
+	
 func _on_animation_finished():
-	if anim.animation == "DEAD":
+	if $AnimatedSprite2D.animation == "DEAD":
 		queue_free()
