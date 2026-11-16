@@ -63,6 +63,8 @@ func reload():
 		ammo = 10
 	elif weapon == "ar":
 		ammo = 30
+	elif weapon == "bazooka":
+		ammo = 3
 
 func _process(delta):
 	look_at(get_global_mouse_position())

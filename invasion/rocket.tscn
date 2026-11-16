@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://citkv46hk3q3x"]
 
+[ext_resource type="Script" uid="uid://dybhleeitj6rs" path="res://rocket.gd" id="1_5gt1y"]
 [ext_resource type="Texture2D" uid="uid://bdxm5yyt1kh1g" path="res://rocket 1.png" id="1_fj03e"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
-size = Vector2(38, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gt1y"]
 atlas = ExtResource("1_fj03e")
@@ -35,11 +33,11 @@ animations = [{
 }]
 
 [node name="Area2D" type="Area2D" unique_id=1997041386]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1573543705]
-shape = SubResource("RectangleShape2D_7xv1m")
+script = ExtResource("1_5gt1y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=957291505]
+position = Vector2(2.0000038, 5)
 rotation = 1.5707964
+scale = Vector2(0.42766592, 0.40615872)
 sprite_frames = SubResource("SpriteFrames_7xv1m")
 animation = &"Fly"
