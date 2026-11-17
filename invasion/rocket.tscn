@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dybhleeitj6rs" path="res://rocket.gd" id="1_5gt1y"]
 [ext_resource type="Texture2D" uid="uid://bdxm5yyt1kh1g" path="res://rocket 1.png" id="1_fj03e"]
+[ext_resource type="Texture2D" uid="uid://kpnp87ot0rf2" path="res://kaboooooom!!!!! 1.png" id="3_r2l15"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gt1y"]
 atlas = ExtResource("1_fj03e")
@@ -14,6 +15,42 @@ region = Rect2(475, 0, 475, 475)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tpb7v"]
 atlas = ExtResource("1_fj03e")
 region = Rect2(0, 475, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cum1y"]
+atlas = ExtResource("3_r2l15")
+region = Rect2(0, 0, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_546ky"]
+atlas = ExtResource("3_r2l15")
+region = Rect2(475, 0, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awr8v"]
+atlas = ExtResource("3_r2l15")
+region = Rect2(950, 0, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7htxx"]
+atlas = ExtResource("3_r2l15")
+region = Rect2(0, 475, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mnerj"]
+atlas = ExtResource("3_r2l15")
+region = Rect2(475, 475, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm57y"]
+atlas = ExtResource("3_r2l15")
+region = Rect2(950, 475, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk1bh"]
+atlas = ExtResource("3_r2l15")
+region = Rect2(0, 950, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edwur"]
+atlas = ExtResource("3_r2l15")
+region = Rect2(475, 950, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw411"]
+atlas = ExtResource("3_r2l15")
+region = Rect2(950, 950, 475, 475)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7xv1m"]
 animations = [{
@@ -29,15 +66,47 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Fly",
-"speed": 5.0
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cum1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_546ky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awr8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7htxx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mnerj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm57y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk1bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edwur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw411")
+}],
+"loop": 1,
+"name": &"explode",
+"speed": 10.0
 }]
 
 [node name="Area2D" type="Area2D" unique_id=1997041386]
 script = ExtResource("1_5gt1y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=957291505]
-position = Vector2(2.0000038, 5)
 rotation = 1.5707964
-scale = Vector2(0.42766592, 0.40615872)
+scale = Vector2(0.10306611, 0.09962336)
 sprite_frames = SubResource("SpriteFrames_7xv1m")
 animation = &"Fly"
+frame_progress = 0.8032626

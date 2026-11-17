@@ -1,4 +1,3 @@
-
 extends Area2D
 
 var speed = 700
@@ -10,7 +9,7 @@ func _ready():
 
 func _physics_process(delta):
 	global_position += direction * speed * delta
-
+	$AnimatedSprite2D.play("Fly")
 
 func _on_body_entered(body):
 	if body.has_method("die"):

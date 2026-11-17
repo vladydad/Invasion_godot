@@ -28,23 +28,22 @@ func pickup_weapon(picked):
 		ammo = 3
 
 func _physics_process(delta: float) -> void:
-	var move_direction = Vector2.ZERO
-
-	if Input.is_action_pressed("ui_right"):
-		move_direction.x = 1
-	elif Input.is_action_pressed("ui_left"):
-		move_direction.x = -1
-	if Input.is_action_pressed("ui_down"):
-		move_direction.y = 1
-	elif Input.is_action_pressed("ui_up"):
-		move_direction.y = -1
+	
 	if Input.is_action_pressed("Reload"):
 		reload()
 
-	velocity = move_direction * speed
-	move_and_slide()
 	if velocity.length() > 0:
-		$AnimatedSprite2D.play("walk")
+		if weapon == "arms":
+			$AnimatedSprite2D.play("walk")
+		elif weapon == "pistol":
+			$AnimatedSprite2D.play("pistol")
+		elif weapon == "bazooka":
+			$AnimatedSprite2D.play("rpg")
+		elif weapon == "knife":
+			$AnimatedSprite2D.play("shank")
+		elif weapon == "ar":
+			$AnimatedSprite2D.play("m4a1")
+			
 	else:
 		$AnimatedSprite2D.stop()
 
@@ -54,10 +53,10 @@ func change_sprite():
 
 @export var bullet_scene: PackedScene
 
-@export var bazooka_scene: PackedScene
-
+@export var bazooka_scene: PackedScene	
 
 func reload():
+	$ReloadSound.play()
 	await get_tree().create_timer(4).timeout
 	if weapon == "pistol":
 		ammo = 10
@@ -66,8 +65,22 @@ func reload():
 	elif weapon == "bazooka":
 		ammo = 3
 
-func _process(delta):
+func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
+	
+	var move_direction = Vector2.ZERO
+	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("walkright"):
+		move_direction.x = 1
+	elif Input.is_action_pressed("ui_left") or Input.is_action_pressed("walkleft"):
+		move_direction.x = -1
+	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("walkdown"):
+		move_direction.y = 1
+	elif Input.is_action_pressed("ui_up") or Input.is_action_pressed("walkup"):
+		move_direction.y = -1
+	velocity = move_direction * speed
+	move_and_slide()
+
+
 	if Input.is_action_just_pressed("Shoot"):
 		if weapon == "pistol":
 			shootPistol()
@@ -75,6 +88,9 @@ func _process(delta):
 			shootm4()
 		elif weapon == "bazooka":
 			shootBazooka()
+		elif weapon == "knife":
+			swingKnife()
+			$AnimatedSprite2D.play("swing")
 	elif ammo == 0:
 		ammo_label.text = "Lader..."
 		reload()
@@ -133,3 +149,7 @@ func shootBazooka():
 		ammo = ammo -1
 		
 		$RifleSound.play()	
+
+func swingKnife():
+	$KnifeSound.play()
+	
