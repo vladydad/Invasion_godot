@@ -9,36 +9,61 @@
 [ext_resource type="PackedScene" uid="uid://f37sgwcrfeto" path="res://pistol.tscn" id="6_hlpnd"]
 [ext_resource type="PackedScene" uid="uid://bx5e6tipyhger" path="res://chuk.tscn" id="7_73or5"]
 [ext_resource type="PackedScene" uid="uid://chmkb763owehx" path="res://bazooka.tscn" id="8_jldhp"]
+[ext_resource type="Texture2D" uid="uid://cc6i4snu8kjoq" path="res://adrenlalin overlay.png" id="10_swigd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp7xp"]
+atlas = ExtResource("10_swigd")
+region = Rect2(0, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpsgm"]
+atlas = ExtResource("10_swigd")
+region = Rect2(0, 30, 40, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfc4p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp7xp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpsgm")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=1503440313]
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=228213260]
+offset_left = 68.0
+offset_top = 993.0
+offset_right = 270.0
+offset_bottom = 1038.0
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+show_percentage = false
 
 [node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("1_jl26d")]
 position = Vector2(199, 171)
 bazooka_scene = ExtResource("2_tyy4w")
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=228213260]
-offset_left = 59.0
-offset_top = 580.0
-offset_right = 261.0
-offset_bottom = 625.0
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1661246907]
 
 [node name="Bullet" type="Sprite2D" parent="CanvasLayer" unique_id=1311594502]
-position = Vector2(1026, 593)
+position = Vector2(1315, 1032.125)
 scale = Vector2(2.8750014, 2.382815)
 texture = ExtResource("5_p3v23")
 
 [node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=360457861]
-offset_left = 1055.0
-offset_top = 556.0
-offset_right = 1139.0
-offset_bottom = 615.0
+offset_left = 1344.0
+offset_top = 995.12506
+offset_right = 1428.0
+offset_bottom = 1054.125
 theme_override_font_sizes/font_size = 43
 text = "0"
 
 [node name="Area2D6" parent="." unique_id=1734879823 instance=ExtResource("6_hlpnd")]
-position = Vector2(753, 582)
+position = Vector2(554, 578)
 
 [node name="Area2D4" parent="." unique_id=202227351 instance=ExtResource("7_73or5")]
 position = Vector2(317, 538)
@@ -47,10 +72,19 @@ position = Vector2(317, 538)
 position = Vector2(280, 423)
 
 [node name="Area2D2" parent="." unique_id=1439943726 instance=ExtResource("4_oiqhk")]
-position = Vector2(783, 353)
+position = Vector2(584, 349)
 
 [node name="Area2D" parent="." unique_id=2072543071 instance=ExtResource("3_fr6qw")]
 position = Vector2(419, 177)
 
 [node name="Area2D5" parent="." unique_id=256471275 instance=ExtResource("8_jldhp")]
-position = Vector2(930, 381)
+position = Vector2(731, 377)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=614523368]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer2" unique_id=421524590]
+visible = false
+position = Vector2(575.6666, 325.25)
+scale = Vector2(28.766666, 21.449999)
+sprite_frames = SubResource("SpriteFrames_nfc4p")
+frame_progress = 0.8389372

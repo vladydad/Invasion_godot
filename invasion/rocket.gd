@@ -14,6 +14,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	$AnimatedSprite2D.play("Explode")
+	print("boom")
 	if body.has_method("die"):
 		body.die()
 

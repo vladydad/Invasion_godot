@@ -4,16 +4,22 @@ var weapon = "arms"
 var speed = 280 
 var health = 50
 var ammo = 0
+var fast = false
 
 @onready var health_bar = $"../HealthBar"
 
 @onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
+	fast = true
+	$"../CanvasLayer2/AnimatedSprite2D".visible = true
+	$"../CanvasLayer2/AnimatedSprite2D".play("default")
 	speed = 500
 	await get_tree().create_timer(15).timeout
 	speed = 200
 	$AnimatedSprite2D.speed_scale = 2
+	fast = false
+	
 
 func maxhealth():
 	health=100
@@ -62,6 +68,14 @@ func reload():
 
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
+	
+	if weapon=="bazooka" and fast==false:
+		speed =180
+	elif weapon=="knife" and fast==false:
+		speed = 280
+	elif weapon=="pistol" and fast==false:
+		speed=280
+	
 	
 	var move_direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("walkright"):
