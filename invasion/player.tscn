@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b0fhfldkrhm6v" path="res://bullet.tscn" id="2_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://dis2kfi2kbnlo" path="res://mainCharacter/characterPistol.png" id="3_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://dt252o0xycu81" path="res://mainCharacter/characterAr.png" id="3_n7ghd"]
+[ext_resource type="AudioStream" uid="uid://c6a5n6i0lexnq" path="res://audio/boom.mp3" id="3_urp6f"]
 [ext_resource type="Texture2D" uid="uid://bsi144sd884yu" path="res://mainCharacter/characterBazooka.png" id="4_dw050"]
 [ext_resource type="AudioStream" uid="uid://bxwwik2vlf7pa" path="res://audio/eaglaxle-gun-shot-2-530789.mp3" id="4_hqtel"]
 [ext_resource type="Texture2D" uid="uid://cgfn83c1ti8ii" path="res://mainCharacter/characterKnife.png" id="5_b26j0"]
@@ -379,13 +380,19 @@ bullet_scene = ExtResource("2_i3pqv")
 position = Vector2(-2.0000153, -1.4999695)
 shape = SubResource("RectangleShape2D_7xv1m")
 
+[node name="RPGSound" type="AudioStreamPlayer2D" parent="." unique_id=511886251]
+position = Vector2(5.0000153, -0.49998474)
+rotation = 1.5707964
+scale = Vector2(3.0937502, 3)
+stream = ExtResource("3_urp6f")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=366765526]
 position = Vector2(5.0000153, -0.49998474)
 rotation = 1.5707964
 scale = Vector2(3.0937502, 3)
 sprite_frames = SubResource("SpriteFrames_h3o71")
-animation = &"rpg"
-frame_progress = 0.05785015
+animation = &"swing"
+frame_progress = 0.63171595
 
 [node name="goon" type="Node2D" parent="." unique_id=814750388]
 position = Vector2(50, 0)

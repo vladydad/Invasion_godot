@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dybhleeitj6rs" path="res://rocket.gd" id="1_5gt1y"]
 [ext_resource type="Texture2D" uid="uid://bdxm5yyt1kh1g" path="res://rocket 1.png" id="1_fj03e"]
 [ext_resource type="Texture2D" uid="uid://kpnp87ot0rf2" path="res://kaboooooom!!!!! 1.png" id="3_r2l15"]
+[ext_resource type="AudioStream" uid="uid://cgg86jw1o3k0" path="res://audio/bazooka explotion.mp3" id="4_tpb7v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cum1y"]
 atlas = ExtResource("3_r2l15")
@@ -110,9 +111,12 @@ script = ExtResource("1_5gt1y")
 rotation = 1.5707964
 scale = Vector2(0.10306611, 0.09962336)
 sprite_frames = SubResource("SpriteFrames_7xv1m")
-animation = &"Explode"
-frame_progress = 0.5293034
+animation = &"Fly"
+frame_progress = 0.08272325
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1062947635]
 position = Vector2(11, 0)
 shape = SubResource("RectangleShape2D_nfc4p")
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="." unique_id=1775392920]
+stream = ExtResource("4_tpb7v")

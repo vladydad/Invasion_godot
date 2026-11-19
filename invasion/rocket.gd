@@ -13,12 +13,14 @@ func _physics_process(delta):
 	$AnimatedSprite2D.play("Fly")
 
 func _on_body_entered(body):
-	$AnimatedSprite2D.play("Explode")
-	print("boom")
+	#$AnimatedSprite2D.play("Explode")
+	
 	if body.has_method("die"):
 		body.die()
 
-func _on_area_entered():
+func _on_area_entered(area):
 	$AnimatedSprite2D.play("Explode")
+	$Explosion.play()
+	print("boom")
 
 	queue_free()

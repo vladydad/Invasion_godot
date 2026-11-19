@@ -5,6 +5,7 @@ var speed = 280
 var health = 50
 var ammo = 0
 var fast = false
+var canShoot = true
 
 @onready var health_bar = $"../HealthBar"
 
@@ -19,6 +20,8 @@ func highspeed():
 	speed = 200
 	$AnimatedSprite2D.speed_scale = 2
 	fast = false
+	$"../CanvasLayer2/AnimatedSprite2D".stop()
+	$"../CanvasLayer2/AnimatedSprite2D".visible = false		
 	
 
 func maxhealth():
@@ -65,6 +68,8 @@ func reload():
 		ammo = 30
 	elif weapon == "bazooka":
 		ammo = 3
+	elif weapon == "knife":
+		ammo = 0
 
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -90,7 +95,7 @@ func _process(delta: float) -> void:
 	move_and_slide()
 
 
-	if Input.is_action_just_pressed("Shoot"):
+	if Input.is_action_pressed("Shoot") and canShoot:
 		if weapon == "pistol":
 			shootPistol()
 		elif weapon == "ar":
@@ -109,6 +114,8 @@ func shootPistol():
 	if ammo > 0:
 		var bullet = bullet_scene.instantiate()
 
+		canShoot = false
+
 		var direction = (
 			get_global_mouse_position() - $goon.global_position
 		).normalized()
@@ -122,10 +129,16 @@ func shootPistol():
 		
 		$ShootSound.play()
 
+		await get_tree().create_timer(0.5).timeout
+		canShoot = true
+		
+
 func shootm4():
 	if ammo > 0:
 		var bullet = bullet_scene.instantiate()
-
+		
+		canShoot = false
+		
 		var direction = (
 			get_global_mouse_position() - $goon.global_position
 		).normalized()
@@ -138,10 +151,15 @@ func shootm4():
 		ammo = ammo -1
 		
 		$RifleSound.play()
+		
+		await get_tree().create_timer(0.1).timeout
+		canShoot = true
 
 func shootBazooka():
 	if ammo > 0:
 		var rocket = bazooka_scene.instantiate()
+
+		canShoot = false
 
 		var direction = (
 			get_global_mouse_position() - $zabooka.global_position
@@ -154,7 +172,12 @@ func shootBazooka():
 		
 		ammo = ammo -1
 		
-		$RifleSound.play()	
+		$RPGSound.play()
+
+		
+		await get_tree().create_timer(2).timeout
+		canShoot = true
+		
 
 func swingKnife():
 	$KnifeSound.play()
