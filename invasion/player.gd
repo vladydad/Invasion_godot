@@ -27,7 +27,6 @@ func highspeed():
 	fast = false
 	$"../CanvasLayer2/AnimatedSprite2D".stop()
 	$"../CanvasLayer2/AnimatedSprite2D".visible = false		
-	
 
 func maxhealth():
 	health=100
@@ -42,6 +41,10 @@ func pickup_weapon(picked):
 		ammo = 3
 
 func _physics_process(delta: float) -> void:
+	
+	if health<40:
+		$"../CanvasLayer2/Bloodoverlay".visibility = true
+		$"../CanvasLayer2/Bloodoverlay".play("default")
 	
 	if Input.is_action_pressed("Reload"):
 		reload()

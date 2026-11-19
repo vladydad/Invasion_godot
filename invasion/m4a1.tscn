@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://hu3aq0aejr2n" path="res://m4a1.gd" id="1_3t72k"]
 [ext_resource type="Texture2D" uid="uid://bqm712crik3kg" path="res://m4 pickup item.png" id="1_lwnhe"]
+[ext_resource type="AudioStream" uid="uid://l81h30portbg" path="res://audio/pickup.mp3" id="3_mdtx8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
 size = Vector2(115, 34)
@@ -17,3 +18,6 @@ texture = ExtResource("1_lwnhe")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1656668303 groups=["player"]]
 position = Vector2(-3.5, 0)
 shape = SubResource("RectangleShape2D_7xv1m")
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=300543984]
+stream = ExtResource("3_mdtx8")

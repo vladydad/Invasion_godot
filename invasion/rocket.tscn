@@ -112,8 +112,8 @@ rotation = 1.5707964
 scale = Vector2(0.10306611, 0.09962336)
 sprite_frames = SubResource("SpriteFrames_7xv1m")
 animation = &"Explode"
-frame = 3
-frame_progress = 0.782139
+frame = 7
+frame_progress = 0.81673586
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1062947635]
 position = Vector2(11, 1)

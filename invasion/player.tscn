@@ -270,7 +270,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"m4a1",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -328,7 +328,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"rpg",
-"speed": 10.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -460,7 +460,7 @@ position = Vector2(5.0000153, -0.49998474)
 rotation = 1.5707964
 scale = Vector2(3.0937502, 3)
 sprite_frames = SubResource("SpriteFrames_h3o71")
-animation = &"walkswing"
+animation = &"rpg"
 
 [node name="goon" type="Node2D" parent="." unique_id=814750388]
 position = Vector2(50, 0)

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://citkv46hk3q3x" path="res://rocket.tscn" id="2_tyy4w"]
 [ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="3_fr6qw"]
 [ext_resource type="PackedScene" uid="uid://bhf11akkik36y" path="res://medkit.tscn" id="4_oiqhk"]
+[ext_resource type="Texture2D" uid="uid://dgmefux3cfm3o" path="res://icons/New Piskel (42).png" id="4_su8sl"]
 [ext_resource type="Texture2D" uid="uid://6oslvcjutjv6" path="res://icons/bullet.png" id="5_p3v23"]
 [ext_resource type="PackedScene" uid="uid://f37sgwcrfeto" path="res://pistol.tscn" id="6_hlpnd"]
 [ext_resource type="PackedScene" uid="uid://bx5e6tipyhger" path="res://chuk.tscn" id="7_73or5"]
@@ -84,6 +85,11 @@ bazooka_scene = ExtResource("2_tyy4w")
 position = Vector2(1282.5, 1002.62506)
 scale = Vector2(4.9062505, 4.226562)
 texture = ExtResource("5_p3v23")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer" unique_id=495448361]
+position = Vector2(44.000004, 1004)
+scale = Vector2(4.578125, 4.328125)
+texture = ExtResource("4_su8sl")
 
 [node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=360457861]
 offset_left = 1326.0
