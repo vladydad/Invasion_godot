@@ -21,4 +21,4 @@ offset_bottom = 627.0
 position = Vector2(419, 177)
 
 [node name="Area2D" parent="Area2D" unique_id=804367420 instance=ExtResource("2_5s8la")]
-position = Vector2(-47, 220)
+position = Vector2(-139, 246)
