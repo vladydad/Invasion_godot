@@ -70,7 +70,9 @@ func _physics_process(delta: float) -> void:
 
 
 func reload():	
+	canShoot = false
 	$ReloadSound.play()
+	await get_tree().create_timer(3).timeout
 	if weapon == "pistol":
 		ammo = 10
 	elif weapon == "ar":
@@ -79,6 +81,7 @@ func reload():
 		ammo = 3
 	elif weapon == "knife":
 		ammo = 0
+	canShoot = true
 
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -185,12 +188,15 @@ func shootBazooka():
 
 func swingKnife():
 	stabbing = true
+	canShoot = false
 	$KnifeSound.play()
 	$AnimatedSprite2D.play("swing")
 	if velocity.length() > 0:
 		await get_tree().create_timer(0.6).timeout
 		stabbing = false
+		canShoot = true
 	else:
 		await get_tree().create_timer(0.4).timeout
 		stabbing = false
+		canShoot = true
 	
