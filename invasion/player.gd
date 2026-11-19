@@ -7,7 +7,7 @@ var ammo = 0
 
 @onready var health_bar = $"../HealthBar"
 
-@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
+#@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
 	speed = 500
@@ -43,13 +43,8 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("shank")
 		elif weapon == "ar":
 			$AnimatedSprite2D.play("m4a1")
-			
 	else:
 		$AnimatedSprite2D.stop()
-
-func change_sprite():
-	var texture = load('res://pistol-pickup.png')
-	$Sprite2D.texture = texture
 
 @export var bullet_scene: PackedScene
 
@@ -92,9 +87,9 @@ func _process(delta: float) -> void:
 			swingKnife()
 			$AnimatedSprite2D.play("swing")
 	elif ammo == 0:
-		ammo_label.text = "Lader..."
+		#ammo_label.text = "Lader..."
 		reload()
-	ammo_label.text = str(ammo)
+	#ammo_label.text = str(ammo)
 	health_bar.value = health
 		
 func shootPistol():

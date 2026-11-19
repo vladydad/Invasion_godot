@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://veb1nhvkxalg"]
 
+[ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="1_jl26d"]
+
 [node name="Node2D" type="Node2D" unique_id=1503440313]
+
+[node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("1_jl26d")]
+position = Vector2(199, 171)
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=228213260]
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1661246907]
