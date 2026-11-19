@@ -9,10 +9,15 @@ func _ready():
 
 func _physics_process(delta):
 	global_position += direction * speed * delta
+	rotation = direction.angle()
 	$AnimatedSprite2D.play("Fly")
 
 func _on_body_entered(body):
+	$AnimatedSprite2D.play("Explode")
 	if body.has_method("die"):
 		body.die()
+
+func _on_area_entered():
+	$AnimatedSprite2D.play("Explode")
 
 	queue_free()

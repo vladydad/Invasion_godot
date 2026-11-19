@@ -7,7 +7,7 @@ var ammo = 0
 
 @onready var health_bar = $"../HealthBar"
 
-#@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
+@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
 	speed = 500
@@ -85,11 +85,10 @@ func _process(delta: float) -> void:
 			shootBazooka()
 		elif weapon == "knife":
 			swingKnife()
-			$AnimatedSprite2D.play("swing")
 	elif ammo == 0:
-		#ammo_label.text = "Lader..."
+		ammo_label.text = "Lader..."
 		reload()
-	#ammo_label.text = str(ammo)
+	ammo_label.text = str(ammo)
 	health_bar.value = health
 		
 func shootPistol():
@@ -126,8 +125,6 @@ func shootm4():
 		
 		$RifleSound.play()
 
-#func stab():
-
 func shootBazooka():
 	if ammo > 0:
 		var rocket = bazooka_scene.instantiate()
@@ -147,4 +144,5 @@ func shootBazooka():
 
 func swingKnife():
 	$KnifeSound.play()
+	$AnimatedSprite2D.play("swing")
 	
