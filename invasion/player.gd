@@ -6,6 +6,7 @@ var health = 50
 var ammo = 0
 var fast = false
 var canShoot = true
+var stabbing = false
 
 @onready var health_bar = $"../HealthBar"
 
@@ -41,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Reload"):
 		reload()
 
-	if velocity.length() > 0:
+	if velocity.length() > 0 and stabbing == false:
 		if weapon == "arms":
 			$AnimatedSprite2D.play("walk")
 		elif weapon == "pistol":
@@ -59,9 +60,8 @@ func _physics_process(delta: float) -> void:
 
 @export var bazooka_scene: PackedScene	
 
-func reload():
+func reload():	
 	$ReloadSound.play()
-	await get_tree().create_timer(4).timeout
 	if weapon == "pistol":
 		ammo = 10
 	elif weapon == "ar":
@@ -95,11 +95,9 @@ func _process(delta: float) -> void:
 	move_and_slide()
 
 
-	if Input.is_action_pressed("Shoot") and canShoot:
+	if Input.is_action_just_pressed("Shoot") and canShoot:
 		if weapon == "pistol":
 			shootPistol()
-		elif weapon == "ar":
-			shootm4()
 		elif weapon == "bazooka":
 			shootBazooka()
 		elif weapon == "knife":
@@ -110,11 +108,13 @@ func _process(delta: float) -> void:
 	ammo_label.text = str(ammo)
 	health_bar.value = health
 		
+	if Input.is_action_pressed("Shoot") and canShoot:
+		if weapon == "ar":
+			shootm4()
+	
 func shootPistol():
 	if ammo > 0:
 		var bullet = bullet_scene.instantiate()
-
-		canShoot = false
 
 		var direction = (
 			get_global_mouse_position() - $goon.global_position
@@ -128,9 +128,6 @@ func shootPistol():
 		ammo = ammo -1
 		
 		$ShootSound.play()
-
-		await get_tree().create_timer(0.5).timeout
-		canShoot = true
 		
 
 func shootm4():
@@ -157,6 +154,7 @@ func shootm4():
 
 func shootBazooka():
 	if ammo > 0:
+		$RPGSound.play()
 		var rocket = bazooka_scene.instantiate()
 
 		canShoot = false
@@ -172,14 +170,12 @@ func shootBazooka():
 		
 		ammo = ammo -1
 		
-		$RPGSound.play()
-
-		
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(1).timeout
 		canShoot = true
 		
 
 func swingKnife():
+	stabbing = true
 	$KnifeSound.play()
 	$AnimatedSprite2D.play("swing")
 	

@@ -5,13 +5,17 @@
 [ext_resource type="PackedScene" uid="uid://citkv46hk3q3x" path="res://rocket.tscn" id="2_tyy4w"]
 [ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="3_fr6qw"]
 [ext_resource type="PackedScene" uid="uid://bhf11akkik36y" path="res://medkit.tscn" id="4_oiqhk"]
-[ext_resource type="Texture2D" uid="uid://cm378ir0dauy" path="res://icons/bullet.png" id="5_p3v23"]
+[ext_resource type="Texture2D" uid="uid://6oslvcjutjv6" path="res://icons/bullet.png" id="5_p3v23"]
 [ext_resource type="PackedScene" uid="uid://f37sgwcrfeto" path="res://pistol.tscn" id="6_hlpnd"]
 [ext_resource type="PackedScene" uid="uid://bx5e6tipyhger" path="res://chuk.tscn" id="7_73or5"]
 [ext_resource type="PackedScene" uid="uid://chmkb763owehx" path="res://bazooka.tscn" id="8_jldhp"]
 [ext_resource type="Texture2D" uid="uid://cc6i4snu8kjoq" path="res://adrenlalin overlay.png" id="10_swigd"]
-[ext_resource type="Texture2D" uid="uid://bibcnt03h2wq1" path="res://icons/health bar background.png" id="11_tpsgm"]
-[ext_resource type="Texture2D" uid="uid://cib1e76bqsfgw" path="res://icons/health bar.png" id="12_538ju"]
+[ext_resource type="Texture2D" uid="uid://cdgexn1vldece" path="res://blood overlay.png" id="11_538ju"]
+[ext_resource type="Texture2D" uid="uid://cje1mhe5b65s5" path="res://icons/healthbarlong.png" id="12_538ju"]
+[ext_resource type="Texture2D" uid="uid://p3e1sqrprqed" path="res://icons/healthbarredlong.png" id="13_su8sl"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_538ju"]
+load_path = "res://.godot/imported/Flag_of_Serbia.svg-0a286d697351f14872415808b9056349.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp7xp"]
 atlas = ExtResource("10_swigd")
@@ -33,6 +37,42 @@ animations = [{
 "loop": 1,
 "name": &"default",
 "speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_538ju"]
+atlas = ExtResource("11_538ju")
+region = Rect2(40, 30, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_su8sl"]
+atlas = ExtResource("11_538ju")
+region = Rect2(0, 30, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r586"]
+atlas = ExtResource("11_538ju")
+region = Rect2(40, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jltxb"]
+atlas = ExtResource("11_538ju")
+region = Rect2(0, 0, 40, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3c6uy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_538ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_su8sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r586")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jltxb")
+}],
+"loop": 1,
+"name": &"blod",
+"speed": 10.0
 }]
 
 [node name="Node2D" type="Node2D" unique_id=1503440313]
@@ -70,6 +110,7 @@ position = Vector2(584, 349)
 
 [node name="Area2D" parent="." unique_id=2072543071 instance=ExtResource("3_fr6qw")]
 position = Vector2(419, 177)
+held_player_texture = SubResource("CompressedTexture2D_538ju")
 
 [node name="Area2D5" parent="." unique_id=256471275 instance=ExtResource("8_jldhp")]
 position = Vector2(731, 377)
@@ -83,12 +124,20 @@ scale = Vector2(36.141663, 35.883327)
 sprite_frames = SubResource("SpriteFrames_nfc4p")
 frame_progress = 0.8389372
 
+[node name="BloodOverlay" type="AnimatedSprite2D" parent="CanvasLayer2" unique_id=714947526]
+visible = false
+position = Vector2(717, 537.25006)
+scale = Vector2(35.774998, -36.11667)
+sprite_frames = SubResource("SpriteFrames_3c6uy")
+animation = &"blod"
+frame_progress = 0.4915705
+
 [node name="HealthBar" type="TextureProgressBar" parent="." unique_id=249700161]
-offset_left = 110.0
-offset_top = 970.0
-offset_right = 434.0
-offset_bottom = 1044.0
+offset_left = 92.0
+offset_top = 965.0
+offset_right = 416.0
+offset_bottom = 1039.0
 value = 50.0
 nine_patch_stretch = true
-texture_under = ExtResource("11_tpsgm")
-texture_progress = ExtResource("12_538ju")
+texture_under = ExtResource("12_538ju")
+texture_progress = ExtResource("13_su8sl")

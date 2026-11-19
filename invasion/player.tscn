@@ -392,22 +392,26 @@ rotation = 1.5707964
 scale = Vector2(3.0937502, 3)
 sprite_frames = SubResource("SpriteFrames_h3o71")
 animation = &"swing"
-frame_progress = 0.63171595
+frame = 1
+frame_progress = 0.9310859
 
 [node name="goon" type="Node2D" parent="." unique_id=814750388]
 position = Vector2(50, 0)
 
 [node name="ShootSound" type="AudioStreamPlayer2D" parent="." unique_id=259975956 groups=["player"]]
 stream = ExtResource("4_hqtel")
+max_polyphony = 5
 
 [node name="RifleSound" type="AudioStreamPlayer2D" parent="." unique_id=346828550]
 stream = ExtResource("5_sweqy")
+max_polyphony = 8
 
 [node name="zabooka" type="Node2D" parent="." unique_id=1289169009]
-position = Vector2(76, 20)
+position = Vector2(50, 19)
 
 [node name="ReloadSound" type="AudioStreamPlayer2D" parent="." unique_id=569451269]
 stream = ExtResource("6_2hs0m")
 
 [node name="KnifeSound" type="AudioStreamPlayer2D" parent="." unique_id=22093274]
 stream = ExtResource("11_nvl01")
+max_polyphony = 5
