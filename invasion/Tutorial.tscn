@@ -14,9 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://cje1mhe5b65s5" path="res://icons/healthbarlong.png" id="12_538ju"]
 [ext_resource type="Texture2D" uid="uid://p3e1sqrprqed" path="res://icons/healthbarredlong.png" id="13_su8sl"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_538ju"]
-load_path = "res://.godot/imported/Flag_of_Serbia.svg-0a286d697351f14872415808b9056349.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_hp7xp"]
 atlas = ExtResource("10_swigd")
 region = Rect2(0, 0, 40, 30)
@@ -110,7 +107,6 @@ position = Vector2(584, 349)
 
 [node name="Area2D" parent="." unique_id=2072543071 instance=ExtResource("3_fr6qw")]
 position = Vector2(419, 177)
-held_player_texture = SubResource("CompressedTexture2D_538ju")
 
 [node name="Area2D5" parent="." unique_id=256471275 instance=ExtResource("8_jldhp")]
 position = Vector2(731, 377)

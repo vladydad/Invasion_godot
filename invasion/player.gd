@@ -8,6 +8,10 @@ var fast = false
 var canShoot = true
 var stabbing = false
 
+@export var bullet_scene: PackedScene
+
+@export var bazooka_scene: PackedScene	
+
 @onready var health_bar = $"../HealthBar"
 
 @onready var ammo_label = $"../CanvasLayer/AmmoLabel"
@@ -42,23 +46,25 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Reload"):
 		reload()
 
-	if velocity.length() > 0 and stabbing == false:
+	if velocity.length() > 0:
 		if weapon == "arms":
 			$AnimatedSprite2D.play("walk")
 		elif weapon == "pistol":
 			$AnimatedSprite2D.play("pistol")
 		elif weapon == "bazooka":
 			$AnimatedSprite2D.play("rpg")
-		elif weapon == "knife":
+		elif weapon == "knife" and stabbing == true:
+			$AnimatedSprite2D.play("walkswing")
+		elif weapon == "knife" and stabbing == false:
 			$AnimatedSprite2D.play("shank")
 		elif weapon == "ar":
 			$AnimatedSprite2D.play("m4a1")
+		
+	elif stabbing == true:
+		$AnimatedSprite2D.play("swing")
 	else:
 		$AnimatedSprite2D.stop()
 
-@export var bullet_scene: PackedScene
-
-@export var bazooka_scene: PackedScene	
 
 func reload():	
 	$ReloadSound.play()
@@ -178,4 +184,10 @@ func swingKnife():
 	stabbing = true
 	$KnifeSound.play()
 	$AnimatedSprite2D.play("swing")
+	if velocity.length() > 0:
+		await get_tree().create_timer(0.6).timeout
+		stabbing = false
+	else:
+		await get_tree().create_timer(0.4).timeout
+		stabbing = false
 	

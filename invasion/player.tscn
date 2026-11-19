@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bkg50bxw0hl60" path="res://audio/m4a1.mp3" id="5_sweqy"]
 [ext_resource type="AudioStream" uid="uid://cvupvyrnpkyvi" path="res://audio/reload-gun-sound_CpHCnmK.mp3" id="6_2hs0m"]
 [ext_resource type="Texture2D" uid="uid://dd483ff77f42a" path="res://mainCharacter/knifeSwing.png" id="7_ivps1"]
+[ext_resource type="Texture2D" uid="uid://1fw41vsr4xhh" path="res://mainCharacter/New Piskel (9).png" id="10_bwjto"]
 [ext_resource type="AudioStream" uid="uid://di7bmfl8f5fa" path="res://audio/stab.mp3" id="11_nvl01"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
@@ -201,6 +202,42 @@ region = Rect2(0, 64, 32, 32)
 atlas = ExtResource("1_4flbx")
 region = Rect2(32, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vl8ci"]
+atlas = ExtResource("10_bwjto")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieltc"]
+atlas = ExtResource("10_bwjto")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fddr8"]
+atlas = ExtResource("10_bwjto")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oybyf"]
+atlas = ExtResource("10_bwjto")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajfva"]
+atlas = ExtResource("10_bwjto")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ef02"]
+atlas = ExtResource("10_bwjto")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfmca"]
+atlas = ExtResource("10_bwjto")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76oay"]
+atlas = ExtResource("10_bwjto")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b4uyv"]
+atlas = ExtResource("10_bwjto")
+region = Rect2(64, 64, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_h3o71"]
 animations = [{
 "frames": [{
@@ -370,6 +407,38 @@ animations = [{
 "loop": 1,
 "name": &"walk",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vl8ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieltc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fddr8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oybyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajfva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ef02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfmca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76oay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b4uyv")
+}],
+"loop": 1,
+"name": &"walkswing",
+"speed": 15.0
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=983882007 groups=["player"]]
@@ -391,9 +460,7 @@ position = Vector2(5.0000153, -0.49998474)
 rotation = 1.5707964
 scale = Vector2(3.0937502, 3)
 sprite_frames = SubResource("SpriteFrames_h3o71")
-animation = &"swing"
-frame = 1
-frame_progress = 0.9310859
+animation = &"walkswing"
 
 [node name="goon" type="Node2D" parent="." unique_id=814750388]
 position = Vector2(50, 0)
