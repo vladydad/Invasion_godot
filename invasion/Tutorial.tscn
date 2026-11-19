@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://veb1nhvkxalg"]
 
 [ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="1_jl26d"]
+[ext_resource type="PackedScene" uid="uid://2u86xvv1k8at" path="res://adrnl.tscn" id="2_5s8la"]
+[ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="3_fr6qw"]
 
 [node name="Node2D" type="Node2D" unique_id=1503440313]
 
@@ -10,7 +12,13 @@ position = Vector2(199, 171)
 [node name="HealthBar" type="ProgressBar" parent="." unique_id=228213260]
 offset_left = 12.0
 offset_top = 582.0
-offset_right = 185.0
+offset_right = 214.0
 offset_bottom = 627.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1661246907]
+
+[node name="Area2D" parent="." unique_id=2072543071 instance=ExtResource("3_fr6qw")]
+position = Vector2(419, 177)
+
+[node name="Area2D" parent="Area2D" unique_id=804367420 instance=ExtResource("2_5s8la")]
+position = Vector2(-47, 220)
