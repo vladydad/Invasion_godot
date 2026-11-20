@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var weapon = "arms"
 var speed = 280 
-var health = 50
+var health = 2
 var ammo = 0
 var fast = false
 var canShoot = true
@@ -59,8 +59,11 @@ func pickup_weapon(picked):
 func _physics_process(delta: float) -> void:
 	
 	if health<40:
-		$"../CanvasLayer2/Bloodoverlay".visibility = true
-		$"../CanvasLayer2/Bloodoverlay".play("default")
+		$"../CanvasLayer2/BloodOverlay".visible = true
+		$"../CanvasLayer2/BloodOverlay".play("blod")
+	else:
+		$"../CanvasLayer2/BloodOverlay".visible = false
+
 	
 	if Input.is_action_pressed("Reload"):
 		if weapon == "ar" or weapon == "pistol" or weapon == "bazooka":
