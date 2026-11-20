@@ -7,6 +7,7 @@ var ammo = 0
 var fast = false
 var canShoot = true
 var stabbing = false
+var m4silencer = false
 
 @export var bullet_scene: PackedScene
 
@@ -93,6 +94,12 @@ func _process(delta: float) -> void:
 	elif weapon=="pistol" and fast==false:
 		speed=280
 	
+	if Input.is_action_just_pressed("Silencer"):
+		if m4silencer == false:
+			m4silencer = true
+		else:
+			m4silencer = false
+		
 	
 	var move_direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("walkright"):
@@ -159,7 +166,11 @@ func shootm4():
 		
 		ammo = ammo -1
 		
-		$RifleSound.play()
+		if m4silencer == false:
+			$RifleSound.play()
+		else:
+			$SilencerSound.play()
+		
 		
 		await get_tree().create_timer(0.1).timeout
 		canShoot = true

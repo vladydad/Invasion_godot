@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dd483ff77f42a" path="res://mainCharacter/knifeSwing.png" id="7_ivps1"]
 [ext_resource type="Texture2D" uid="uid://1fw41vsr4xhh" path="res://mainCharacter/New Piskel (9).png" id="10_bwjto"]
 [ext_resource type="AudioStream" uid="uid://di7bmfl8f5fa" path="res://audio/stab.mp3" id="11_nvl01"]
+[ext_resource type="AudioStream" uid="uid://yvp3rixkwytc" path="res://audio/Timeline 1.mp3" id="15_606se"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
 size = Vector2(87.5, 96)
@@ -482,3 +483,8 @@ stream = ExtResource("6_2hs0m")
 [node name="KnifeSound" type="AudioStreamPlayer2D" parent="." unique_id=22093274]
 stream = ExtResource("11_nvl01")
 max_polyphony = 5
+
+[node name="SilencerSound" type="AudioStreamPlayer2D" parent="." unique_id=1708175020]
+stream = ExtResource("15_606se")
+volume_db = -0.1
+max_polyphony = 9
