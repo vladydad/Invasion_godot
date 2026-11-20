@@ -8,6 +8,7 @@ var fast = false
 var canShoot = true
 var stabbing = false
 var m4silencer = false
+var reloading = false
 
 @export var bullet_scene: PackedScene
 
@@ -38,6 +39,17 @@ func pickup_weapon(picked):
 		ammo = 10
 	elif weapon == "ar":
 		ammo = 30
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = false
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = false
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(3).timeout
+		$"../CanvasLayer/Tips1".visible = false
 	elif weapon == "bazooka":
 		ammo = 3
 
@@ -50,6 +62,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Reload"):
 		reload()
 
+	if velocity.length() > 0 and $WalkingSound.playing == false:
+		$WalkingSound.play()
+	else:
+		$WalkingSound.stop()
+		
 	if velocity.length() > 0:
 		if weapon == "arms":
 			$AnimatedSprite2D.play("walk")
@@ -71,18 +88,21 @@ func _physics_process(delta: float) -> void:
 
 
 func reload():	
+	reloading = true
 	canShoot = false
 	$ReloadSound.play()
-	await get_tree().create_timer(3).timeout
+	ammo_label.text = str("...")
+	await get_tree().create_timer(2).timeout
 	if weapon == "pistol":
 		ammo = 10
 	elif weapon == "ar":
 		ammo = 30
 	elif weapon == "bazooka":
 		ammo = 3
-	elif weapon == "knife":
-		ammo = 0
 	canShoot = true
+	ammo_label.text = str(ammo)
+	reloading = false
+
 
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -121,10 +141,8 @@ func _process(delta: float) -> void:
 			shootBazooka()
 		elif weapon == "knife":
 			swingKnife()
-	elif ammo == 0:
-		ammo_label.text = "Lader..."
-		reload()
-	ammo_label.text = str(ammo)
+	if !reloading:
+		ammo_label.text = str(ammo)
 	health_bar.value = health
 		
 	if Input.is_action_pressed("Shoot") and canShoot:
