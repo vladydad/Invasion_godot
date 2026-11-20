@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dybhleeitj6rs" path="res://rocket.gd" id="1_5gt1y"]
 [ext_resource type="Texture2D" uid="uid://bdxm5yyt1kh1g" path="res://rocket 1.png" id="1_fj03e"]
+[ext_resource type="PackedScene" uid="uid://baitj13k78uno" path="res://explosion.tscn" id="2_cum1y"]
 [ext_resource type="Texture2D" uid="uid://kpnp87ot0rf2" path="res://kaboooooom!!!!! 1.png" id="3_r2l15"]
 [ext_resource type="AudioStream" uid="uid://cgg86jw1o3k0" path="res://audio/bazooka explotion.mp3" id="4_tpb7v"]
 
@@ -106,14 +107,13 @@ animations = [{
 
 [node name="Area2D" type="Area2D" unique_id=1997041386]
 script = ExtResource("1_5gt1y")
+explode_scene = ExtResource("2_cum1y")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=957291505]
 rotation = 1.5707964
 scale = Vector2(0.10306611, 0.09962336)
 sprite_frames = SubResource("SpriteFrames_7xv1m")
-animation = &"Explode"
-frame = 7
-frame_progress = 0.81673586
+animation = &"Fly"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1062947635]
 position = Vector2(11, 1)

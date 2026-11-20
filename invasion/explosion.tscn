@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://baitj13k78uno"]
+
+[ext_resource type="Texture2D" uid="uid://kpnp87ot0rf2" path="res://kaboooooom!!!!! 1.png" id="1_q7epf"]
+[ext_resource type="Script" uid="uid://dycp36pa3qa72" path="res://explosion.gd" id="1_vxas0"]
+[ext_resource type="AudioStream" uid="uid://cgg86jw1o3k0" path="res://audio/bazooka explotion.mp3" id="3_j4sxf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
+size = Vector2(169, 166)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vxas0"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(0, 0, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4sxf"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(475, 0, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5xho"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(950, 0, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmxf7"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(0, 475, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l04k4"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(475, 475, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf70p"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(950, 475, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xjsk"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(0, 950, 475, 475)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjpps"]
+atlas = ExtResource("1_q7epf")
+region = Rect2(475, 950, 475, 475)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xv1m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vxas0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4sxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5xho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmxf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l04k4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf70p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xjsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjpps")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=1405133871]
+script = ExtResource("1_vxas0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=749847205]
+position = Vector2(2, 1)
+shape = SubResource("RectangleShape2D_7xv1m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2110161248]
+position = Vector2(1.9999962, 1.9999924)
+scale = Vector2(0.46684211, 0.47315788)
+sprite_frames = SubResource("SpriteFrames_7xv1m")
+
+[node name="ExplodeSound" type="AudioStreamPlayer2D" parent="." unique_id=1877421512]
+stream = ExtResource("3_j4sxf")
