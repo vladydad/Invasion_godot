@@ -5,12 +5,12 @@
 [node name="Node2D" type="Node2D" unique_id=1336520594]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=215244943]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1440.0
+offset_bottom = 1066.0
 texture = ExtResource("1_wtcfe")
 
 [node name="TextEdit" type="TextEdit" parent="." unique_id=938634363]
-offset_left = 227.0
-offset_top = 235.0
-offset_right = 928.0
-offset_bottom = 535.0
+offset_left = 547.0
+offset_top = 1317.0
+offset_right = 1248.0
+offset_bottom = 1617.0
