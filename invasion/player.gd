@@ -55,6 +55,8 @@ func pickup_weapon(picked):
 		$"../CanvasLayer/Tips1".visible = false
 	elif weapon == "bazooka":
 		ammo = 3
+	elif weapon == "knife":
+		ammo = 0
 
 func _physics_process(delta: float) -> void:
 	
