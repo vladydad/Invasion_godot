@@ -24,17 +24,15 @@ func _on_area_entered(area):
 	var explosion = explode_scene.instantiate()
 	get_tree().current_scene.add_child(explosion)
 	explosion.global_position = $AnimatedSprite2D.global_position
-	await get_tree().create_timer(0.9).timeout
-	queue_free()
-	
+	queue_free()	
 
 func _on_body_entered(body):
-	if exploded:
-		return
-	exploded= true
-	$AnimatedSprite2D.stop()
-	$AnimatedSprite2D.play("Explode")
+	speed = 0
 	$Explosion.play()
+	var explosion = explode_scene.instantiate()
+	get_tree().current_scene.add_child(explosion)
+	explosion.global_position = $AnimatedSprite2D.global_position
+	queue_free()	
 	if body.has_method("die"):
 		body.die()
 	
