@@ -6,7 +6,7 @@ var health = 50
 var ammo = 0
 var fast = false
 var canShoot = true
-var stabbing = false
+var stabbing = false	
 var m4silencer = false
 var reloading = false
 
@@ -19,6 +19,7 @@ var reloading = false
 @onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
+	$PickupSound.play()
 	fast = true
 	$"../CanvasLayer2/AnimatedSprite2D".visible = true
 	$"../CanvasLayer2/AnimatedSprite2D".play("default")
@@ -31,9 +32,11 @@ func highspeed():
 	$"../CanvasLayer2/AnimatedSprite2D".visible = false		
 
 func maxhealth():
+	$PickupSound.play()
 	health=100
 
 func pickup_weapon(picked):
+	$PickupSound.play()
 	weapon = picked
 	if weapon == "pistol":
 		ammo = 10
@@ -60,12 +63,9 @@ func _physics_process(delta: float) -> void:
 		$"../CanvasLayer2/Bloodoverlay".play("default")
 	
 	if Input.is_action_pressed("Reload"):
-		reload()
-
-	if velocity.length() > 0 and $WalkingSound.playing == false:
-		$WalkingSound.play()
-	else:
-		$WalkingSound.stop()
+		if weapon == "ar" or weapon == "pistol" or weapon == "bazooka":
+			reload()
+	
 		
 	if velocity.length() > 0:
 		if weapon == "arms":
@@ -80,13 +80,11 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("shank")
 		elif weapon == "ar":
 			$AnimatedSprite2D.play("m4a1")
-		
 	elif stabbing == true:
 		$AnimatedSprite2D.play("swing")
 	else:
 		$AnimatedSprite2D.stop()
-
-
+		
 func reload():	
 	reloading = true
 	canShoot = false
@@ -114,7 +112,8 @@ func _process(delta: float) -> void:
 	elif weapon=="pistol" and fast==false:
 		speed=280
 	
-	if Input.is_action_just_pressed("Silencer"):
+	if Input.is_action_just_pressed("Silencer") and weapon == "ar":
+		$ModeSound.play()
 		if m4silencer == false:
 			m4silencer = true
 		else:
@@ -132,7 +131,6 @@ func _process(delta: float) -> void:
 		move_direction.y = -1
 	velocity = move_direction * speed
 	move_and_slide()
-
 
 	if Input.is_action_just_pressed("Shoot") and canShoot:
 		if weapon == "pistol":

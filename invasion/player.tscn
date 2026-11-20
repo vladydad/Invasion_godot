@@ -15,7 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://1fw41vsr4xhh" path="res://mainCharacter/New Piskel (9).png" id="10_bwjto"]
 [ext_resource type="AudioStream" uid="uid://di7bmfl8f5fa" path="res://audio/stab.mp3" id="11_nvl01"]
 [ext_resource type="AudioStream" uid="uid://yvp3rixkwytc" path="res://audio/Timeline 1.mp3" id="15_606se"]
+[ext_resource type="AudioStream" uid="uid://l81h30portbg" path="res://audio/pickup.mp3" id="15_q13i1"]
 [ext_resource type="AudioStream" uid="uid://btj0itv330go5" path="res://audio/816017__qubodup__dry-footsteps-loop.wav" id="16_u1c27"]
+[ext_resource type="AudioStream" uid="uid://cpwjxk1oh4aay" path="res://audio/797644__cpfcfan10__generic-metallic-click-3.wav" id="17_op7ga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
 size = Vector2(87.5, 96)
@@ -485,6 +487,9 @@ stream = ExtResource("6_2hs0m")
 stream = ExtResource("11_nvl01")
 max_polyphony = 5
 
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=2042825848]
+stream = ExtResource("15_q13i1")
+
 [node name="SilencerSound" type="AudioStreamPlayer2D" parent="." unique_id=1708175020]
 stream = ExtResource("15_606se")
 volume_db = -0.4
@@ -492,3 +497,6 @@ max_polyphony = 9
 
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="." unique_id=1185203483]
 stream = ExtResource("16_u1c27")
+
+[node name="ModeSound" type="AudioStreamPlayer2D" parent="." unique_id=192684301]
+stream = ExtResource("17_op7ga")
