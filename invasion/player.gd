@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 var weapon = "arms"
 var speed = 280 
-var health = 50
+var health = 2
 var ammo = 0
 var fast = false
 var canShoot = true
-var stabbing = false
+var stabbing = false	
+var m4silencer = false
+var reloading = false
 
 @export var bullet_scene: PackedScene
 
@@ -17,6 +19,7 @@ var stabbing = false
 @onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
+	$PickupSound.play()
 	fast = true
 	$"../CanvasLayer2/AnimatedSprite2D".visible = true
 	$"../CanvasLayer2/AnimatedSprite2D".play("default")
@@ -29,26 +32,44 @@ func highspeed():
 	$"../CanvasLayer2/AnimatedSprite2D".visible = false		
 
 func maxhealth():
+	$PickupSound.play()
 	health=100
 
 func pickup_weapon(picked):
+	$PickupSound.play()
 	weapon = picked
 	if weapon == "pistol":
 		ammo = 10
 	elif weapon == "ar":
 		ammo = 30
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = false
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = false
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(3).timeout
+		$"../CanvasLayer/Tips1".visible = false
 	elif weapon == "bazooka":
 		ammo = 3
 
 func _physics_process(delta: float) -> void:
 	
 	if health<40:
-		$"../CanvasLayer2/Bloodoverlay".visibility = true
-		$"../CanvasLayer2/Bloodoverlay".play("default")
+		$"../CanvasLayer2/BloodOverlay".visible = true
+		$"../CanvasLayer2/BloodOverlay".play("blod")
+	else:
+		$"../CanvasLayer2/BloodOverlay".visible = false
+
 	
 	if Input.is_action_pressed("Reload"):
-		reload()
-
+		if weapon == "ar" or weapon == "pistol" or weapon == "bazooka":
+			reload()
+	
+		
 	if velocity.length() > 0:
 		if weapon == "arms":
 			$AnimatedSprite2D.play("walk")
@@ -62,26 +83,27 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.play("shank")
 		elif weapon == "ar":
 			$AnimatedSprite2D.play("m4a1")
-		
 	elif stabbing == true:
 		$AnimatedSprite2D.play("swing")
 	else:
 		$AnimatedSprite2D.stop()
-
-
+		
 func reload():	
+	reloading = true
 	canShoot = false
 	$ReloadSound.play()
-	await get_tree().create_timer(3).timeout
+	ammo_label.text = str("...")
+	await get_tree().create_timer(2).timeout
 	if weapon == "pistol":
 		ammo = 10
 	elif weapon == "ar":
 		ammo = 30
 	elif weapon == "bazooka":
 		ammo = 3
-	elif weapon == "knife":
-		ammo = 0
 	canShoot = true
+	ammo_label.text = str(ammo)
+	reloading = false
+
 
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
@@ -93,6 +115,13 @@ func _process(delta: float) -> void:
 	elif weapon=="pistol" and fast==false:
 		speed=280
 	
+	if Input.is_action_just_pressed("Silencer") and weapon == "ar":
+		$ModeSound.play()
+		if m4silencer == false:
+			m4silencer = true
+		else:
+			m4silencer = false
+		
 	
 	var move_direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_right") or Input.is_action_pressed("walkright"):
@@ -106,7 +135,6 @@ func _process(delta: float) -> void:
 	velocity = move_direction * speed
 	move_and_slide()
 
-
 	if Input.is_action_just_pressed("Shoot") and canShoot:
 		if weapon == "pistol":
 			shootPistol()
@@ -114,10 +142,8 @@ func _process(delta: float) -> void:
 			shootBazooka()
 		elif weapon == "knife":
 			swingKnife()
-	elif ammo == 0:
-		ammo_label.text = "Lader..."
-		reload()
-	ammo_label.text = str(ammo)
+	if !reloading:
+		ammo_label.text = str(ammo)
 	health_bar.value = health
 		
 	if Input.is_action_pressed("Shoot") and canShoot:
@@ -159,7 +185,11 @@ func shootm4():
 		
 		ammo = ammo -1
 		
-		$RifleSound.play()
+		if m4silencer == false:
+			$RifleSound.play()
+		else:
+			$SilencerSound.play()
+		
 		
 		await get_tree().create_timer(0.1).timeout
 		canShoot = true
