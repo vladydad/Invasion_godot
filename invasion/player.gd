@@ -58,6 +58,8 @@ func pickup_weapon(picked):
 	elif weapon == "knife":
 		ammo = 0
 
+#
+
 func _physics_process(delta: float) -> void:
 	
 	if health<40:
