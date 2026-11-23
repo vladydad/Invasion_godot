@@ -171,7 +171,7 @@ func shootPistol():
 		
 
 func shootm4():
-	if ammo > 0:
+	if ammo > 0 and reloading == false:
 		var bullet = bullet_scene.instantiate()
 		
 		canShoot = false
@@ -191,7 +191,6 @@ func shootm4():
 			$RifleSound.play()
 		else:
 			$SilencerSound.play()
-		
 		
 		await get_tree().create_timer(0.1).timeout
 		canShoot = true
