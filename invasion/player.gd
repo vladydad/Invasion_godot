@@ -15,7 +15,7 @@ var reloading = false
 @export var bazooka_scene: PackedScene	
 
 @onready var health_bar = $"../HealthBar"
-
+##
 @onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
@@ -107,7 +107,7 @@ func reload():
 	canShoot = true
 	ammo_label.text = str(ammo)
 	reloading = false
-
+ 
 
 func _process(delta: float) -> void:
 	look_at(get_global_mouse_position())
