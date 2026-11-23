@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var weapon = "arms"
 var speed = 280 
-var health = 2
+var health = 80
 var ammo = 0
 var fast = false
 var canShoot = true
@@ -55,6 +55,8 @@ func pickup_weapon(picked):
 		$"../CanvasLayer/Tips1".visible = false
 	elif weapon == "bazooka":
 		ammo = 3
+	elif weapon == "knife":
+		ammo = 0
 
 func _physics_process(delta: float) -> void:
 	
@@ -169,7 +171,7 @@ func shootPistol():
 		
 
 func shootm4():
-	if ammo > 0:
+	if ammo > 0 and reloading == false:
 		var bullet = bullet_scene.instantiate()
 		
 		canShoot = false
@@ -189,7 +191,6 @@ func shootm4():
 			$RifleSound.play()
 		else:
 			$SilencerSound.play()
-		
 		
 		await get_tree().create_timer(0.1).timeout
 		canShoot = true
