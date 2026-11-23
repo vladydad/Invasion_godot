@@ -14,9 +14,9 @@ var reloading = false
 
 @export var bazooka_scene: PackedScene	
 
-@onready var health_bar = $"../HealthBar"
+#@onready var health_bar = $"../HealthBar"
 
-@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
+#@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
 	$PickupSound.play()
@@ -60,11 +60,11 @@ func pickup_weapon(picked):
 
 func _physics_process(delta: float) -> void:
 	
-	if health<40:
-		$"../CanvasLayer2/BloodOverlay".visible = true
-		$"../CanvasLayer2/BloodOverlay".play("blod")
-	else:
-		$"../CanvasLayer2/BloodOverlay".visible = false
+#	if health<40:
+#		$"../CanvasLayer2/BloodOverlay".visible = true
+#		$"../CanvasLayer2/BloodOverlay".play("blod")
+#	else:
+#		$"../CanvasLayer2/BloodOverlay".visible = false
 
 	
 	if Input.is_action_pressed("Reload"):
@@ -94,7 +94,7 @@ func reload():
 	reloading = true
 	canShoot = false
 	$ReloadSound.play()
-	ammo_label.text = str("...")
+	#ammo_label.text = str("...")
 	await get_tree().create_timer(2).timeout
 	if weapon == "pistol":
 		ammo = 10
@@ -103,7 +103,7 @@ func reload():
 	elif weapon == "bazooka":
 		ammo = 3
 	canShoot = true
-	ammo_label.text = str(ammo)
+	#ammo_label.text = str(ammo)
 	reloading = false
 
 
@@ -144,9 +144,9 @@ func _process(delta: float) -> void:
 			shootBazooka()
 		elif weapon == "knife":
 			swingKnife()
-	if !reloading:
-		ammo_label.text = str(ammo)
-	health_bar.value = health
+	#if !reloading:
+		#ammo_label.text = str(ammo)
+	#health_bar.value = health
 		
 	if Input.is_action_pressed("Shoot") and canShoot:
 		if weapon == "ar":
