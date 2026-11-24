@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var weapon = "arms"
 var speed = 280 
-var health = 80
+var health = 100
 var ammo = 0
 var fast = false
 var canShoot = true
