@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dayhhajkgetlg"]
+
+[ext_resource type="Texture2D" uid="uid://dv24maobp7xri" path="res://map/bil deco.png" id="1_7822p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
+size = Vector2(81, 130)
+
+[node name="Area2D" type="Area2D" unique_id=2014961891]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2126593274]
+position = Vector2(-1.2812425, 0.99999225)
+scale = Vector2(0.10450002, 0.083749995)
+texture = ExtResource("1_7822p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415275390]
+position = Vector2(-0.062496185, 0)
+shape = SubResource("RectangleShape2D_7xv1m")

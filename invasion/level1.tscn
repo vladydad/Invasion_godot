@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="2_dopym"]
 [ext_resource type="Texture2D" uid="uid://ckx8cgkb1nfu6" path="res://map/tilesheet 1 (1).png" id="2_ootpb"]
 [ext_resource type="PackedScene" uid="uid://djmahlup64ud1" path="res://tank.tscn" id="4_v38iq"]
+[ext_resource type="PackedScene" uid="uid://dayhhajkgetlg" path="res://car.tscn" id="5_5j5gb"]
 [ext_resource type="Texture2D" uid="uid://cje1mhe5b65s5" path="res://icons/healthbarlong.png" id="6_i2041"]
 [ext_resource type="Texture2D" uid="uid://cc6i4snu8kjoq" path="res://icons/adrenlalin overlay.png" id="7_usj0q"]
 [ext_resource type="Texture2D" uid="uid://p3e1sqrprqed" path="res://icons/healthbarredlong.png" id="7_xy4tn"]
@@ -142,6 +143,10 @@ position = Vector2(986, 1001)
 
 [node name="Area2D" parent="." unique_id=656003086 instance=ExtResource("4_v38iq")]
 position = Vector2(297, 543)
+
+[node name="Area2D" parent="Area2D" unique_id=2014961891 instance=ExtResource("5_5j5gb")]
+position = Vector2(1024, -101)
+rotation = 1.5759238
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1269337800]
 
