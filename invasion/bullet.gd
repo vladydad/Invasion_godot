@@ -1,4 +1,3 @@
-
 extends Area2D
 
 var speed = 700
@@ -13,9 +12,6 @@ func _physics_process(delta):
 
 
 func _on_body_entered(body):
-	print("ПУЛЯ ПОПАЛА!")
-
 	if body.is_in_group("NPC"):
-		print("ЭТО NPC!")
 		body.die()
 		queue_free()

@@ -1,4 +1,5 @@
 
+
 extends CharacterBody2D
 
 var speed = 50
@@ -63,10 +64,17 @@ func _physics_process(delta):
 		direction = Vector2.UP
 	if position.y < min_y:
 		direction = Vector2.DOWN
-		
+
+
 func die():
-	$AnimatedSprite2D.play("DEAD")
-	
+	if dead:
+		return
+
+	dead = true
+	velocity = Vector2.ZERO
+	anim.play("DEAD")
+
+
 func _on_animation_finished():
-	if $AnimatedSprite2D.animation == "DEAD":
+	if anim.animation == "DEAD":
 		queue_free()

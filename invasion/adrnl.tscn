@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://2u86xvv1k8at"]
 
-[ext_resource type="Texture2D" uid="uid://iu2isvhu2f0u" path="res://adrenalin shot.png" id="1_0o38v"]
+[ext_resource type="Texture2D" uid="uid://iu2isvhu2f0u" path="res://icons/adrenalin shot.png" id="1_0o38v"]
 [ext_resource type="Script" uid="uid://d08xxbewx2gfi" path="res://adrnl.gd" id="1_t1unx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://chmkb763owehx"]
 
-[ext_resource type="Texture2D" uid="uid://6kxrov4gayyy" path="res://rpg 1.png" id="1_chv45"]
+[ext_resource type="Texture2D" uid="uid://6kxrov4gayyy" path="res://icons/rpg 1.png" id="1_chv45"]
 [ext_resource type="Script" uid="uid://b8yuvdbwlt7l8" path="res://bazooka.gd" id="1_ryrmo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
