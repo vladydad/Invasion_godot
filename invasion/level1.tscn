@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://ckx8cgkb1nfu6" path="res://map/tilesheet 1 (1).png" id="2_ootpb"]
 [ext_resource type="PackedScene" uid="uid://djmahlup64ud1" path="res://tank.tscn" id="4_v38iq"]
 [ext_resource type="Texture2D" uid="uid://cje1mhe5b65s5" path="res://icons/healthbarlong.png" id="6_i2041"]
-[ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="7_i2041"]
 [ext_resource type="Texture2D" uid="uid://cc6i4snu8kjoq" path="res://icons/adrenlalin overlay.png" id="7_usj0q"]
 [ext_resource type="Texture2D" uid="uid://p3e1sqrprqed" path="res://icons/healthbarredlong.png" id="7_xy4tn"]
 [ext_resource type="Texture2D" uid="uid://cdgexn1vldece" path="res://blood overlay.png" id="8_usj0q"]
+[ext_resource type="PackedScene" uid="uid://bx5e6tipyhger" path="res://chuk.tscn" id="9_usj0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dopym"]
 texture = ExtResource("1_jwv3a")
@@ -155,18 +155,31 @@ texture_under = ExtResource("6_i2041")
 texture_progress = ExtResource("7_xy4tn")
 
 [node name="Tips1" type="Label" parent="CanvasLayer" unique_id=1923445102]
-offset_right = 40.0
-offset_bottom = 23.0
+visible = false
+offset_left = 72.0
+offset_top = 36.0
+offset_right = 542.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 50
+text = "Trykk på R for å reloade"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=2117451719]
+visible = false
+position = Vector2(733.5, 541)
+scale = Vector2(36.675, 36.066666)
 sprite_frames = SubResource("SpriteFrames_7xv1m")
 
 [node name="BloodOverlay" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1999717574]
+visible = false
+position = Vector2(735, 545)
+scale = Vector2(36.75, 36.333332)
 sprite_frames = SubResource("SpriteFrames_h3o71")
 
 [node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=2055465420]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 1356.0
+offset_top = 1016.0
+offset_right = 1442.0
+offset_bottom = 1076.0
 
-[node name="Area2D2" parent="." unique_id=2072543071 instance=ExtResource("7_i2041")]
-position = Vector2(908, 900)
+[node name="Area2D2" parent="." unique_id=202227351 instance=ExtResource("9_usj0q")]
+position = Vector2(953, 735)
