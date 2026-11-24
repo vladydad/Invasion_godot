@@ -13307,10 +13307,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p0soq"]
-radius = 39.0
-height = 80.0
-
 [node name="Node" type="Node" unique_id=1893796967]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1041735335]
@@ -13333,10 +13329,6 @@ animation = &"IDLE"
 [node name="Area2D" type="Area2D" parent="NPC1" unique_id=1296084405]
 scale = Vector2(1, 0.99999994)
 script = ExtResource("7_cy3bc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC1/Area2D" unique_id=1909058975]
-position = Vector2(892, 420.00003)
-shape = SubResource("CapsuleShape2D_p0soq")
 
 [node name="NPC2" type="CharacterBody2D" parent="." unique_id=555378700 groups=["npcs"]]
 script = ExtResource("1_qm8nd")
