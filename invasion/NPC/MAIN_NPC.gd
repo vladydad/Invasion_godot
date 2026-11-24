@@ -78,3 +78,8 @@ func die():
 func _on_animation_finished():
 	if anim.animation == "DEAD":
 		queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("bullets"):
+		die()

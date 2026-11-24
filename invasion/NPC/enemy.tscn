@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://dndv3aehmsx5r"]
+
+[ext_resource type="Script" uid="uid://crw5thdd2brw3" path="res://NPC/MAIN_NPC.gd" id="1_iq6qo"]
+[ext_resource type="Texture2D" uid="uid://c4kfi5igiq0wp" path="res://Basic alien death.png" id="2_s35jj"]
+[ext_resource type="Texture2D" uid="uid://es731ct6y7v1" path="res://NPC/basic Alien spritesheet.png" id="3_7cugn"]
+[ext_resource type="Script" uid="uid://j17huar228sn" path="res://NPC/area_npc.gd" id="4_x516l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy3bc"]
+atlas = ExtResource("2_s35jj")
+region = Rect2(0, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sao2"]
+atlas = ExtResource("3_7cugn")
+region = Rect2(0, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5vbj"]
+atlas = ExtResource("3_7cugn")
+region = Rect2(640, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tciug"]
+atlas = ExtResource("3_7cugn")
+region = Rect2(0, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bksm8"]
+atlas = ExtResource("3_7cugn")
+region = Rect2(640, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc52h"]
+atlas = ExtResource("3_7cugn")
+region = Rect2(0, 960, 640, 960)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ial2q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy3bc")
+}],
+"loop": 1,
+"name": &"DEAD",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sao2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5vbj")
+}],
+"loop": 1,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tciug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bksm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jc52h")
+}],
+"loop": 1,
+"name": &"WALK",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vloia"]
+radius = 28.460499
+
+[node name="NPC1" type="CharacterBody2D" unique_id=1095723568 groups=["npcs", "player"]]
+script = ExtResource("1_iq6qo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1817849733]
+z_index = 1
+z_as_relative = false
+scale = Vector2(0.11367172, 0.08281251)
+sprite_frames = SubResource("SpriteFrames_ial2q")
+animation = &"IDLE"
+
+[node name="Timer" type="Timer" parent="." unique_id=691553759]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1079016407]
+scale = Vector2(1, 0.99999994)
+script = ExtResource("4_x516l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1458184886]
+shape = SubResource("CircleShape2D_vloia")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
