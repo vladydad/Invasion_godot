@@ -42,17 +42,17 @@ func pickup_weapon(picked):
 		ammo = 10
 	elif weapon == "ar":
 		ammo = 30
-		$"../CanvasLayer/Tips1".visible = true
-		await get_tree().create_timer(0.3).timeout
-		$"../CanvasLayer/Tips1".visible = false
-		await get_tree().create_timer(0.3).timeout
-		$"../CanvasLayer/Tips1".visible = true
-		await get_tree().create_timer(0.3).timeout
-		$"../CanvasLayer/Tips1".visible = false
-		await get_tree().create_timer(0.3).timeout
-		$"../CanvasLayer/Tips1".visible = true
-		await get_tree().create_timer(3).timeout
-		$"../CanvasLayer/Tips1".visible = false
+		#$"../CanvasLayer/Tips1".visible = true
+		#await get_tree().create_timer(0.3).timeout
+		#$"../CanvasLayer/Tips1".visible = false
+		#await get_tree().create_timer(0.3).timeout
+		#$"../CanvasLayer/Tips1".visible = true
+		#await get_tree().create_timer(0.3).timeout
+		#$"../CanvasLayer/Tips1".visible = false
+		#await get_tree().create_timer(0.3).timeout
+		#$"../CanvasLayer/Tips1".visible = true
+		#await get_tree().create_timer(3).timeout
+		#$"../CanvasLayer/Tips1".visible = false
 	elif weapon == "bazooka":
 		ammo = 3
 	elif weapon == "knife":

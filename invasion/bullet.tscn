@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
 radius = 4.0
 
-[node name="Area2D" type="Area2D" unique_id=498525149]
+[node name="Area2D" type="Area2D" unique_id=498525149 groups=["bullets", "globalBullets"]]
 scale = Vector2(1, 1.0155045)
 script = ExtResource("1_v8qja")
 
