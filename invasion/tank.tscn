@@ -3,15 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://ctbkyaoboeojd" path="res://map/tank for deco.png" id="1_6lwfj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nfc4p"]
-size = Vector2(239, 320)
+size = Vector2(177.5, 251)
 
 [node name="Area2D" type="Area2D" unique_id=656003086]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1645162786]
-position = Vector2(1.5000086, -30.000002)
-scale = Vector2(0.271875, 0.25234374)
+position = Vector2(28, 9)
+rotation = 1.5707964
+scale = Vector2(0.20533389, 0.19554622)
 texture = ExtResource("1_6lwfj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1720329073]
-position = Vector2(1, -1)
+position = Vector2(5, 5.999996)
+rotation = 1.5707964
 shape = SubResource("RectangleShape2D_nfc4p")
