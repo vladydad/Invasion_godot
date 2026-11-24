@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dp16ku1ngfjtg" path="res://tilesheet 1.png" id="2_cf5bg"]
 [ext_resource type="TileSet" uid="uid://c106qk538xs7i" path="res://new_tile_set.tres" id="2_flm4b"]
 [ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="3_flm4b"]
+[ext_resource type="PackedScene" uid="uid://f37sgwcrfeto" path="res://pistol.tscn" id="4_flm4b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bwbs4"]
 texture = ExtResource("2_cf5bg")
@@ -12531,4 +12532,6 @@ tile_set = ExtResource("2_flm4b")
 position = Vector2(762, 760)
 rotation = -1.5707964
 scale = Vector2(2.05, 2.05)
-bullet_scene = null
+
+[node name="Area2D" parent="." unique_id=1734879823 instance=ExtResource("4_flm4b")]
+position = Vector2(746, 520)
