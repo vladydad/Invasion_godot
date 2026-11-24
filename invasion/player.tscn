@@ -502,5 +502,3 @@ stream = ExtResource("16_u1c27")
 
 [node name="ModeSound" type="AudioStreamPlayer2D" parent="." unique_id=192684301]
 stream = ExtResource("17_op7ga")
-
-[node name="Area2D" parent="." unique_id=498525149 instance=ExtResource("2_i3pqv")]
