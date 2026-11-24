@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iu2isvhu2f0u"
-path="res://.godot/imported/adrenalin shot.png-fdb1334cf4cd8c517644d911e24f1ec5.ctex"
+uid="uid://ctmcgnktut7b1"
+path="res://.godot/imported/boolet.png-4c499239ae973980f05b5dc0dfaf683c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://adrenalin shot.png"
-dest_files=["res://.godot/imported/adrenalin shot.png-fdb1334cf4cd8c517644d911e24f1ec5.ctex"]
+source_file="res://icons/boolet.png"
+dest_files=["res://.godot/imported/boolet.png-4c499239ae973980f05b5dc0dfaf683c.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6vynyqeuo1kc"
-path="res://.godot/imported/1-handgun-png-image.png-712418c421648c961e71a8f62642f505.ctex"
+uid="uid://cc6i4snu8kjoq"
+path="res://.godot/imported/adrenlalin overlay.png-59c82aad2d2595e7e43fb94adfc1c198.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://1-handgun-png-image.png"
-dest_files=["res://.godot/imported/1-handgun-png-image.png-712418c421648c961e71a8f62642f505.ctex"]
+source_file="res://icons/adrenlalin overlay.png"
+dest_files=["res://.godot/imported/adrenlalin overlay.png-59c82aad2d2595e7e43fb94adfc1c198.ctex"]
 
 [params]
 

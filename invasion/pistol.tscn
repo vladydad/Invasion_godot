@@ -1,19 +1,18 @@
 [gd_scene format=3 uid="uid://f37sgwcrfeto"]
 
-[ext_resource type="Texture2D" uid="uid://cfts57fna2i8c" path="res://pistol-pickup.png" id="1_08c3m"]
+[ext_resource type="Texture2D" uid="uid://cfts57fna2i8c" path="res://icons/pistol-pickup.png" id="1_08c3m"]
 [ext_resource type="Script" uid="uid://xkipu867dxa4" path="res://pistol.gd" id="1_bttkv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
-size = Vector2(54.1875, 37.5)
+size = Vector2(86, 54.75)
 
 [node name="Area2D" type="Area2D" unique_id=1734879823]
 script = ExtResource("1_bttkv")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=50976255]
-position = Vector2(8.374994, -2)
-scale = Vector2(0.09617459, 0.0823276)
+position = Vector2(16, -5.0000014)
+scale = Vector2(0.13281251, 0.11530173)
 texture = ExtResource("1_08c3m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=796896865]
-position = Vector2(-2.09375, 0)
 shape = SubResource("RectangleShape2D_7xv1m")

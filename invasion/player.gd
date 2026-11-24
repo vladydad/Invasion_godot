@@ -151,7 +151,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("Shoot") and canShoot:
 		if weapon == "ar":
 			shootm4()
-	
+
 func shootPistol():
 	if ammo > 0:
 		var bullet = bullet_scene.instantiate()

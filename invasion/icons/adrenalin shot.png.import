@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw1wcg7k5l81g"
-path="res://.godot/imported/crosshair 3.png-48698365c44a41398eca5bf855614c10.ctex"
+uid="uid://iu2isvhu2f0u"
+path="res://.godot/imported/adrenalin shot.png-31aecbd017353a1d4595b7184963cfac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://crosshair 3.png"
-dest_files=["res://.godot/imported/crosshair 3.png-48698365c44a41398eca5bf855614c10.ctex"]
+source_file="res://icons/adrenalin shot.png"
+dest_files=["res://.godot/imported/adrenalin shot.png-31aecbd017353a1d4595b7184963cfac.ctex"]
 
 [params]
 

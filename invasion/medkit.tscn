@@ -5,18 +5,17 @@
 [ext_resource type="AudioStream" uid="uid://l81h30portbg" path="res://audio/pickup.mp3" id="3_6guc2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
-size = Vector2(52.25, 51)
+size = Vector2(73, 68)
 
 [node name="Area2D" type="Area2D" unique_id=1439943726]
 script = ExtResource("1_22oi4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1470363121]
-position = Vector2(1.9999981, -19.000004)
-scale = Vector2(0.088900894, 0.09159486)
+position = Vector2(-1, -21)
+scale = Vector2(0.11341596, 0.11799571)
 texture = ExtResource("1_7hg4a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=581869450]
-position = Vector2(1.875, -5.5)
 shape = SubResource("RectangleShape2D_7xv1m")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="." unique_id=877078260]
