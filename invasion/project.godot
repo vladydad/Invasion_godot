@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="Invasion"
-run/main_scene="uid://cekiqmf708674"
+run/main_scene="uid://bcydtpj1fieom"
 config/features=PackedStringArray("4.7", "Forward Plus")
+<<<<<<<HEADrun/main_scene="uid://cekiqmf708674"
 
 [display]
 
