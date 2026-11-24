@@ -232,3 +232,10 @@ func swingKnife():
 		stabbing = false
 		canShoot = true
 	
+
+func take_damage(amount):
+	health -= amount
+	health = max(health, 0)
+
+	if health <= 0:
+		print("PLAYER DEAD")

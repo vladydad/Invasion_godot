@@ -7,6 +7,8 @@ var direction = Vector2.RIGHT
 var stopped = false
 var dead = false
 
+var damage_cooldown = 0.0
+var damage = 10
 var min_x = -50
 var max_x = 50
 var min_y = -50
@@ -42,10 +44,38 @@ func random_walk():
 		await get_tree().create_timer(2).timeout
 
 
+
 func _physics_process(delta):
 	if dead:
 		velocity = Vector2.ZERO
 		return
+
+	if damage_cooldown > 0:
+		damage_cooldown -= delta
+
+	var player = get_tree().get_first_node_in_group("Player")
+
+	if player == null:
+		velocity = Vector2.ZERO
+		anim.play("IDLE")
+		return
+
+	var distance = global_position.distance_to(player.global_position)
+	var direction = (player.global_position - global_position).normalized()
+
+	if distance > 35:
+		velocity = direction * speed
+		anim.play("WALK")
+		move_and_slide()
+	else:
+		velocity = Vector2.ZERO
+		move_and_slide()
+
+		if damage_cooldown <= 0:
+			anim.play("ATTACK")
+			player.take_damage(damage)
+			damage_cooldown = 1.0
+
 
 	if stopped:
 		velocity = Vector2.ZERO
