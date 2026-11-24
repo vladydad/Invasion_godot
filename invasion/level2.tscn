@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bkjfawpatp8f4" path="res://map/rooftop+litt extra vei pynt.png" id="2_6q4t8"]
 [ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="3_6q4t8"]
 [ext_resource type="Texture2D" uid="uid://c1yjefjefgnpu" path="res://map/tak.png" id="4_r6vdu"]
+[ext_resource type="Texture2D" uid="uid://cgpyoxff3yo10" path="res://map/trash.png" id="5_21xmu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tcn8"]
 texture = ExtResource("1_r40rm")
@@ -78,11 +79,22 @@ texture = ExtResource("2_6q4t8")
 texture = ExtResource("4_r6vdu")
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8i3m3"]
+texture = ExtResource("5_21xmu")
+texture_region_size = Vector2i(19, 19)
+1:1/0 = 0
+1:0/0 = 0
+0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_nfc4p"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8tcn8")
 sources/1 = SubResource("TileSetAtlasSource_r6vdu")
 sources/2 = SubResource("TileSetAtlasSource_21xmu")
+sources/3 = SubResource("TileSetAtlasSource_8i3m3")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8tcn8"]
 atlas = ExtResource("2_6q4t8")
@@ -120,6 +132,19 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rmy57"]
+texture = ExtResource("5_21xmu")
+texture_region_size = Vector2i(19, 19)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_7xv1m"]
+sources/0 = SubResource("TileSetAtlasSource_rmy57")
+
 [node name="Node2D" type="Node2D" unique_id=1200433817]
 script = ExtResource("1_8tcn8")
 
@@ -141,6 +166,11 @@ rotation = 1.5707964
 scale = Vector2(5.7187514, 6.09375)
 sprite_frames = SubResource("SpriteFrames_nfc4p")
 animation = &"new_animation"
+
+[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1872517997]
+scale = Vector2(4, 4)
+tile_map_data = PackedByteArray("AAAUAA8AAAABAAEAAAALABAAAAAAAAAAAAAJAAwAAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_7xv1m")
 
 [node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("3_6q4t8")]
 position = Vector2(1147, 850)

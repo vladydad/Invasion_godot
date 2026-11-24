@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="2_dopym"]
 [ext_resource type="Texture2D" uid="uid://ckx8cgkb1nfu6" path="res://map/tilesheet 1 (1).png" id="2_ootpb"]
 [ext_resource type="PackedScene" uid="uid://djmahlup64ud1" path="res://tank.tscn" id="4_v38iq"]
-[ext_resource type="PackedScene" uid="uid://chmkb763owehx" path="res://bazooka.tscn" id="5_v8kj3"]
 [ext_resource type="Texture2D" uid="uid://cje1mhe5b65s5" path="res://icons/healthbarlong.png" id="6_i2041"]
+[ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="7_i2041"]
+[ext_resource type="Texture2D" uid="uid://cc6i4snu8kjoq" path="res://icons/adrenlalin overlay.png" id="7_usj0q"]
 [ext_resource type="Texture2D" uid="uid://p3e1sqrprqed" path="res://icons/healthbarredlong.png" id="7_xy4tn"]
+[ext_resource type="Texture2D" uid="uid://cdgexn1vldece" path="res://blood overlay.png" id="8_usj0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dopym"]
 texture = ExtResource("1_jwv3a")
@@ -70,6 +72,64 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dopym")
 sources/2 = SubResource("TileSetAtlasSource_v38iq")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j5gb"]
+atlas = ExtResource("7_usj0q")
+region = Rect2(0, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx85b"]
+atlas = ExtResource("7_usj0q")
+region = Rect2(0, 30, 40, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xv1m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j5gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx85b")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx44q"]
+atlas = ExtResource("8_usj0q")
+region = Rect2(0, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8vhr"]
+atlas = ExtResource("8_usj0q")
+region = Rect2(40, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqrsh"]
+atlas = ExtResource("8_usj0q")
+region = Rect2(0, 30, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l65w"]
+atlas = ExtResource("8_usj0q")
+region = Rect2(40, 30, 40, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h3o71"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx44q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8vhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqrsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l65w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Node2D" type="Node2D" unique_id=1584908530]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=622301619]
@@ -83,9 +143,6 @@ position = Vector2(986, 1001)
 [node name="Area2D" parent="." unique_id=656003086 instance=ExtResource("4_v38iq")]
 position = Vector2(297, 543)
 
-[node name="Area2D2" parent="." unique_id=256471275 instance=ExtResource("5_v8kj3")]
-position = Vector2(954, 731)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1269337800]
 
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=909707616]
@@ -96,3 +153,20 @@ offset_bottom = 1048.0
 nine_patch_stretch = true
 texture_under = ExtResource("6_i2041")
 texture_progress = ExtResource("7_xy4tn")
+
+[node name="Tips1" type="Label" parent="CanvasLayer" unique_id=1923445102]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=2117451719]
+sprite_frames = SubResource("SpriteFrames_7xv1m")
+
+[node name="BloodOverlay" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1999717574]
+sprite_frames = SubResource("SpriteFrames_h3o71")
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=2055465420]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Area2D2" parent="." unique_id=2072543071 instance=ExtResource("7_i2041")]
+position = Vector2(908, 900)

@@ -14,9 +14,9 @@ var reloading = false
 
 @export var bazooka_scene: PackedScene	
 
-#@onready var health_bar = $"../HealthBar"
+@onready var health_bar = $"../CanvasLayer/HealthBar"
 
-#@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
+@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
 	$PickupSound.play()
@@ -42,17 +42,17 @@ func pickup_weapon(picked):
 		ammo = 10
 	elif weapon == "ar":
 		ammo = 30
-		#$"../CanvasLayer/Tips1".visible = true
-		#await get_tree().create_timer(0.3).timeout
-		#$"../CanvasLayer/Tips1".visible = false
-		#await get_tree().create_timer(0.3).timeout
-		#$"../CanvasLayer/Tips1".visible = true
-		#await get_tree().create_timer(0.3).timeout
-		#$"../CanvasLayer/Tips1".visible = false
-		#await get_tree().create_timer(0.3).timeout
-		#$"../CanvasLayer/Tips1".visible = true
-		#await get_tree().create_timer(3).timeout
-		#$"../CanvasLayer/Tips1".visible = false
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = false
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = false
+		await get_tree().create_timer(0.3).timeout
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(3).timeout
+		$"../CanvasLayer/Tips1".visible = false
 	elif weapon == "bazooka":
 		ammo = 3
 	elif weapon == "knife":
@@ -60,11 +60,11 @@ func pickup_weapon(picked):
 
 func _physics_process(delta: float) -> void:
 	
-#	if health<40:
-#		$"../CanvasLayer2/BloodOverlay".visible = true
-#		$"../CanvasLayer2/BloodOverlay".play("blod")
-#	else:
-#		$"../CanvasLayer2/BloodOverlay".visible = false
+	if health<40:
+		$"../CanvasLayer/BloodOverlay".visible = true
+		$"../CanvasLayer/BloodOverlay".play("blod")
+	else:
+		$"../CanvasLayer/BloodOverlay".visible = false
 
 	
 	if Input.is_action_pressed("Reload"):
@@ -144,9 +144,9 @@ func _process(delta: float) -> void:
 			shootBazooka()
 		elif weapon == "knife":
 			swingKnife()
-	#if !reloading:
-		#ammo_label.text = str(ammo)
-	#health_bar.value = health
+	if !reloading:
+		ammo_label.text = str(ammo)
+	health_bar.value = health
 		
 	if Input.is_action_pressed("Shoot") and canShoot:
 		if weapon == "ar":
