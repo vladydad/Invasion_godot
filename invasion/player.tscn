@@ -466,7 +466,7 @@ position = Vector2(5.0000153, -0.49998474)
 rotation = 1.5707964
 scale = Vector2(3.0937502, 3)
 sprite_frames = SubResource("SpriteFrames_h3o71")
-animation = &"rpg"
+animation = &"walk"
 
 [node name="goon" type="Node2D" parent="." unique_id=814750388]
 position = Vector2(50, 0)
@@ -502,3 +502,5 @@ stream = ExtResource("16_u1c27")
 
 [node name="ModeSound" type="AudioStreamPlayer2D" parent="." unique_id=192684301]
 stream = ExtResource("17_op7ga")
+
+[node name="Area2D" parent="." unique_id=498525149 instance=ExtResource("2_i3pqv")]
