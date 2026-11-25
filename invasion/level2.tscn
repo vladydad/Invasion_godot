@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://c1yjefjefgnpu" path="res://map/tak.png" id="4_r6vdu"]
 [ext_resource type="Texture2D" uid="uid://cgpyoxff3yo10" path="res://map/trash.png" id="5_21xmu"]
 [ext_resource type="Texture2D" uid="uid://cdgexn1vldece" path="res://blood overlay.png" id="5_s8oj7"]
+[ext_resource type="PackedScene" uid="uid://f37sgwcrfeto" path="res://pistol.tscn" id="11_3opl0"]
+[ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="12_dc5vx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5j5gb"]
 atlas = ExtResource("4_dc5vx")
@@ -274,3 +276,9 @@ tile_set = SubResource("TileSet_7xv1m")
 
 [node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("3_6q4t8")]
 position = Vector2(1147, 850)
+
+[node name="Area2D" parent="." unique_id=1734879823 instance=ExtResource("11_3opl0")]
+position = Vector2(1063, 876)
+
+[node name="Area2D2" parent="." unique_id=2072543071 instance=ExtResource("12_dc5vx")]
+position = Vector2(1220, 240)
