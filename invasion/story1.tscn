@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c3o7130nim8ro"]
+
+[ext_resource type="Script" uid="uid://jiu8c8cckydl" path="res://story_1.gd" id="1_pff7d"]
+[ext_resource type="Texture2D" uid="uid://6cu3ijl1aegu" path="res://story/New Piskel (67) (1).png" id="1_y8xsu"]
+[ext_resource type="Texture2D" uid="uid://c2rdueuygya6c" path="res://icons/fc18.png" id="3_o6p2t"]
+
+[node name="Node2D" type="Node2D" unique_id=1218268370]
+script = ExtResource("1_pff7d")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1091827981]
+offset_left = -38.0
+offset_top = -6.0
+offset_right = 1472.0
+offset_bottom = 1107.0
+color = Color(0, 0, 0, 1)
+
+[node name="NewPiskel(67)(1)" type="Sprite2D" parent="." unique_id=1020052530]
+position = Vector2(710, 391)
+scale = Vector2(6.6150002, 6.41)
+texture = ExtResource("1_y8xsu")
+
+[node name="Label" type="Label" parent="." unique_id=1561641307]
+offset_left = 302.0
+offset_top = 809.0
+offset_right = 1156.0
+offset_bottom = 972.0
+theme_override_font_sizes/font_size = 50
+text = "Birdland var et demokratisk land
+der frihet, likhet og fred blomstret."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Next" type="Sprite2D" parent="." unique_id=645019414]
+position = Vector2(1349.1622, 998.43335)
+rotation = 4.712389
+scale = Vector2(0.19523443, 0.20008957)
+texture = ExtResource("3_o6p2t")
