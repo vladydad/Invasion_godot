@@ -1,18 +1,19 @@
 
+extends CharacterBody2D
+
 @export var speed: float = 50.0
 @export var chase_speed: float = 90.0
 @export var damage: int = 10
 @export var attack_damage_cooldown: float = 1.0
-@export var reaction_time: float = 0.4       # hvor lenge NPC-en ser på spilleren før den løper
-@export var sprite_faces_right: bool = true  # sett til false hvis sprite ser mot VENSTRE som standard
+@export var reaction_time: float = 0.4
+@export var sprite_faces_right: bool = true
 
+var target = null
 @onready var anim = $AnimatedSprite2D
 
 var direction = Vector2.RIGHT
 var stopped = false
 var dead = false
-
-var target = null
 var player_in_range = false
 var can_attack = true
 var reacting = false
@@ -30,9 +31,18 @@ func random_walk():
 			await get_tree().create_timer(0.5).timeout
 			continue
 
-		direction = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN].pick_random()
+		direction = [
+			Vector2.RIGHT,
+			Vector2.LEFT,
+			Vector2.UP,
+			Vector2.DOWN
+		].pick_random()
+
 		stopped = false
 		await get_tree().create_timer(2).timeout
+
+		if dead:
+			return
 
 		stopped = true
 		await get_tree().create_timer(2).timeout
@@ -54,6 +64,7 @@ func _physics_process(_delta):
 		else:
 			var dir = (target.global_position - global_position).normalized()
 			velocity = dir * chase_speed
+
 	elif stopped:
 		velocity = Vector2.ZERO
 	else:
@@ -67,6 +78,7 @@ func _physics_process(_delta):
 func face_towards(dx: float):
 	if abs(dx) < 1.0:
 		return
+
 	var looking_right = dx > 0
 	anim.flip_h = (looking_right != sprite_faces_right)
 
@@ -74,6 +86,7 @@ func face_towards(dx: float):
 func update_animation():
 	if attacking:
 		return
+
 	if velocity.length() > 1.0:
 		anim.play("WALK")
 	else:
@@ -83,18 +96,19 @@ func update_animation():
 func try_attack():
 	if not can_attack:
 		return
-	if target.get("is_dead") == true:
+
+	if not is_instance_valid(target):
+		return
+
+	if target.get("health") != null and target.health <= 0:
 		return
 
 	can_attack = false
 	attacking = true
 	anim.play("ATTACK")
 
-	# Bruker take_damage hvis spilleren har det, ellers dør spilleren med en gang
 	if target.has_method("take_damage"):
 		target.take_damage(damage)
-	elif target.has_method("die"):
-		target.die()
 
 	await get_tree().create_timer(0.6).timeout
 	attacking = false
@@ -104,7 +118,6 @@ func try_attack():
 
 
 func die():
-	print("die() вызвана")
 	if dead:
 		return
 
@@ -114,7 +127,6 @@ func die():
 	player_in_range = false
 	attacking = false
 
-	# slå av sonene så den ikke oppdager/angriper mer
 	for zone_name in ["DetectionArea", "AttackRange"]:
 		var zone = get_node_or_null(zone_name)
 		if zone:
@@ -132,22 +144,23 @@ func _is_player(body) -> bool:
 	return body.is_in_group("player") or body.is_in_group("Player")
 
 
-# --- Kule treffer NPC (din gamle Area2D) ---
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("ЗОНА ПОПАДАНИЯ: ", area.name, " группы: ", area.get_groups())
 	if area.is_in_group("bullets"):
 		die()
 
 
-# --- DetectionArea ---
 func _on_detection_area_body_entered(body):
 	if dead or not _is_player(body):
 		return
+
 	if target == null:
 		target = body
 		reacting = true
 		await get_tree().create_timer(reaction_time).timeout
-		reacting = false
+
+		if not dead and is_instance_valid(target):
+			reacting = false
+
 
 func _on_detection_area_body_exited(body):
 	if body == target:
@@ -155,10 +168,10 @@ func _on_detection_area_body_exited(body):
 		reacting = false
 
 
-# --- AttackRange ---
 func _on_attack_range_body_entered(body):
 	if _is_player(body):
 		player_in_range = true
+
 
 func _on_attack_range_body_exited(body):
 	if _is_player(body):
