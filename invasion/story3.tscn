@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://ytnnhkw6gwug"]
+
+[ext_resource type="Script" uid="uid://1t8gdnfo3wxv" path="res://story_3.gd" id="1_jawxx"]
+[ext_resource type="Texture2D" uid="uid://c6j8a5mr7fli0" path="res://story/New Piskel (50) copy (1).png" id="2_5pcct"]
+[ext_resource type="Texture2D" uid="uid://c2rdueuygya6c" path="res://icons/fc18.png" id="3_wv0md"]
+
+[node name="Node2D" type="Node2D" unique_id=1218268370]
+script = ExtResource("1_jawxx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1091827981]
+offset_left = -38.0
+offset_top = -6.0
+offset_right = 1472.0
+offset_bottom = 1107.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="NewPiskel(67)(1)" type="Sprite2D" parent="." unique_id=1020052530]
+position = Vector2(709.5, 391)
+scale = Vector2(4.9924245, 4.8030305)
+texture = ExtResource("2_5pcct")
+
+[node name="Label" type="Label" parent="." unique_id=1561641307]
+offset_left = 18.0
+offset_top = 699.0
+offset_right = 1494.0
+offset_bottom = 1128.0
+theme_override_font_sizes/font_size = 50
+text = "Avvisningen utløste en stor krig
+ som har pågått i årevis.  Likevel fortsetter vi
+ motstanden for friheten! Da blir det din oppgave 
+som nasjonens helt å redde Birdland 
+ved å drepe alle de fascistiske aliens!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Next" type="Sprite2D" parent="." unique_id=645019414]
+position = Vector2(1349.1622, 998.43335)
+rotation = 4.712389
+scale = Vector2(0.19523443, 0.20008957)
+texture = ExtResource("3_wv0md")

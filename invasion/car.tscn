@@ -2,16 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://dv24maobp7xri" path="res://map/bil deco.png" id="1_7822p"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
-size = Vector2(81, 130)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3o71"]
+size = Vector2(75, 106)
 
-[node name="Area2D" type="Area2D" unique_id=2014961891]
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1981579485]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2126593274]
-position = Vector2(-1.2812425, 0.99999225)
-scale = Vector2(0.10450002, 0.083749995)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1806075439]
+position = Vector2(-1.0000038, 0)
+scale = Vector2(0.090428576, 0.07046875)
 texture = ExtResource("1_7822p")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1415275390]
-position = Vector2(-0.062496185, 0)
-shape = SubResource("RectangleShape2D_7xv1m")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1754040447]
+shape = SubResource("RectangleShape2D_h3o71")
