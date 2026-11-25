@@ -446,6 +446,9 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vloia"]
+radius = 40.496914
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=983882007 groups=["player"]]
 script = ExtResource("1_onrkg")
 bullet_scene = ExtResource("2_i3pqv")
@@ -502,3 +505,10 @@ stream = ExtResource("16_u1c27")
 
 [node name="ModeSound" type="AudioStreamPlayer2D" parent="." unique_id=192684301]
 stream = ExtResource("17_op7ga")
+
+[node name="meeleZone" type="Area2D" parent="." unique_id=507558983]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="meeleZone" unique_id=900350616]
+position = Vector2(2, 3)
+shape = SubResource("CircleShape2D_vloia")
+debug_color = Color(0.9323683, 0.16527984, 0.50883484, 0.41960785)
