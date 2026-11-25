@@ -10,7 +10,7 @@
 [node name="Node" type="Node" unique_id=1893796967]
 
 [node name="NPC3" parent="." unique_id=1095723568 instance=ExtResource("6_wdwhe")]
-position = Vector2(474, 279)
+position = Vector2(759, 44)
 
 [node name="Area2D4" parent="." unique_id=256471275 instance=ExtResource("6_wke4b")]
 position = Vector2(306, 485)
@@ -18,11 +18,8 @@ position = Vector2(306, 485)
 [node name="Area2D3" parent="." unique_id=202227351 instance=ExtResource("5_wdwhe")]
 position = Vector2(114, 121)
 
-[node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("6_cy3bc")]
-position = Vector2(144, 277)
-
 [node name="NPC1" parent="." unique_id=1166869054 instance=ExtResource("6_wdwhe")]
-position = Vector2(553, 351)
+position = Vector2(797, 358)
 
 [node name="Area2D" parent="." unique_id=2072543071 instance=ExtResource("3_eudjw")]
 position = Vector2(397, 49)
@@ -31,7 +28,10 @@ position = Vector2(397, 49)
 position = Vector2(244, 95)
 
 [node name="NPC2" parent="." unique_id=124176626 instance=ExtResource("6_wdwhe")]
-position = Vector2(519, 149)
+position = Vector2(793, 171)
 
 [node name="NPC4" parent="." unique_id=851639204 instance=ExtResource("6_wdwhe")]
-position = Vector2(589, 245)
+position = Vector2(692, 113)
+
+[node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("6_cy3bc")]
+position = Vector2(169, 262)

@@ -447,6 +447,7 @@ animations = [{
 }]
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=983882007 groups=["player"]]
+z_index = 1
 script = ExtResource("1_onrkg")
 bullet_scene = ExtResource("2_i3pqv")
 bazooka_scene = ExtResource("3_pylmc")

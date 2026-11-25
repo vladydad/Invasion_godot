@@ -21,14 +21,12 @@ func _physics_process(delta):
 
 
 func _on_area_entered(area):
-	# зоны обнаружения NPC не должны взрывать ракету
 	if area.name == "DetectionArea" or area.name == "AttackRange":
 		return
 	explode()
 
 
 func _on_body_entered(body):
-	# игрока пропускаем (у него есть переменная weapon)
 	if body.get("weapon") != null:
 		return
 	explode()
@@ -55,7 +53,6 @@ func kill_in_radius(center):
 		if node.get("weapon") != null:
 			continue   # это игрок
 		var dist = center.distance_to(node.global_position)
-		print("Взрыв: ", node.name, "  расстояние: ", dist, "  есть die(): ", node.has_method("die"))
 		if dist <= BLAST_RADIUS and node.has_method("die"):
 			node.die()
 

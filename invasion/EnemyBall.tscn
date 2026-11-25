@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c5m72yqd0letd"]
+
+[ext_resource type="Texture2D" uid="uid://xpta7yi1hedq" path="res://enemy projectile.png" id="1_dtj7k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty1if"]
+atlas = ExtResource("1_dtj7k")
+region = Rect2(0, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ouaeb"]
+atlas = ExtResource("1_dtj7k")
+region = Rect2(640, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwvwu"]
+atlas = ExtResource("1_dtj7k")
+region = Rect2(0, 960, 640, 960)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vloia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty1if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ouaeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwvwu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=258651752]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1613571451]
+sprite_frames = SubResource("SpriteFrames_vloia")
+frame_progress = 0.18334253
