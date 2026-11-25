@@ -107,6 +107,12 @@ radius = 40.0
 
 [node name="Enemy" type="CharacterBody2D" unique_id=575336296 groups=["enemy"]]
 script = ExtResource("1_iysgo")
+speed = null
+chase_speed = null
+damage = null
+attack_damage_cooldown = null
+reaction_time = null
+sprite_faces_right = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1540485904]
 position = Vector2(-1, -4)
@@ -116,13 +122,13 @@ animation = &"ATTACK"
 
 [node name="DetectionArea" type="Area2D" parent="." unique_id=2022718478]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1742585156]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1742585156 groups=["enemy"]]
 shape = SubResource("CapsuleShape2D_bdo32")
 debug_color = Color(0.6618551, 0.31843525, 1, 0.41960785)
 
 [node name="AttackRange" type="Area2D" parent="." unique_id=2035160564]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1621444914]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1621444914 groups=["enemy"]]
 shape = SubResource("CircleShape2D_vloia")
 debug_color = Color(0.41880134, 0.59694254, 0.28142568, 0.41960785)
 

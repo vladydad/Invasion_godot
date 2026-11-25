@@ -1,4 +1,3 @@
-extends CharacterBody2D
 
 @export var speed: float = 50.0
 @export var chase_speed: float = 90.0
@@ -105,6 +104,7 @@ func try_attack():
 
 
 func die():
+	print("die() вызвана")
 	if dead:
 		return
 
@@ -134,6 +134,7 @@ func _is_player(body) -> bool:
 
 # --- Kule treffer NPC (din gamle Area2D) ---
 func _on_area_2d_area_entered(area: Area2D) -> void:
+	print("ЗОНА ПОПАДАНИЯ: ", area.name, " группы: ", area.get_groups())
 	if area.is_in_group("bullets"):
 		die()
 
