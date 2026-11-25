@@ -21,7 +21,7 @@
 [ext_resource type="AudioStream" uid="uid://cpwjxk1oh4aay" path="res://audio/797644__cpfcfan10__generic-metallic-click-3.wav" id="17_op7ga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
-size = Vector2(65.750015, 75.49997)
+size = Vector2(61.875008, 75.49997)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tkwlq"]
 atlas = ExtResource("3_n7ghd")
@@ -452,7 +452,7 @@ bullet_scene = ExtResource("2_i3pqv")
 bazooka_scene = ExtResource("3_pylmc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=645129838]
-position = Vector2(2, 4)
+position = Vector2(3.9375038, 4)
 shape = SubResource("RectangleShape2D_7xv1m")
 
 [node name="RPGSound" type="AudioStreamPlayer2D" parent="." unique_id=511886251]
