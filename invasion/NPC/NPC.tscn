@@ -1,24 +1,37 @@
 [gd_scene format=3 uid="uid://dwtms15a568aa"]
 
 [ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="3_eudjw"]
-[ext_resource type="PackedScene" uid="uid://dcpean0t3ppq7" path="res://NPC/SCENE/npc.tscn" id="5_eudjw"]
 [ext_resource type="PackedScene" uid="uid://bx5e6tipyhger" path="res://chuk.tscn" id="5_wdwhe"]
 [ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="6_cy3bc"]
+[ext_resource type="PackedScene" uid="uid://dndv3aehmsx5r" path="res://NPC/enemy.tscn" id="6_wdwhe"]
+[ext_resource type="PackedScene" uid="uid://chmkb763owehx" path="res://bazooka.tscn" id="6_wke4b"]
 [ext_resource type="PackedScene" uid="uid://f37sgwcrfeto" path="res://pistol.tscn" id="8_wke4b"]
 
 [node name="Node" type="Node" unique_id=1893796967]
 
-[node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("6_cy3bc")]
-position = Vector2(297, 276)
+[node name="NPC3" parent="." unique_id=1095723568 instance=ExtResource("6_wdwhe")]
+position = Vector2(474, 279)
 
-[node name="Area2D2" parent="." unique_id=2072543071 instance=ExtResource("3_eudjw")]
-position = Vector2(335, 430)
-
-[node name="Area2D" parent="." unique_id=1734879823 instance=ExtResource("8_wke4b")]
-position = Vector2(313, 122)
+[node name="Area2D4" parent="." unique_id=256471275 instance=ExtResource("6_wke4b")]
+position = Vector2(306, 485)
 
 [node name="Area2D3" parent="." unique_id=202227351 instance=ExtResource("5_wdwhe")]
-position = Vector2(427, 361)
+position = Vector2(114, 121)
 
-[node name="Enemy" parent="." unique_id=575336296 instance=ExtResource("5_eudjw")]
-position = Vector2(508, 241)
+[node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("6_cy3bc")]
+position = Vector2(144, 277)
+
+[node name="NPC1" parent="." unique_id=1166869054 instance=ExtResource("6_wdwhe")]
+position = Vector2(553, 351)
+
+[node name="Area2D" parent="." unique_id=2072543071 instance=ExtResource("3_eudjw")]
+position = Vector2(397, 49)
+
+[node name="Area2D2" parent="." unique_id=1734879823 instance=ExtResource("8_wke4b")]
+position = Vector2(244, 95)
+
+[node name="NPC2" parent="." unique_id=124176626 instance=ExtResource("6_wdwhe")]
+position = Vector2(519, 149)
+
+[node name="NPC4" parent="." unique_id=851639204 instance=ExtResource("6_wdwhe")]
+position = Vector2(589, 245)

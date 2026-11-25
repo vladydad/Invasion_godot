@@ -131,3 +131,14 @@ func _on_attack_range_body_entered(body):
 func _on_attack_range_body_exited(body):
 	if body.is_in_group("player"):
 		player_in_range = false
+const KNIFE_RANGE = 60.0
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		knife_hit()
+
+func knife_hit():
+	for node in get_tree().get_nodes_in_group("npcs"):
+		if node is Node2D and global_position.distance_to(node.global_position) <= KNIFE_RANGE:
+			if node.has_method("die"):
+				node.die()

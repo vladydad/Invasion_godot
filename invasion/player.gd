@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+const KNIFE_RANGE = 60.0
 var weapon = "arms"
 var speed = 280 
 var health = 100
@@ -239,3 +240,18 @@ func take_damage(amount):
 
 	if health <= 0:
 		print("PLAYER DEAD")
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		knife_hit()
+
+
+func knife_hit():
+	for node in get_tree().get_nodes_in_group("npcs"):
+		if node is Node2D and global_position.distance_to(node.global_position) <= KNIFE_RANGE:
+			if node.has_method("die"):
+				node.die()
+	for node in get_tree().get_nodes_in_group("npcs"):
+		if node is Node2D and global_position.distance_to(node.global_position) <= KNIFE_RANGE:
+			if node.has_method("die"):
+				node.die()

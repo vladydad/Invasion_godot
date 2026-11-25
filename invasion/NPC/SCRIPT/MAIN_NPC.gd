@@ -97,12 +97,14 @@ func _physics_process(delta):
 
 
 func die():
-	if dead:
-		return
+	$AnimatedSprite2D.play("DEAD")
+	set_physics_process(false)
+	#if dead:
+		#return
 
-	dead = true
-	velocity = Vector2.ZERO
-	anim.play("DEAD")
+	#dead = true
+	#velocity = Vector2.ZERO
+	#anim.play("DEAD")
 
 
 func _on_animation_finished():

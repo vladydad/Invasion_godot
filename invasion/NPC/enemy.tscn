@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dndv3aehmsx5r"]
 
-[ext_resource type="Script" uid="uid://crw5thdd2brw3" path="res://NPC/MAIN_NPC.gd" id="1_iq6qo"]
+[ext_resource type="Script" uid="uid://crw5thdd2brw3" path="res://NPC/SCRIPT/MAIN_NPC.gd" id="1_iq6qo"]
 [ext_resource type="Texture2D" uid="uid://b0ijt8bqocgco" path="res://basic Alien attack (1).png" id="2_7cugn"]
 [ext_resource type="Texture2D" uid="uid://c4kfi5igiq0wp" path="res://Basic alien death.png" id="2_s35jj"]
 [ext_resource type="Texture2D" uid="uid://es731ct6y7v1" path="res://NPC/basic Alien spritesheet.png" id="3_7cugn"]
-[ext_resource type="Script" uid="uid://j17huar228sn" path="res://NPC/area_npc.gd" id="4_x516l"]
+[ext_resource type="Script" uid="uid://j17huar228sn" path="res://NPC/SCRIPT/area_npc.gd" id="4_x516l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x516l"]
 atlas = ExtResource("2_7cugn")
