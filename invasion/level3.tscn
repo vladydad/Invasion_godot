@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ckx8cgkb1nfu6" path="res://map/tilesheet 1 (1).png" id="2_qrujo"]
 [ext_resource type="Texture2D" uid="uid://c1yjefjefgnpu" path="res://map/tak.png" id="3_5lcx6"]
 [ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="3_qrujo"]
+[ext_resource type="PackedScene" uid="uid://djmahlup64ud1" path="res://tank.tscn" id="5_an40m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5lcx6"]
 texture = ExtResource("1_o2ccw")
@@ -88,4 +89,7 @@ tile_map_data = PackedByteArray("AAAWABAAAgAAAAAAAAAWAA8AAgAAAAAAAAAWAA4AAgAAAAA
 tile_set = SubResource("TileSet_7xv1m")
 
 [node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("3_qrujo")]
-position = Vector2(455, 431)
+position = Vector2(730, 1016)
+
+[node name="Area2D" parent="." unique_id=656003086 instance=ExtResource("5_an40m")]
+position = Vector2(739, 706)
