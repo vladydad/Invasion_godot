@@ -10,66 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://c1yjefjefgnpu" path="res://map/tak.png" id="4_r6vdu"]
 [ext_resource type="Texture2D" uid="uid://cgpyoxff3yo10" path="res://map/trash.png" id="5_21xmu"]
 [ext_resource type="Texture2D" uid="uid://cdgexn1vldece" path="res://blood overlay.png" id="5_s8oj7"]
+[ext_resource type="Texture2D" uid="uid://dgmefux3cfm3o" path="res://icons/New Piskel (42).png" id="9_mw4xc"]
 [ext_resource type="PackedScene" uid="uid://f37sgwcrfeto" path="res://pistol.tscn" id="11_3opl0"]
 [ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="12_dc5vx"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5j5gb"]
-atlas = ExtResource("4_dc5vx")
-region = Rect2(0, 0, 40, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mx85b"]
-atlas = ExtResource("4_dc5vx")
-region = Rect2(0, 30, 40, 30)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mw4xc"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5j5gb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_mx85b")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 15.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hx44q"]
-atlas = ExtResource("5_s8oj7")
-region = Rect2(0, 0, 40, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n8vhr"]
-atlas = ExtResource("5_s8oj7")
-region = Rect2(40, 0, 40, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eqrsh"]
-atlas = ExtResource("5_s8oj7")
-region = Rect2(0, 30, 40, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3l65w"]
-atlas = ExtResource("5_s8oj7")
-region = Rect2(40, 30, 40, 30)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_r8rrl"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hx44q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n8vhr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eqrsh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3l65w")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 10.0
-}]
+[ext_resource type="Texture2D" uid="uid://6oslvcjutjv6" path="res://icons/bullet.png" id="14_r8rrl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tcn8"]
 texture = ExtResource("1_r40rm")
@@ -209,46 +153,66 @@ texture_region_size = Vector2i(19, 19)
 [sub_resource type="TileSet" id="TileSet_7xv1m"]
 sources/0 = SubResource("TileSetAtlasSource_rmy57")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j5gb"]
+atlas = ExtResource("4_dc5vx")
+region = Rect2(0, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx85b"]
+atlas = ExtResource("4_dc5vx")
+region = Rect2(0, 30, 40, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lwvnx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j5gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx85b")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx44q"]
+atlas = ExtResource("5_s8oj7")
+region = Rect2(0, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8vhr"]
+atlas = ExtResource("5_s8oj7")
+region = Rect2(40, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqrsh"]
+atlas = ExtResource("5_s8oj7")
+region = Rect2(0, 30, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l65w"]
+atlas = ExtResource("5_s8oj7")
+region = Rect2(40, 30, 40, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ou0f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx44q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8vhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqrsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l65w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Node2D" type="Node2D" unique_id=1200433817]
 script = ExtResource("1_8tcn8")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=565287987]
-
-[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=195462825]
-offset_left = 68.0
-offset_top = 970.0
-offset_right = 417.0
-offset_bottom = 1048.0
-nine_patch_stretch = true
-texture_under = ExtResource("2_jifot")
-texture_progress = ExtResource("3_3opl0")
-
-[node name="Tips1" type="Label" parent="CanvasLayer" unique_id=1730191366]
-visible = false
-offset_left = 72.0
-offset_top = 36.0
-offset_right = 542.0
-offset_bottom = 93.0
-theme_override_font_sizes/font_size = 50
-text = "Trykk på R for å reloade"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1980640852]
-visible = false
-position = Vector2(733.5, 541)
-scale = Vector2(36.675, 36.066666)
-sprite_frames = SubResource("SpriteFrames_mw4xc")
-
-[node name="BloodOverlay" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=622409378]
-visible = false
-position = Vector2(735, 545)
-scale = Vector2(36.75, 36.333332)
-sprite_frames = SubResource("SpriteFrames_r8rrl")
-
-[node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=1425910851]
-offset_left = 1356.0
-offset_top = 1016.0
-offset_right = 1442.0
-offset_bottom = 1076.0
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=220356519]
 scale = Vector2(4, 4)
@@ -282,3 +246,51 @@ position = Vector2(1063, 876)
 
 [node name="Area2D2" parent="." unique_id=2072543071 instance=ExtResource("12_dc5vx")]
 position = Vector2(1220, 240)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1674742475]
+
+[node name="NewPiskel(42)" type="Sprite2D" parent="CanvasLayer" unique_id=1267707598]
+position = Vector2(78.5, 1006.5)
+scale = Vector2(4.09375, 4.03125)
+texture = ExtResource("9_mw4xc")
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1152722188]
+offset_left = 116.5
+offset_top = 971.5
+offset_right = 465.5
+offset_bottom = 1049.5
+nine_patch_stretch = true
+texture_under = ExtResource("2_jifot")
+texture_progress = ExtResource("3_3opl0")
+
+[node name="Tips1" type="Label" parent="CanvasLayer" unique_id=1567578331]
+visible = false
+offset_left = 72.0
+offset_top = 36.0
+offset_right = 542.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 50
+text = "Trykk på R for å reloade"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=876611150]
+visible = false
+position = Vector2(733.5, 541)
+scale = Vector2(36.675, 36.066666)
+sprite_frames = SubResource("SpriteFrames_lwvnx")
+
+[node name="BloodOverlay" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=964780610]
+visible = false
+position = Vector2(735, 545)
+scale = Vector2(36.75, 36.333332)
+sprite_frames = SubResource("SpriteFrames_4ou0f")
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=880614020]
+offset_left = 1346.0
+offset_top = 1010.0
+offset_right = 1442.0
+offset_bottom = 1076.0
+
+[node name="Bullet" type="Sprite2D" parent="CanvasLayer" unique_id=1129252343]
+position = Vector2(1311, 1046)
+scale = Vector2(3.3125002, 3.03125)
+texture = ExtResource("14_r8rrl")

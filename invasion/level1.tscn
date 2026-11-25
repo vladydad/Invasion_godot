@@ -7,11 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://djmahlup64ud1" path="res://tank.tscn" id="4_v38iq"]
 [ext_resource type="PackedScene" uid="uid://dayhhajkgetlg" path="res://car.tscn" id="5_5j5gb"]
 [ext_resource type="Texture2D" uid="uid://cje1mhe5b65s5" path="res://icons/healthbarlong.png" id="6_i2041"]
+[ext_resource type="Texture2D" uid="uid://dgmefux3cfm3o" path="res://icons/New Piskel (42).png" id="7_3l65w"]
 [ext_resource type="Texture2D" uid="uid://cc6i4snu8kjoq" path="res://icons/adrenlalin overlay.png" id="7_usj0q"]
 [ext_resource type="Texture2D" uid="uid://p3e1sqrprqed" path="res://icons/healthbarredlong.png" id="7_xy4tn"]
 [ext_resource type="Texture2D" uid="uid://cdgexn1vldece" path="res://blood overlay.png" id="8_usj0q"]
 [ext_resource type="PackedScene" uid="uid://bx5e6tipyhger" path="res://chuk.tscn" id="9_usj0q"]
 [ext_resource type="Texture2D" uid="uid://cgpyoxff3yo10" path="res://map/trash.png" id="10_mx85b"]
+[ext_resource type="Texture2D" uid="uid://6oslvcjutjv6" path="res://icons/bullet.png" id="12_rjtee"]
 [ext_resource type="AudioStream" uid="uid://p4famlmnhviy" path="res://audio/doom game type soundtrack - 01 Start(2).mp3" id="13_n8vhr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dopym"]
@@ -167,11 +169,16 @@ position = Vector2(316, 493)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1269337800]
 
+[node name="NewPiskel(42)" type="Sprite2D" parent="CanvasLayer" unique_id=144653337]
+position = Vector2(78.5, 1006.5)
+scale = Vector2(4.09375, 4.03125)
+texture = ExtResource("7_3l65w")
+
 [node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=909707616]
-offset_left = 68.0
-offset_top = 970.0
-offset_right = 417.0
-offset_bottom = 1048.0
+offset_left = 116.5
+offset_top = 971.5
+offset_right = 465.5
+offset_bottom = 1049.5
 nine_patch_stretch = true
 texture_under = ExtResource("6_i2041")
 texture_progress = ExtResource("7_xy4tn")
@@ -198,10 +205,15 @@ scale = Vector2(36.75, 36.333332)
 sprite_frames = SubResource("SpriteFrames_h3o71")
 
 [node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=2055465420]
-offset_left = 1356.0
-offset_top = 1016.0
+offset_left = 1346.0
+offset_top = 1010.0
 offset_right = 1442.0
 offset_bottom = 1076.0
+
+[node name="Bullet" type="Sprite2D" parent="CanvasLayer" unique_id=1314083475]
+position = Vector2(1311, 1046)
+scale = Vector2(3.3125002, 3.03125)
+texture = ExtResource("12_rjtee")
 
 [node name="Area2D2" parent="." unique_id=202227351 instance=ExtResource("9_usj0q")]
 position = Vector2(953, 735)
