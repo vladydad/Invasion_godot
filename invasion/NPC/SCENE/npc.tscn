@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://dcpean0t3ppq7"]
+
+[ext_resource type="Script" uid="uid://bop1m5yiaj5xg" path="res://SCRIPT/npc.gd" id="1_p75sm"]
+[ext_resource type="Texture2D" uid="uid://damtse4jvoese" path="res://SPRITE/basic Alien attack.png" id="2_2fmq5"]
+[ext_resource type="Texture2D" uid="uid://beeetnrvpc7al" path="res://SPRITE/basic Alien spritesheet.png" id="2_p75sm"]
+[ext_resource type="Texture2D" uid="uid://bqkqypxviitai" path="res://SPRITE/Basic alien death.png" id="3_bdo32"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eltpv"]
+atlas = ExtResource("2_2fmq5")
+region = Rect2(0, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y16j3"]
+atlas = ExtResource("2_2fmq5")
+region = Rect2(640, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apkjp"]
+atlas = ExtResource("2_2fmq5")
+region = Rect2(0, 960, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7au42"]
+atlas = ExtResource("2_2fmq5")
+region = Rect2(640, 960, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yle5y"]
+atlas = ExtResource("3_bdo32")
+region = Rect2(0, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gaj3"]
+atlas = ExtResource("2_p75sm")
+region = Rect2(0, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fmq5"]
+atlas = ExtResource("2_p75sm")
+region = Rect2(640, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqpf7"]
+atlas = ExtResource("2_p75sm")
+region = Rect2(0, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ltu3"]
+atlas = ExtResource("2_p75sm")
+region = Rect2(640, 0, 640, 960)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ceuy"]
+atlas = ExtResource("2_p75sm")
+region = Rect2(0, 960, 640, 960)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vloia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eltpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y16j3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apkjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7au42")
+}],
+"loop": 1,
+"name": &"ATTACK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yle5y")
+}],
+"loop": 1,
+"name": &"DEAD",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gaj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fmq5")
+}],
+"loop": 1,
+"name": &"IDLE",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqpf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ltu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ceuy")
+}],
+"loop": 1,
+"name": &"WALK",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdo32"]
+radius = 107.0
+height = 214.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vloia"]
+radius = 40.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=575336296 groups=["enemy"]]
+script = ExtResource("1_p75sm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1540485904]
+scale = Vector2(0.059375048, 0.041927055)
+sprite_frames = SubResource("SpriteFrames_vloia")
+animation = &"ATTACK"
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=2022718478]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1742585156]
+shape = SubResource("CapsuleShape2D_bdo32")
+debug_color = Color(0.6618551, 0.31843525, 1, 0.41960785)
+
+[node name="AttackRange" type="Area2D" parent="." unique_id=2035160564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange" unique_id=1621444914]
+shape = SubResource("CircleShape2D_vloia")
+debug_color = Color(0.41880134, 0.59694254, 0.28142568, 0.41960785)
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="body_exited" from="AttackRange" to="." method="_on_attack_range_body_exited"]
