@@ -3,13 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://dv24maobp7xri" path="res://map/bil deco.png" id="1_7822p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3o71"]
-size = Vector2(75, 106)
+size = Vector2(99.5, 141.5)
 
 [node name="StaticBody2D" type="StaticBody2D" unique_id=1981579485]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1806075439]
-position = Vector2(-1.0000038, 0)
-scale = Vector2(0.090428576, 0.07046875)
+position = Vector2(0.9999962, 0.50000095)
+scale = Vector2(0.114285715, 0.088125005)
 texture = ExtResource("1_7822p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1754040447]

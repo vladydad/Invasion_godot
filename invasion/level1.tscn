@@ -209,6 +209,7 @@ offset_left = 1346.0
 offset_top = 1010.0
 offset_right = 1442.0
 offset_bottom = 1076.0
+theme_override_font_sizes/font_size = 50
 
 [node name="Bullet" type="Sprite2D" parent="CanvasLayer" unique_id=1314083475]
 position = Vector2(1311, 1046)
