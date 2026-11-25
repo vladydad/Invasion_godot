@@ -19,7 +19,6 @@ var can_attack = true
 var reacting = false
 var attacking = false
 
-
 func _ready():
 	anim.animation_finished.connect(_on_animation_finished)
 	random_walk()
@@ -120,6 +119,10 @@ func try_attack():
 func die():
 	if dead:
 		return
+
+	dead = true
+	velocity = Vector2.ZERO
+	anim.play("DEAD")
 
 	dead = true
 	velocity = Vector2.ZERO
