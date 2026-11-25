@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://f37sgwcrfeto" path="res://pistol.tscn" id="11_3opl0"]
 [ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="12_dc5vx"]
 [ext_resource type="Texture2D" uid="uid://6oslvcjutjv6" path="res://icons/bullet.png" id="14_r8rrl"]
+[ext_resource type="AudioStream" uid="uid://p4famlmnhviy" path="res://audio/doom game type soundtrack - 01 Start(2).mp3" id="15_r8rrl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tcn8"]
 texture = ExtResource("1_r40rm")
@@ -294,3 +295,6 @@ offset_bottom = 1076.0
 position = Vector2(1311, 1046)
 scale = Vector2(3.3125002, 3.03125)
 texture = ExtResource("14_r8rrl")
+
+[node name="MusicBG" type="AudioStreamPlayer2D" parent="." unique_id=65802471]
+stream = ExtResource("15_r8rrl")

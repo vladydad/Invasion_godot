@@ -6,4 +6,4 @@ func _ready() -> void:
 	$AnimatedSprite2D.play()
 	$AnimatedSprite2D2.play()
 	$AnimatedSprite2D3.play()
-	
+	$MusicBG.play()

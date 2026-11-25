@@ -5,3 +5,4 @@ extends Node2D
 func _ready() -> void:
 	$AnimatedSprite2D.play() 
 	$AnimatedSprite2D2.play()
+	$MusicBG.play()
