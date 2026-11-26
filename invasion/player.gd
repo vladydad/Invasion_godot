@@ -167,6 +167,8 @@ func shootPistol():
 
 
 func shootm4():
+	if reloading:
+		return
 	if ammo > 0:
 		var bullet = bullet_scene.instantiate()
 

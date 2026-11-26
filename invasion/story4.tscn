@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dbrjaeo0avp4b"]
+
+[ext_resource type="Texture2D" uid="uid://ckrqkeq1n5d0c" path="res://story/New Piskel (71).png" id="2_7qbx2"]
+
+[node name="Node2D" type="Node2D" unique_id=1218268370]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1091827981]
+offset_left = -38.0
+offset_top = -6.0
+offset_right = 1472.0
+offset_bottom = 1107.0
+color = Color(0, 0, 0, 1)
+
+[node name="NewPiskel(67)(1)" type="Sprite2D" parent="." unique_id=1020052530]
+position = Vector2(710, 390.5)
+scale = Vector2(1.4954956, 1.4346846)
+texture = ExtResource("2_7qbx2")
+
+[node name="Label" type="Label" parent="." unique_id=1561641307]
+offset_left = 64.0
+offset_top = 705.0
+offset_right = 1390.0
+offset_bottom = 1062.0
+theme_override_font_sizes/font_size = 50
+text = "Aliens er beseiret, og områdene er endelig trygge igjen.
+ Friheten er sikret, demokratiet er reddet, og 
+menneskeheten kan se frem 
+mot en fredelig fremtid. Oppdrag fullført.."
+horizontal_alignment = 1
+vertical_alignment = 1
