@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://badi3vplflwr4"]
+
+[ext_resource type="Script" uid="uid://5epfbejfl887" path="res://credits.gd" id="1_6vsdt"]
+[ext_resource type="Texture2D" uid="uid://rloatyhcfuos" path="res://settngs.png" id="1_pcaas"]
+
+[node name="CREDIT" type="Control" unique_id=696190185]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6vsdt")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=2029017766]
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 1080.0
+texture = ExtResource("1_pcaas")
+
+[node name="Label" type="Label" parent="." unique_id=1967496756]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 87.0
+offset_right = 1047.0
+offset_bottom = 304.0
+theme_override_font_sizes/font_size = 159
+text = "CREDITS"
+
+[node name="Label2" type="Label" parent="." unique_id=668064721]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 301.0
+offset_right = 1286.0
+offset_bottom = 855.0
+theme_override_font_sizes/font_size = 53
+text = "Vladyslav Kuzmenko - Utvikling
+Andrija Smiljkovic - Utvikling
+Mohammed Subhan- Utvikling
+Alfred Slagsvold - Design
+Mourad Dawood - Karakterdesign
+Denis Martinsen - Musikk"
+
+[node name="Button" type="Button" parent="." unique_id=1957592083]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 840.0
+offset_right = 856.0
+offset_bottom = 978.0
+theme_override_font_sizes/font_size = 52
+text = "TILBAKE
+"

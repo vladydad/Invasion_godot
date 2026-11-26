@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://brig35gps02i3"]
+
+[ext_resource type="Script" uid="uid://cs6bra8n4ho43" path="res://settings.gd" id="1_nkug2"]
+[ext_resource type="Texture2D" uid="uid://rloatyhcfuos" path="res://settngs.png" id="2_3ykye"]
+
+[node name="Node2D" type="Control" unique_id=1102502240]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nkug2")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1304044203]
+layout_mode = 0
+offset_right = 1440.0
+offset_bottom = 1080.0
+texture = ExtResource("2_3ykye")
+
+[node name="Label" type="Label" parent="." unique_id=1040597930]
+layout_mode = 0
+offset_left = 393.0
+offset_top = 83.0
+offset_right = 1125.0
+offset_bottom = 300.0
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 159
+text = "SETTINGS"
+
+[node name="CheckButton" type="CheckButton" parent="." unique_id=2044842794]
+layout_mode = 0
+offset_left = 532.0
+offset_top = 477.0
+offset_right = 629.0
+offset_bottom = 521.0
+scale = Vector2(4, 4)
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 26
+text = "LYD"
+
+[node name="Button" type="Button" parent="." unique_id=1360864486]
+layout_mode = 0
+offset_left = 500.00006
+offset_top = 793.0
+offset_right = 697.00006
+offset_bottom = 868.0
+scale = Vector2(2.15, 2.15)
+theme_override_font_sizes/font_size = 48
+text = "TILBAKE"
