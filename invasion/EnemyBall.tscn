@@ -39,8 +39,8 @@ radius = 35.6
 script = ExtResource("1_ty1if")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1613571451]
-position = Vector2(7.9999847, -2.000061)
-scale = Vector2(0.4, 0.275)
+position = Vector2(6.999998, -5.000004)
+scale = Vector2(0.17656252, 0.1260417)
 sprite_frames = SubResource("SpriteFrames_vloia")
 frame_progress = 0.18334253
 

@@ -122,8 +122,8 @@ radius = 21.84033
 script = ExtResource("1_mvvu1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=644469455]
-position = Vector2(2.0000038, -2)
-scale = Vector2(0.07961473, 0.04660012)
+position = Vector2(2.0000005, -1.0000002)
+scale = Vector2(0.09918236, 0.07538339)
 sprite_frames = SubResource("SpriteFrames_vloia")
 animation = &"WALK"
 

@@ -37,7 +37,6 @@ func hit_player(target):
 	if hit:
 		return
 	hit = true
-	print("Шарик попал в игрока")
 	if target.has_method("die"):
 		target.die()
 	elif target.has_method("take_damage"):

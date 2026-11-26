@@ -21,7 +21,6 @@ func _physics_process(delta):
 		if node.get("is_dead") == true:
 			continue   # уже мёртв, пуля пролетает дальше
 		if node.has_method("die") and global_position.distance_to(node.global_position) <= HIT_RADIUS:
-			print("Пуля убила: ", node.name)
 			node.die()
 			queue_free()
 			return

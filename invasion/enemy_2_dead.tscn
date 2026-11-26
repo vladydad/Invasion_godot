@@ -23,8 +23,8 @@ radius = 34.43835
 [node name="enemy_2dead" type="CharacterBody2D" unique_id=253193453]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1130017703]
-position = Vector2(9.536743e-07, -2.000001)
-scale = Vector2(1.75, 1.3541666)
+position = Vector2(-1.000001, -2.0000014)
+scale = Vector2(2.3125, 1.6354167)
 sprite_frames = SubResource("SpriteFrames_vloia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810192452]
