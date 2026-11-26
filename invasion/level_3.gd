@@ -2,6 +2,8 @@ extends Node2D
 
 @export var npc_scene: PackedScene
 
+@export var shoot_npc: PackedScene
+
 var npc1
 var npc2
 var npc3
