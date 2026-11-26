@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://dbrjaeo0avp4b"]
 
+[ext_resource type="Script" uid="uid://c5ublxv5hug0u" path="res://story_4.gd" id="1_7qbx2"]
 [ext_resource type="Texture2D" uid="uid://ckrqkeq1n5d0c" path="res://story/New Piskel (71).png" id="2_7qbx2"]
+[ext_resource type="AudioStream" uid="uid://w0a8up30xooc" path="res://audio/843046__silverillusionist__victory-fanfare-8-bit-thunder-4.wav" id="2_riwbl"]
 
 [node name="Node2D" type="Node2D" unique_id=1218268370]
+script = ExtResource("1_7qbx2")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1091827981]
 offset_left = -38.0
@@ -28,3 +31,6 @@ menneskeheten kan se frem
 mot en fredelig fremtid. Oppdrag fullført.."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1996426475]
+stream = ExtResource("2_riwbl")
