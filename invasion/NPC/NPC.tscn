@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://cdgexn1vldece" path="res://blood overlay.png" id="11_gq5ia"]
 [ext_resource type="Texture2D" uid="uid://6oslvcjutjv6" path="res://icons/bullet.png" id="12_n228h"]
 [ext_resource type="PackedScene" uid="uid://dndv3aehmsx5r" path="res://NPC/enemy.tscn" id="13_joafi"]
-[ext_resource type="PackedScene" uid="uid://b5us6ysl6qk3v" path="res://enemy_2.tscn" id="13_qkjqd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5j5gb"]
 atlas = ExtResource("10_6gnap")
@@ -74,11 +73,8 @@ animations = [{
 
 [node name="Node" type="Node" unique_id=1893796967]
 
-[node name="enemy2" parent="." unique_id=1029917588 instance=ExtResource("13_qkjqd")]
-position = Vector2(572, 329)
-
 [node name="NPC1" parent="." unique_id=1095723568 instance=ExtResource("13_joafi")]
-position = Vector2(454, 175)
+position = Vector2(754, 261)
 
 [node name="Area2D4" parent="." unique_id=256471275 instance=ExtResource("6_wke4b")]
 position = Vector2(306, 485)
@@ -155,9 +151,3 @@ theme_override_font_sizes/font_size = 250
 text = "OMRÅDE
 KLART"
 horizontal_alignment = 1
-
-[node name="enemy3" parent="." unique_id=1086051982 instance=ExtResource("13_qkjqd")]
-position = Vector2(599, 405)
-
-[node name="enemy4" parent="." unique_id=234720747 instance=ExtResource("13_qkjqd")]
-position = Vector2(497, 418)

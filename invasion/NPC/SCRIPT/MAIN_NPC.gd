@@ -1,18 +1,20 @@
 extends CharacterBody2D
 
-@export var speed: float = 50.0            
-@export var chase_speed: float = 90.0      
-@export var sight_range: float = 350.0    
-@export var attack_range: float = 40.0     
+@export var speed: float = 50.0
+@export var chase_speed: float = 90.0
+@export var sight_range: float = 350.0     # с какого расстояния видит игрока
+@export var attack_range: float = 40.0
 @export var attack_cooldown: float = 1.0
-@export var reaction_time: float = 0.4     
-@export var sprite_faces_right: bool = true  
+@export var reaction_time: float = 0.4
+@export var sprite_faces_right: bool = true
+@export var patrol_radius: float = 60.0    # как далеко от стартовой точки NPC гуляет сам
 
 @onready var anim = $AnimatedSprite2D
 
 var direction = Vector2.RIGHT
 var stopped = false
 var is_dead = false
+var home_position = Vector2.ZERO
 
 var player = null
 var noticed = false
@@ -24,6 +26,8 @@ var has_last_seen = false
 
 
 func _ready():
+	add_to_group("enemy")
+	home_position = global_position   # запоминаем, где NPC стоял в начале
 	random_walk()
 
 
@@ -66,7 +70,12 @@ func _physics_process(_delta):
 			velocity = (last_seen_pos - global_position).normalized() * chase_speed
 		else:
 			has_last_seen = false
-			if stopped:
+			var to_home = home_position - global_position
+			if to_home.length() > patrol_radius:
+				# ушёл слишком далеко -> возвращается к стартовой точке
+				velocity = to_home.normalized() * speed
+				face(to_home.x)
+			elif stopped:
 				velocity = Vector2.ZERO
 			else:
 				velocity = direction * speed
@@ -147,12 +156,13 @@ func die():
 		return
 	is_dead = true
 	velocity = Vector2.ZERO
+	remove_from_group("enemy")
 	anim.play("DEAD")
 	for shape in find_children("*", "CollisionShape2D", true, false):
 		shape.set_deferred("disabled", true)
 
 
-
+# заглушки, чтобы сигналы из сцены не давали ошибок
 func _on_detection_area_body_entered(_body):
 	pass
 
