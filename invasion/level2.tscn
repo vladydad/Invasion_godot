@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bkjfawpatp8f4" path="res://map/rooftop+litt extra vei pynt.png" id="2_6q4t8"]
 [ext_resource type="Texture2D" uid="uid://cje1mhe5b65s5" path="res://icons/healthbarlong.png" id="2_jifot"]
 [ext_resource type="Texture2D" uid="uid://p3e1sqrprqed" path="res://icons/healthbarredlong.png" id="3_3opl0"]
+[ext_resource type="PackedScene" uid="uid://b5us6ysl6qk3v" path="res://enemy_2.tscn" id="3_4k5bj"]
 [ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="3_6q4t8"]
 [ext_resource type="Texture2D" uid="uid://cc6i4snu8kjoq" path="res://icons/adrenlalin overlay.png" id="4_dc5vx"]
 [ext_resource type="Texture2D" uid="uid://c1yjefjefgnpu" path="res://map/tak.png" id="4_r6vdu"]
@@ -217,6 +218,7 @@ animations = [{
 [node name="Node2D" type="Node2D" unique_id=1200433817]
 script = ExtResource("1_8tcn8")
 npc_scene = ExtResource("2_4ou0f")
+npc_shoot = ExtResource("3_4k5bj")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=220356519]
 scale = Vector2(4, 4)
