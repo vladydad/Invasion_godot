@@ -28,11 +28,11 @@ func _ready() -> void:
 	npc3.global_position = $spawner3.global_position
 	get_tree().current_scene.add_child(npc3)
 	
-	npc4 = npc_scene.instantiate()
+	npc4 = shoot_npc.instantiate()
 	npc4.global_position = $spawner4.global_position
 	get_tree().current_scene.add_child(npc4)
 	
-	npc5 = npc_scene.instantiate()
+	npc5 = shoot_npc.instantiate()
 	npc5.global_position = $spawner5.global_position
 	get_tree().current_scene.add_child(npc5)
 	
