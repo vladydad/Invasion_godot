@@ -215,7 +215,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Node2D" type="Node2D" unique_id=1200433817]
+[node name="Node2D2" type="Node2D" unique_id=1200433817]
 script = ExtResource("1_8tcn8")
 npc_scene = ExtResource("2_4ou0f")
 npc_shoot = ExtResource("3_4k5bj")

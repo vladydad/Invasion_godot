@@ -20,17 +20,25 @@ scale = Vector2(1.4954956, 1.4346846)
 texture = ExtResource("2_7qbx2")
 
 [node name="Label" type="Label" parent="." unique_id=1561641307]
-offset_left = 64.0
-offset_top = 705.0
-offset_right = 1390.0
-offset_bottom = 1062.0
+offset_left = 60.0
+offset_top = 641.0
+offset_right = 1386.0
+offset_bottom = 998.0
 theme_override_font_sizes/font_size = 50
-text = "Aliens er beseiret, og områdene er endelig trygge igjen.
- Friheten er sikret, demokratiet er reddet, og 
-menneskeheten kan se frem 
-mot en fredelig fremtid. Oppdrag fullført.."
+text = "Du har beseiret dem og reddet demokratiet.
+ Vår frihet er sikret."
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1996426475]
 stream = ExtResource("2_riwbl")
+
+[node name="Button" type="Button" parent="." unique_id=443654811]
+offset_left = 609.0
+offset_top = 938.0
+offset_right = 826.0
+offset_bottom = 1015.0
+theme_override_font_sizes/font_size = 50
+text = "RESTART"
+
+[node name="ShootEnemy" type="AudioStreamPlayer2D" parent="." unique_id=1362660335]

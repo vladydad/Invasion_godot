@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://l81h30portbg" path="res://audio/pickup.mp3" id="15_q13i1"]
 [ext_resource type="AudioStream" uid="uid://btj0itv330go5" path="res://audio/816017__qubodup__dry-footsteps-loop.wav" id="16_u1c27"]
 [ext_resource type="AudioStream" uid="uid://cpwjxk1oh4aay" path="res://audio/797644__cpfcfan10__generic-metallic-click-3.wav" id="17_op7ga"]
+[ext_resource type="AudioStream" uid="uid://bhdrtiauxpo33" path="res://audio/804615__qubodup__man-being-hurt.wav" id="20_pbfsw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7xv1m"]
 size = Vector2(61.875008, 75.49997)
@@ -503,3 +504,6 @@ stream = ExtResource("16_u1c27")
 
 [node name="ModeSound" type="AudioStreamPlayer2D" parent="." unique_id=192684301]
 stream = ExtResource("17_op7ga")
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="." unique_id=1412141067]
+stream = ExtResource("20_pbfsw")

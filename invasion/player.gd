@@ -249,6 +249,7 @@ func die():
 	health = 0
 	velocity = Vector2.ZERO
 	canShoot = false
+	$DeathSound.play()
 	$AnimatedSprite2D.stop()
 	modulate = Color(1, 0.3, 0.3)
 	await get_tree().create_timer(1.0).timeout
