@@ -185,7 +185,6 @@ func die():
 		if corpse is CanvasItem:
 			corpse.z_index = z_index
 		play_corpse_anim(corpse)
-		queue_free()
 	else:
 		play_anim("DEAD")
 		for shape in find_children("*", "CollisionShape2D", true, false):
