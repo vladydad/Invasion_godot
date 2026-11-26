@@ -3,14 +3,75 @@
 [ext_resource type="PackedScene" uid="uid://0rt840pxuxhq" path="res://m4a1.tscn" id="3_eudjw"]
 [ext_resource type="PackedScene" uid="uid://bx5e6tipyhger" path="res://chuk.tscn" id="5_wdwhe"]
 [ext_resource type="PackedScene" uid="uid://b6wccn5pqjcst" path="res://player.tscn" id="6_cy3bc"]
-[ext_resource type="PackedScene" uid="uid://dndv3aehmsx5r" path="res://NPC/enemy.tscn" id="6_wdwhe"]
 [ext_resource type="PackedScene" uid="uid://chmkb763owehx" path="res://bazooka.tscn" id="6_wke4b"]
+[ext_resource type="Texture2D" uid="uid://dgmefux3cfm3o" path="res://icons/New Piskel (42).png" id="7_hmk7j"]
+[ext_resource type="Texture2D" uid="uid://cje1mhe5b65s5" path="res://icons/healthbarlong.png" id="8_qkjqd"]
 [ext_resource type="PackedScene" uid="uid://f37sgwcrfeto" path="res://pistol.tscn" id="8_wke4b"]
+[ext_resource type="Texture2D" uid="uid://p3e1sqrprqed" path="res://icons/healthbarredlong.png" id="9_joafi"]
+[ext_resource type="Texture2D" uid="uid://cc6i4snu8kjoq" path="res://icons/adrenlalin overlay.png" id="10_6gnap"]
+[ext_resource type="Texture2D" uid="uid://cdgexn1vldece" path="res://blood overlay.png" id="11_gq5ia"]
+[ext_resource type="Texture2D" uid="uid://6oslvcjutjv6" path="res://icons/bullet.png" id="12_n228h"]
+[ext_resource type="PackedScene" uid="uid://b5us6ysl6qk3v" path="res://enemy_2.tscn" id="13_qkjqd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5j5gb"]
+atlas = ExtResource("10_6gnap")
+region = Rect2(0, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mx85b"]
+atlas = ExtResource("10_6gnap")
+region = Rect2(0, 30, 40, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4ho8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5j5gb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mx85b")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx44q"]
+atlas = ExtResource("11_gq5ia")
+region = Rect2(0, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n8vhr"]
+atlas = ExtResource("11_gq5ia")
+region = Rect2(40, 0, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqrsh"]
+atlas = ExtResource("11_gq5ia")
+region = Rect2(0, 30, 40, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l65w"]
+atlas = ExtResource("11_gq5ia")
+region = Rect2(40, 30, 40, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfnh3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hx44q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n8vhr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqrsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l65w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Node" type="Node" unique_id=1893796967]
-
-[node name="NPC3" parent="." unique_id=1095723568 instance=ExtResource("6_wdwhe")]
-position = Vector2(759, 44)
 
 [node name="Area2D4" parent="." unique_id=256471275 instance=ExtResource("6_wke4b")]
 position = Vector2(306, 485)
@@ -18,20 +79,75 @@ position = Vector2(306, 485)
 [node name="Area2D3" parent="." unique_id=202227351 instance=ExtResource("5_wdwhe")]
 position = Vector2(114, 121)
 
-[node name="NPC1" parent="." unique_id=1166869054 instance=ExtResource("6_wdwhe")]
-position = Vector2(797, 358)
-
 [node name="Area2D" parent="." unique_id=2072543071 instance=ExtResource("3_eudjw")]
 position = Vector2(397, 49)
 
 [node name="Area2D2" parent="." unique_id=1734879823 instance=ExtResource("8_wke4b")]
 position = Vector2(244, 95)
 
-[node name="NPC2" parent="." unique_id=124176626 instance=ExtResource("6_wdwhe")]
-position = Vector2(793, 171)
-
-[node name="NPC4" parent="." unique_id=851639204 instance=ExtResource("6_wdwhe")]
-position = Vector2(692, 113)
-
 [node name="CharacterBody2D" parent="." unique_id=983882007 instance=ExtResource("6_cy3bc")]
 position = Vector2(169, 262)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=176751578]
+
+[node name="NewPiskel(42)" type="Sprite2D" parent="CanvasLayer" unique_id=581770477]
+position = Vector2(78.5, 1006.5)
+scale = Vector2(4.09375, 4.03125)
+texture = ExtResource("7_hmk7j")
+
+[node name="HealthBar" type="TextureProgressBar" parent="CanvasLayer" unique_id=564073897]
+offset_left = 116.5
+offset_top = 971.5
+offset_right = 465.5
+offset_bottom = 1049.5
+nine_patch_stretch = true
+texture_under = ExtResource("8_qkjqd")
+texture_progress = ExtResource("9_joafi")
+
+[node name="Tips1" type="Label" parent="CanvasLayer" unique_id=213816365]
+visible = false
+offset_left = 72.0
+offset_top = 36.0
+offset_right = 542.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 50
+text = "Trykk på R for å reloade"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=2035964041]
+visible = false
+position = Vector2(733.5, 541)
+scale = Vector2(36.675, 36.066666)
+sprite_frames = SubResource("SpriteFrames_p4ho8")
+
+[node name="BloodOverlay" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1474088346]
+visible = false
+position = Vector2(735, 545)
+scale = Vector2(36.75, 36.333332)
+sprite_frames = SubResource("SpriteFrames_vfnh3")
+
+[node name="AmmoLabel" type="Label" parent="CanvasLayer" unique_id=1595655486]
+offset_left = 1343.0
+offset_top = 999.0
+offset_right = 1441.0
+offset_bottom = 1082.0
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="Bullet" type="Sprite2D" parent="CanvasLayer" unique_id=913910247]
+position = Vector2(1311, 1046)
+scale = Vector2(3.3125002, 3.03125)
+texture = ExtResource("12_n228h")
+
+[node name="Countdown" type="Label" parent="CanvasLayer" unique_id=83822966]
+visible = false
+offset_left = -301.0
+offset_top = 180.0
+offset_right = 1849.0
+offset_bottom = 1547.0
+theme_override_font_sizes/font_size = 250
+text = "OMRÅDE
+KLART"
+horizontal_alignment = 1
+
+[node name="enemy2" parent="CanvasLayer" unique_id=1029917588 instance=ExtResource("13_qkjqd")]
+position = Vector2(548, 309)

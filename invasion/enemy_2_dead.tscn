@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cigrf5meyyiuf"]
+
+[ext_resource type="Texture2D" uid="uid://ced1r102rmcb7" path="res://NPC/shooting alien dead.png" id="1_wcrab"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0j4u"]
+atlas = ExtResource("1_wcrab")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vloia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0j4u")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vloia"]
+radius = 34.43835
+
+[node name="enemy_2dead" type="CharacterBody2D" unique_id=253193453]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1130017703]
+position = Vector2(9.536743e-07, -2.000001)
+scale = Vector2(1.75, 1.3541666)
+sprite_frames = SubResource("SpriteFrames_vloia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810192452]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_vloia")

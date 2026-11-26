@@ -1,9 +1,8 @@
 [gd_scene format=3 uid="uid://b5us6ysl6qk3v"]
 
-[ext_resource type="Script" uid="uid://crw5thdd2brw3" path="res://NPC/SCRIPT/MAIN_NPC.gd" id="1_mvvu1"]
+[ext_resource type="Script" uid="uid://ck7vxekpthmx0" path="res://enemy_2.gd" id="1_mvvu1"]
 [ext_resource type="Texture2D" uid="uid://c8rl7fgupocyr" path="res://shooting alien attack (1).png" id="1_vfv5t"]
 [ext_resource type="Texture2D" uid="uid://x2ejg1llk0ab" path="res://shooting alien walk.png" id="2_mvvu1"]
-[ext_resource type="Texture2D" uid="uid://cqsqikxp8sxoh" path="res://NPC/SPRITE/shooting alien walk (1).png" id="3_hv4bk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hv4bk"]
 atlas = ExtResource("1_vfv5t")
@@ -48,10 +47,6 @@ region = Rect2(640, 1920, 640, 960)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4qoeb"]
 atlas = ExtResource("1_vfv5t")
 region = Rect2(1280, 1920, 640, 960)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dk1o8"]
-atlas = ExtResource("3_hv4bk")
-region = Rect2(0, 0, 32, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmtq1"]
 atlas = ExtResource("2_mvvu1")
@@ -107,14 +102,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dk1o8")
-}],
-"loop": 1,
-"name": &"DEAD",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_xmtq1")
 }, {
 "duration": 1.0,
@@ -128,18 +115,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vloia"]
-radius = 36.0
-height = 72.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_vloia"]
+radius = 21.84033
 
 [node name="enemy2" type="CharacterBody2D" unique_id=1029917588]
 script = ExtResource("1_mvvu1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=644469455]
-position = Vector2(0, -1)
-scale = Vector2(0.061767586, 0.051627643)
+position = Vector2(2.0000038, -2)
+scale = Vector2(0.07961473, 0.04660012)
 sprite_frames = SubResource("SpriteFrames_vloia")
-animation = &"ATTACK"
+animation = &"WALK"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298052390]
-shape = SubResource("CapsuleShape2D_vloia")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=860625470]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_vloia")
