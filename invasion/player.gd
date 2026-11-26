@@ -22,15 +22,15 @@ var is_dead = false
 func highspeed():
 	$PickupSound.play()
 	fast = true
-	$"../CanvasLayer2/AnimatedSprite2D".visible = true
-	$"../CanvasLayer2/AnimatedSprite2D".play("default")
+	$"../CanvasLayer/AnimatedSprite2D".visible = true
+	$"../CanvasLayer/AnimatedSprite2D".play("default")
 	speed = 500
 	await get_tree().create_timer(15).timeout
 	speed = 200
 	$AnimatedSprite2D.speed_scale = 2
 	fast = false
-	$"../CanvasLayer2/AnimatedSprite2D".stop()
-	$"../CanvasLayer2/AnimatedSprite2D".visible = false	
+	$"../CanvasLayer/AnimatedSprite2D".stop()
+	$"../CanvasLayer/AnimatedSprite2D".visible = false	
 
 func maxhealth():
 	$PickupSound.play()
@@ -41,6 +41,17 @@ func pickup_weapon(picked):
 	weapon = picked
 	if weapon == "pistol":
 		ammo = 10
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(0.5).timeout
+		$"../CanvasLayer/Tips1".visible = false
+		await get_tree().create_timer(0.5).timeout
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(0.5).timeout
+		$"../CanvasLayer/Tips1".visible = false
+		await get_tree().create_timer(0.5).timeout
+		$"../CanvasLayer/Tips1".visible = true
+		await get_tree().create_timer(3).timeout
+		$"../CanvasLayer/Tips1".visible = false
 	elif weapon == "ar":
 		ammo = 30
 	elif weapon == "bazooka":
@@ -78,6 +89,7 @@ func reload():
 	reloading = true
 	canShoot = false
 	$ReloadSound.play()
+	ammo_label.text = "..."
 	await get_tree().create_timer(2).timeout
 	if weapon == "pistol":
 		ammo = 10
@@ -94,6 +106,9 @@ func _process(delta: float) -> void:
 		return
 
 	look_at(get_global_mouse_position())
+
+	health_bar.value = health
+	ammo_label.text = str(ammo)
 
 	if weapon=="bazooka" and fast==false:
 		speed =180
