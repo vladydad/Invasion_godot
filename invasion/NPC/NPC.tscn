@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cc6i4snu8kjoq" path="res://icons/adrenlalin overlay.png" id="10_6gnap"]
 [ext_resource type="Texture2D" uid="uid://cdgexn1vldece" path="res://blood overlay.png" id="11_gq5ia"]
 [ext_resource type="Texture2D" uid="uid://6oslvcjutjv6" path="res://icons/bullet.png" id="12_n228h"]
+[ext_resource type="PackedScene" uid="uid://dndv3aehmsx5r" path="res://NPC/enemy.tscn" id="13_joafi"]
 [ext_resource type="PackedScene" uid="uid://b5us6ysl6qk3v" path="res://enemy_2.tscn" id="13_qkjqd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5j5gb"]
@@ -151,3 +152,6 @@ horizontal_alignment = 1
 
 [node name="enemy2" parent="CanvasLayer" unique_id=1029917588 instance=ExtResource("13_qkjqd")]
 position = Vector2(548, 309)
+
+[node name="NPC1" parent="." unique_id=1095723568 instance=ExtResource("13_joafi")]
+position = Vector2(455, 211)
