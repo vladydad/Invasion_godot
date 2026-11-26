@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dqqbdr2jre3ii" path="res://level_2.gd" id="1_8tcn8"]
 [ext_resource type="Texture2D" uid="uid://ckx8cgkb1nfu6" path="res://map/tilesheet 1 (1).png" id="1_r40rm"]
+[ext_resource type="PackedScene" uid="uid://dndv3aehmsx5r" path="res://NPC/enemy.tscn" id="2_4ou0f"]
 [ext_resource type="Texture2D" uid="uid://bkjfawpatp8f4" path="res://map/rooftop+litt extra vei pynt.png" id="2_6q4t8"]
 [ext_resource type="Texture2D" uid="uid://cje1mhe5b65s5" path="res://icons/healthbarlong.png" id="2_jifot"]
 [ext_resource type="Texture2D" uid="uid://p3e1sqrprqed" path="res://icons/healthbarredlong.png" id="3_3opl0"]
@@ -215,6 +216,7 @@ animations = [{
 
 [node name="Node2D" type="Node2D" unique_id=1200433817]
 script = ExtResource("1_8tcn8")
+npc_scene = ExtResource("2_4ou0f")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=220356519]
 scale = Vector2(4, 4)
@@ -244,7 +246,7 @@ tile_set = SubResource("TileSet_7xv1m")
 position = Vector2(1147, 850)
 
 [node name="Area2D" parent="." unique_id=1734879823 instance=ExtResource("11_3opl0")]
-position = Vector2(1113, 865)
+position = Vector2(918, 863)
 
 [node name="Area2D2" parent="." unique_id=2072543071 instance=ExtResource("12_dc5vx")]
 position = Vector2(1220, 240)
@@ -298,6 +300,17 @@ position = Vector2(1311, 1046)
 scale = Vector2(3.3125002, 3.03125)
 texture = ExtResource("14_r8rrl")
 
+[node name="Countdown" type="Label" parent="CanvasLayer" unique_id=1255502683]
+visible = false
+offset_left = -301.0
+offset_top = 180.0
+offset_right = 1849.0
+offset_bottom = 1547.0
+theme_override_font_sizes/font_size = 250
+text = "OMRÅDE
+KLART"
+horizontal_alignment = 1
+
 [node name="MusicBG" type="AudioStreamPlayer2D" parent="." unique_id=65802471]
 stream = ExtResource("15_r8rrl")
 
@@ -309,3 +322,12 @@ position = Vector2(1212, 588)
 
 [node name="spawner2" type="Node2D" parent="." unique_id=1803743982]
 position = Vector2(429, 869)
+
+[node name="spawner3" type="Node2D" parent="." unique_id=1849131613]
+position = Vector2(494, 144)
+
+[node name="spawner4" type="Node2D" parent="." unique_id=35062786]
+position = Vector2(426, 467)
+
+[node name="spawner5" type="Node2D" parent="." unique_id=221727459]
+position = Vector2(903, 141)
