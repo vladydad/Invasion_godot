@@ -33,3 +33,9 @@ func _ready() -> void:
 	npc5 = npc_scene.instantiate()
 	npc5.global_position = $spawner5.global_position
 	get_tree().current_scene.add_child(npc5)
+	
+	
+func _process(delta):
+	if npc1.is_dead == true and npc2.is_dead == true and npc3.is_dead == true and npc4.is_dead == true and npc5.is_dead == true:
+		await get_tree().create_timer(1).timeout
+		get_tree().change_scene_to_file("res://story4.tscn")
