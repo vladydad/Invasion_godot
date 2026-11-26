@@ -15,22 +15,22 @@ var is_dead = false
 
 @export var bazooka_scene: PackedScene	
 
-#@onready var health_bar = $"../CanvasLayer/HealthBar"
+@onready var health_bar = $"../CanvasLayer/HealthBar"
 
-#@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
+@onready var ammo_label = $"../CanvasLayer/AmmoLabel"
 
 func highspeed():
 	$PickupSound.play()
 	fast = true
-	#$"../CanvasLayer2/AnimatedSprite2D".visible = true
-	#$"../CanvasLayer2/AnimatedSprite2D".play("default")
+	$"../CanvasLayer2/AnimatedSprite2D".visible = true
+	$"../CanvasLayer2/AnimatedSprite2D".play("default")
 	speed = 500
 	await get_tree().create_timer(15).timeout
 	speed = 200
-	#$AnimatedSprite2D.speed_scale = 2
+	$AnimatedSprite2D.speed_scale = 2
 	fast = false
-	#$"../CanvasLayer2/AnimatedSprite2D".stop()
-	#$"../CanvasLayer2/AnimatedSprite2D".visible = false	
+	$"../CanvasLayer2/AnimatedSprite2D".stop()
+	$"../CanvasLayer2/AnimatedSprite2D".visible = false	
 
 func maxhealth():
 	$PickupSound.play()
