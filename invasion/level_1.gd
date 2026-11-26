@@ -6,7 +6,6 @@ var npc1
 var npc2
 var npc3
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$MusicBG.play()
 	npc1 = npc_scene.instantiate()
