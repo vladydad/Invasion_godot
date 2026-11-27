@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 50.0
 @export var chase_speed: float = 90.0
 @export var attack_damage_cooldown: float = 1.0
-@export var reaction_time: float = 0.4      # hvor lenge NPC-en stopper og ser på spilleren før den løper
-@export var sprite_faces_right: bool = true  # sett til false hvis sprite-bildet ser mot VENSTRE som standard
+@export var reaction_time: float = 0.4      
+@export var sprite_faces_right: bool = true  
 
 @onready var anim = $AnimatedSprite2D
 
@@ -45,7 +45,7 @@ func _physics_process(_delta):
 		face_towards(target.global_position.x - global_position.x)
 
 		if reacting:
-			velocity = Vector2.ZERO          # ser på spilleren
+			velocity = Vector2.ZERO          
 		elif player_in_range:
 			velocity = Vector2.ZERO
 			try_attack()
@@ -62,7 +62,6 @@ func _physics_process(_delta):
 	update_animation()
 
 
-# Snu sprite mot venstre/høyre
 func face_towards(dx: float):
 	if abs(dx) < 1.0:
 		return
@@ -106,7 +105,6 @@ func die():
 	anim.play("DEAD")
 
 
-# DetectionArea -> body_entered
 func _on_detection_area_body_entered(body):
 	if is_dead or not body.is_in_group("player"):
 		return
@@ -116,18 +114,16 @@ func _on_detection_area_body_entered(body):
 		await get_tree().create_timer(reaction_time).timeout
 		reacting = false
 
-# DetectionArea -> body_exited
 func _on_detection_area_body_exited(body):
 	if body == target:
 		target = null
 		reacting = false
 
-# AttackRange -> body_entered
+
 func _on_attack_range_body_entered(body):
 	if body.is_in_group("player"):
 		player_in_range = true
 
-# AttackRange -> body_exited
 func _on_attack_range_body_exited(body):
 	if body.is_in_group("player"):
 		player_in_range = false

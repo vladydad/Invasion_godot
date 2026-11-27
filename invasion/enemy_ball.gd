@@ -1,6 +1,6 @@
 extends Area2D
 
-const HIT_RADIUS = 18.0   # на каком расстоянии от игрока шарик попадает
+const HIT_RADIUS = 18.0   
 
 var speed = 300.0
 var direction = Vector2.RIGHT
@@ -13,7 +13,7 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 	get_tree().create_timer(4.0).timeout.connect(queue_free)
 
-	# ищем игрока (у него есть переменная weapon)
+	
 	for node in get_tree().current_scene.find_children("*", "CharacterBody2D", true, false):
 		if node.get("weapon") != null:
 			player = node
@@ -28,7 +28,7 @@ func _physics_process(delta):
 			hit_player(player)
 
 
-# рисуем красный шарик, картинка не нужна
+
 func _draw():
 	draw_circle(Vector2.ZERO, 6, Color(1, 0.2, 0.2))
 
@@ -48,6 +48,6 @@ func _on_body_entered(body):
 	if body.get("weapon") != null:
 		hit_player(body)
 	elif body.has_method("die"):
-		return   # других NPC шарик пропускает
+		return   
 	else:
-		queue_free()   # стена
+		queue_free()  

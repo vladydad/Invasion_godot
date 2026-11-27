@@ -2,12 +2,12 @@ extends CharacterBody2D
 
 @export var speed: float = 50.0
 @export var chase_speed: float = 90.0
-@export var sight_range: float = 350.0     # с какого расстояния видит игрока
+@export var sight_range: float = 350.0    
 @export var attack_range: float = 40.0
 @export var attack_cooldown: float = 1.0
 @export var reaction_time: float = 0.4
 @export var sprite_faces_right: bool = true
-@export var patrol_radius: float = 60.0    # как далеко от стартовой точки NPC гуляет сам
+@export var patrol_radius: float = 60.0    
 
 @onready var anim = $AnimatedSprite2D
 
@@ -27,7 +27,7 @@ var has_last_seen = false
 
 func _ready():
 	add_to_group("enemy")
-	home_position = global_position   # запоминаем, где NPC стоял в начале
+	home_position = global_position  
 	random_walk()
 
 
@@ -65,14 +65,13 @@ func _physics_process(_delta):
 	else:
 		noticed = false
 		if has_last_seen and global_position.distance_to(last_seen_pos) > 8.0:
-			# потерял игрока -> идёт к месту, где видел его в последний раз
 			face(last_seen_pos.x - global_position.x)
 			velocity = (last_seen_pos - global_position).normalized() * chase_speed
 		else:
 			has_last_seen = false
 			var to_home = home_position - global_position
 			if to_home.length() > patrol_radius:
-				# ушёл слишком далеко -> возвращается к стартовой точке
+				
 				velocity = to_home.normalized() * speed
 				face(to_home.x)
 			elif stopped:
@@ -85,7 +84,7 @@ func _physics_process(_delta):
 	update_animation()
 
 
-# игрок = персонаж, у которого есть переменная weapon
+
 func find_player():
 	for node in get_tree().current_scene.find_children("*", "CharacterBody2D", true, false):
 		if node.get("weapon") != null:
@@ -93,7 +92,7 @@ func find_player():
 	return null
 
 
-# видит ли NPC игрока (близко и нет стены между ними)
+
 func can_see_player() -> bool:
 	if player == null or not is_instance_valid(player):
 		return false
@@ -107,7 +106,7 @@ func can_see_player() -> bool:
 	var result = get_world_2d().direct_space_state.intersect_ray(query)
 	if result.is_empty():
 		return false
-	# попали в игрока (или в другого NPC) -> стены нет
+	
 	return result.collider == player or result.collider.has_method("die")
 
 
@@ -162,7 +161,7 @@ func die():
 		shape.set_deferred("disabled", true)
 
 
-# заглушки, чтобы сигналы из сцены не давали ошибок
+
 func _on_detection_area_body_entered(_body):
 	pass
 

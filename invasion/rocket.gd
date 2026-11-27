@@ -47,11 +47,11 @@ func explode():
 	queue_free()
 
 
-# убиваем всех врагов в радиусе взрыва
+
 func kill_in_radius(center):
 	for node in get_tree().current_scene.find_children("*", "CharacterBody2D", true, false):
 		if node.get("weapon") != null:
-			continue   # это игрок
+			continue   
 		var dist = center.distance_to(node.global_position)
 		if dist <= BLAST_RADIUS and node.has_method("die"):
 			node.die()

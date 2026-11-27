@@ -1,6 +1,6 @@
 extends Area2D
 
-const HIT_RADIUS = 22.0   # на каком расстоянии от врага пуля убивает
+const HIT_RADIUS = 22.0   
 
 var speed = 700
 var direction = Vector2.UP
@@ -14,12 +14,11 @@ func _ready():
 func _physics_process(delta):
 	global_position += direction * speed * delta
 
-	# убиваем любого NPC с функцией die(), который оказался рядом с пулей
 	for node in get_tree().current_scene.find_children("*", "CharacterBody2D", true, false):
 		if node.get("weapon") != null:
-			continue   # это игрок
+			continue   
 		if node.get("is_dead") == true:
-			continue   # уже мёртв, пуля пролетает дальше
+			continue   
 		if node.has_method("die") and global_position.distance_to(node.global_position) <= HIT_RADIUS:
 			node.die()
 			queue_free()
@@ -28,7 +27,7 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.get("weapon") != null:
-		return   # это игрок
+		return   
 	if body.get("is_dead") == true:
 		return
 	if body.has_method("die"):

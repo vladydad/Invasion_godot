@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
-@export var dead_scene: PackedScene        # сюда enemy_2_dead.tscn (если пусто, найдётся сам)
-@export var ball_scene: PackedScene        # сюда EnemyBall.tscn (если пусто, найдётся сам)
+@export var dead_scene: PackedScene        
+@export var ball_scene: PackedScene        
 
-@export var speed: float = 50.0            # скорость патруля
-@export var chase_speed: float = 80.0      # скорость, когда идёт к игроку
-@export var sight_range: float = 500.0     # с какого расстояния видит игрока
-@export var shoot_range: float = 300.0     # с какого расстояния начинает стрелять
-@export var fire_rate: float = 1.2         # пауза между выстрелами (сек)
-@export var ball_speed: float = 300.0      # скорость шарика
-@export var reaction_time: float = 0.5     # пауза, когда заметил игрока
-@export var sprite_faces_right: bool = true  # false, если спрайт смотрит ВЛЕВО
+@export var speed: float = 50.0            
+@export var chase_speed: float = 80.0      
+@export var sight_range: float = 500.0     
+@export var shoot_range: float = 300.0     
+@export var fire_rate: float = 1.2         
+@export var ball_speed: float = 300.0      
+@export var reaction_time: float = 0.5     
+@export var sprite_faces_right: bool = true  
 
 @onready var anim = $AnimatedSprite2D
 
@@ -28,7 +28,7 @@ var has_last_seen = false
 
 
 func _ready():
-	add_to_group("enemy")   # по этой группе пули находят врагов
+	add_to_group("enemy")   
 
 	if ball_scene == null:
 		for path in ["res://EnemyBall.tscn", "res://enemy_ball.tscn", "res://enemyball.tscn"]:
@@ -87,7 +87,7 @@ func _physics_process(_delta):
 	update_animation()
 
 
-# игрок = персонаж, у которого есть переменная weapon
+
 func find_player():
 	for node in get_tree().current_scene.find_children("*", "CharacterBody2D", true, false):
 		if node.get("weapon") != null:
@@ -95,7 +95,7 @@ func find_player():
 	return null
 
 
-# видит ли NPC игрока (близко и нет стены между ними)
+
 func can_see_player() -> bool:
 	if player == null or not is_instance_valid(player):
 		return false
@@ -125,7 +125,7 @@ func face(dx: float):
 	anim.flip_h = ((dx > 0) != sprite_faces_right)
 
 
-# играет анимацию, только если она есть (чтобы не было ошибок)
+
 func play_anim(anim_name: String):
 	if anim.sprite_frames != null and anim.sprite_frames.has_animation(anim_name):
 		anim.play(anim_name)
@@ -170,7 +170,7 @@ func die():
 	velocity = Vector2.ZERO
 	remove_from_group("enemy")
 
-	# если поле Dead Scene пустое, ищем сцену трупа сами
+	
 	if dead_scene == null:
 		for path in ["res://enemy_2_dead.tscn", "res://Enemy_2_dead.tscn", "res://enemy2_dead.tscn"]:
 			if ResourceLoader.exists(path):
@@ -191,7 +191,7 @@ func die():
 			shape.set_deferred("disabled", true)
 
 
-# запускает анимацию на трупе (ищет "dead", иначе берёт первую)
+
 func play_corpse_anim(corpse):
 	for s in corpse.find_children("*", "AnimatedSprite2D", true, false):
 		if s.sprite_frames == null:
@@ -203,11 +203,11 @@ func play_corpse_anim(corpse):
 		for n in names:
 			if str(n).to_lower() == "dead":
 				chosen = n
-		s.flip_h = anim.flip_h   # труп смотрит в ту же сторону, что и NPC
+		s.flip_h = anim.flip_h   
 		s.play(chosen)
 
 
-# заглушки, чтобы сигналы из сцены не давали ошибок
+
 func _on_detection_area_body_entered(_body):
 	pass
 

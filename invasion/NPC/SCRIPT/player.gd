@@ -30,7 +30,7 @@ func die():
 		anim.play("DEAD")
 	else:
 		anim.stop()
-		modulate = Color(1, 0.3, 0.3)  # spilleren har ingen DEAD-animasjon, farg rød
+		modulate = Color(1, 0.3, 0.3)  
 
 
 func _on_melee_zone_body_entered(body):

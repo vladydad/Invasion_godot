@@ -241,7 +241,7 @@ func take_damage(amount):
 		die()
 
 
-# Игрок умирает (NPC вызывает эту функцию при атаке)
+
 func die():
 	if is_dead:
 		return
@@ -258,7 +258,7 @@ func die():
 
 const KNIFE_RANGE = 60.0
 
-# Нож: убивает любого NPC рядом (с функцией die())
+
 func knife_hit():
 	for node in get_tree().current_scene.find_children("*", "CharacterBody2D", true, false):
 		if node == self:
